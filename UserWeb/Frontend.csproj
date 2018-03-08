@@ -1,0 +1,511 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B1B0786A-1F83-487F-AC58-BD9473DF713C}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UserWeb</RootNamespace>
+    <AssemblyName>UserWeb</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort>44393</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+    <UseGlobalApplicationHostFile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <FilesToIncludeForPublish>OnlyFilesToRunTheApp</FilesToIncludeForPublish>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxMin">
+      <HintPath>..\packages\AjaxMin.4.97.4951.28483\lib\net40\AjaxMin.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Balanced, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Balanced.1.2.0.0\lib\net45\Balanced.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Facebook">
+      <HintPath>..\packages\Facebook.6.8.0\lib\net45\Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Geocoding, Version=3.4.0.0, Culture=neutral, PublicKeyToken=7c714700b88674c7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Geocoding.net.3.4.0\lib\net40\Geocoding.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Edm, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Data.Edm.5.2.0\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Data.OData.5.2.0\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Configuration">
+      <HintPath>..\packages\Microsoft.WindowsAzure.ConfigurationManager.1.8.0.0\lib\net35-full\Microsoft.WindowsAzure.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=4.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WindowsAzure.Storage.7.0.0\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="ModernHttpClient, Version=2.4.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\modernhttpclient.2.4.2\lib\Portable-Net45+WinRT45+WP8+WPA81\ModernHttpClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationFramework" />
+    <Reference Include="ServiceStack.Client, Version=4.0.56.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ServiceStack.Client.4.0.56\lib\net40\ServiceStack.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Interfaces, Version=4.0.0.0, Culture=neutral, PublicKeyToken=e06fbc6124f57c43, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ServiceStack.Interfaces.4.0.56\lib\portable-wp80+sl5+net40+win8+wpa81+monotouch+monoandroid+xamarin.ios10\ServiceStack.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text, Version=4.0.56.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ServiceStack.Text.4.0.56\lib\net40\ServiceStack.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="Stripe, Version=4.0.56.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ServiceStack.Stripe.4.0.56\lib\net40\Stripe.dll</HintPath>
+    </Reference>
+    <Reference Include="Stripe.net, Version=6.3.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Stripe.net.6.3.2\lib\net45\Stripe.net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Services.Client" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Spatial, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Spatial.5.7.0\lib\net40\System.Spatial.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Telerik.Web.UI">
+      <HintPath>..\packages\Telerik.Web.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UniversalGym.CustomBalanced, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\UniversalGym.CustomBalanced.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app\components\admin\map\services\mapService.js" />
+    <Content Include="app\components\admin\map\controllers\mapController.js" />
+    <Content Include="app\components\gym\dashboardContract\views\dashboardContractView.html" />
+    <Content Include="app\components\user\redirect\redirect.js" />
+    <Content Include="app\components\user\airbnbRegister\controllers\airbnbRegisterController.js" />
+    <Content Include="app\components\user\airbnbRegister\services\airbnbRegisterService.js" />
+    <Content Include="app\components\user\airbnbRegister\views\airbnbRegisterView.html" />
+    <Content Include="app\components\user\resetPassword\controllers\resetPasswordController.js" />
+    <Content Include="app\components\user\resetPassword\services\resetPasswordService.js" />
+    <Content Include="app\components\user\resetPassword\views\resetPasswordView.html" />
+    <Content Include="app\components\gym\dashboardContact\services\dashboardContactService.js" />
+    <Content Include="app\components\gym\dashboardContract\controllers\dashboardContractController.js" />
+    <Content Include="app\components\gym\dashboardContract\services\dashboardContractService.js" />
+    <Content Include="app\components\gym\contract\controllers\contractController.js" />
+    <Content Include="app\components\gym\contract\services\contractService.js" />
+    <Content Include="app\components\gym\dashboardAccount\Controllers\dashboardAccountController.js" />
+    <Content Include="app\components\gym\dashboardAccount\Services\dashboardAccountService.js" />
+    <Content Include="app\components\gym\dashboardAccount\views\dashboardAccountView.html" />
+    <Content Include="app\components\gym\dashboardContact\controllers\dashboardContactController.js" />
+    <Content Include="app\components\gym\dashboardContact\views\dashboardContactView.html" />
+    <Content Include="app\components\gym\resetPassword\controllers\resetPasswordController.js" />
+    <Content Include="app\components\gym\resetPassword\services\resetPasswordService.js" />
+    <Content Include="app\components\gym\resetPassword\views\resetPasswordView.html" />
+    <Content Include="app\components\main\front\controllers\frontController.js" />
+    <Content Include="app\components\main\front\services\frontService.js" />
+    <Content Include="app\components\main\front\views\frontView.html" />
+    <Content Include="app\user.app.js" />
+    <Content Include="app\components\gym\register\views\contractView.html" />
+    <Content Include="app\components\gym\navBar\controllers\navBarController.js" />
+    <Content Include="app\components\gym\navBar\services\navBarService.js" />
+    <Content Include="app\components\gym\navBar\views\navBarView.html" />
+    <Content Include="app\components\gym\register\controllers\registerController.js" />
+    <Content Include="app\components\gym\register\services\registerService.js" />
+    <Content Include="app\components\gym\forgotPassword\controllers\forgotPasswordController.js" />
+    <Content Include="app\components\gym\forgotPassword\services\forgotPasswordService.js" />
+    <Content Include="app\components\gym\forgotPassword\views\forgotPasswordView.html" />
+    <Content Include="app\main.app.js" />
+    <Content Include="app\admin.app.js" />
+    <Content Include="app\components\gym\dashboardMain\controllers\dashboardMainController.js" />
+    <Content Include="app\components\gym\login\controllers\loginController.js" />
+    <Content Include="app\components\gym\login\services\loginService.js" />
+    <Content Include="app\components\gym\dashboardMain\services\dashboardMainService.js" />
+    <Content Include="app\components\gym\register\views\registerView.html" />
+    <Content Include="assets\aspnet\api.url.aspx" />
+    <Content Include="assets\css\dashboard.css" />
+    <Content Include="assets\fonts\helvetica.svg" />
+    <Content Include="assets\fonts\helveticabold.svg" />
+    <Content Include="assets\libs\entypo\entypo.css" />
+    <Content Include="assets\libs\entypo\fonts\entypo.svg" />
+    <Content Include="assets\libs\font-awesome\css\font-awesome.css" />
+    <Content Include="assets\libs\font-awesome\css\font-awesome.min.css" />
+    <Content Include="assets\libs\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="assets\libs\imageCrop\imageCropperStyle.css" />
+    <Content Include="assets\css\application.css" />
+    <Content Include="assets\css\adminstyle.css" />
+    <Content Include="assets\libs\angular-chart\angular-chart.js" />
+    <Content Include="assets\libs\imageCrop\ng-file-upload.js" />
+    <Content Include="assets\libs\imageCrop\ng-file-upload-shim.js" />
+    <Content Include="assets\libs\imageCrop\ng-img-crop.js" />
+    <Content Include="assets\libs\bootstrap\fonts\bootstrap\glyphicons-halflings-regular.svg" />
+    <Content Include="assets\libs\bootstrap\fonts\font-awesome\fontawesome-webfont.svg" />
+    <Content Include="assets\libs\bootstrap\javascript\assets\application.js" />
+    <Content Include="assets\libs\bootstrap\javascript\bootstrap.min.js" />
+    <Content Include="assets\libs\bootstrap\javascript\vendor\jquery-2.1.0.min.js" />
+    <Content Include="assets\libs\bootstrap\javascript\vendor\modernizr-2.7.1.min.js" />
+    <Content Include="assets\libs\bootstrap.css" />
+    <Content Include="assets\css\custom.css" />
+    <Content Include="assets\css\override.css" />
+    <Content Include="assets\css\style.css" />
+    <Content Include="admin.html" />
+    <Content Include="user.html" />
+    <Content Include="index.html" />
+    <Content Include="gym.html" />
+    <Content Include="app\components\admin\map\views\mapView.html" />
+    <Content Include="app\components\main\privacy\views\privacyView.html" />
+    <Content Include="app\components\gym\dashboardMain\views\dashboardMainView.html" />
+    <Content Include="app\components\gym\editPicture\views\editPictureView.html" />
+    <Content Include="app\components\gym\login\views\loginView.html" />
+    <Content Include="app\components\main\terms\views\termsView.html" />
+    <Content Include="assets\libs\angular-payments.min.js" />
+    <Content Include="app\gym.app.js" />
+    <Content Include="assets\libs\bootstrap\fonts\bootstrap\glyphicons-halflings-regular.eot" />
+    <Content Include="assets\libs\bootstrap\fonts\bootstrap\glyphicons-halflings-regular.ttf" />
+    <Content Include="assets\libs\bootstrap\fonts\bootstrap\glyphicons-halflings-regular.woff" />
+    <Content Include="assets\libs\bootstrap\fonts\font-awesome\fontawesome-webfont.eot" />
+    <Content Include="assets\libs\bootstrap\fonts\font-awesome\fontawesome-webfont.ttf" />
+    <Content Include="assets\libs\bootstrap\fonts\font-awesome\fontawesome-webfont.woff" />
+    <Content Include="assets\libs\bootstrap\fonts\font-awesome\FontAwesome.otf" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\bootstrap.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\mixins\_alerts.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\mixins\_background-variant.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\mixins\_border-radius.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\mixins\_buttons.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\mixins\_center-block.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\mixins\_clearfix.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\mixins\_forms.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\mixins\_gradients.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\mixins\_grid-framework.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\mixins\_grid.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\mixins\_hide-text.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\mixins\_image.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\mixins\_labels.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\mixins\_list-group.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\mixins\_nav-divider.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\mixins\_nav-vertical-align.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\mixins\_opacity.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\mixins\_pagination.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\mixins\_panels.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\mixins\_progress-bar.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\mixins\_reset-filter.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\mixins\_resize.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\mixins\_responsive-visibility.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\mixins\_size.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\mixins\_tab-focus.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\mixins\_table-row.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\mixins\_text-emphasis.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\mixins\_text-overflow.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\mixins\_vendor-prefixes.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\_alerts.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\_badges.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\_breadcrumbs.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\_button-groups.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\_buttons.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\_carousel.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\_close.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\_code.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\_component-animations.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\_dropdowns.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\_forms.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\_glyphicons.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\_grid.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\_input-groups.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\_jumbotron.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\_labels.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\_list-group.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\_media.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\_mixins.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\_modals.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\_navbar.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\_navs.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\_normalize.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\_pager.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\_pagination.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\_panels.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\_popovers.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\_print.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\_progress-bars.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\_responsive-embed.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\_responsive-utilities.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\_scaffolding.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\_tables.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\_theme.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\_thumbnails.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\_tooltip.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\_type.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\_utilities.scss" />
+    <Content Include="assets\libs\bootstrap\scss\bootstrap\_wells.scss" />
+    <Content Include="assets\libs\bootstrap\scss\font-awesome.scss" />
+    <Content Include="assets\libs\bootstrap\scss\font-awesome\_bordered-pulled.scss" />
+    <Content Include="assets\libs\bootstrap\scss\font-awesome\_core.scss" />
+    <Content Include="assets\libs\bootstrap\scss\font-awesome\_fixed-width.scss" />
+    <Content Include="assets\libs\bootstrap\scss\font-awesome\_icons.scss" />
+    <Content Include="assets\libs\bootstrap\scss\font-awesome\_larger.scss" />
+    <Content Include="assets\libs\bootstrap\scss\font-awesome\_list.scss" />
+    <Content Include="assets\libs\bootstrap\scss\font-awesome\_mixins.scss" />
+    <Content Include="assets\libs\bootstrap\scss\font-awesome\_path.scss" />
+    <Content Include="assets\libs\bootstrap\scss\font-awesome\_rotated-flipped.scss" />
+    <Content Include="assets\libs\bootstrap\scss\font-awesome\_spinning.scss" />
+    <Content Include="assets\libs\bootstrap\scss\font-awesome\_stacked.scss" />
+    <Content Include="assets\libs\bootstrap\scss\font-awesome\_variables.scss" />
+    <Content Include="assets\libs\bootstrap\scss\templates-components\_features.scss" />
+    <Content Include="assets\libs\bootstrap\scss\templates-components\_footer.scss" />
+    <Content Include="assets\libs\bootstrap\scss\templates-components\_mixins.scss" />
+    <Content Include="assets\libs\bootstrap\scss\templates-components\_services.scss" />
+    <Content Include="assets\libs\bootstrap\scss\templates-components\_side-nav.scss" />
+    <Content Include="assets\libs\bootstrap\scss\templates-components\_sign-in-up.scss" />
+    <Content Include="assets\libs\bootstrap\scss\templates-components\_subscribe.scss" />
+    <Content Include="assets\libs\bootstrap\scss\templates-components\_variables.scss" />
+    <Content Include="assets\libs\bootstrap\scss\templates\application.scss" />
+    <Content Include="assets\libs\bootstrap\scss\_bootstrap-mincer.scss" />
+    <Content Include="assets\libs\bootstrap\scss\_variables.scss" />
+    <Content Include="assets\libs\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="assets\libs\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="assets\libs\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="assets\libs\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="assets\libs\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="assets\libs\font-awesome\less\animated.less" />
+    <Content Include="assets\libs\font-awesome\less\bordered-pulled.less" />
+    <Content Include="assets\libs\font-awesome\less\core.less" />
+    <Content Include="assets\libs\font-awesome\less\fixed-width.less" />
+    <Content Include="assets\libs\font-awesome\less\font-awesome.less" />
+    <Content Include="assets\libs\font-awesome\less\icons.less" />
+    <Content Include="assets\libs\font-awesome\less\larger.less" />
+    <Content Include="assets\libs\font-awesome\less\list.less" />
+    <Content Include="assets\libs\font-awesome\less\mixins.less" />
+    <Content Include="assets\libs\font-awesome\less\path.less" />
+    <Content Include="assets\libs\font-awesome\less\rotated-flipped.less" />
+    <Content Include="assets\libs\font-awesome\less\screen-reader.less" />
+    <Content Include="assets\libs\font-awesome\less\stacked.less" />
+    <Content Include="assets\libs\font-awesome\less\variables.less" />
+    <Content Include="assets\libs\font-awesome\scss\font-awesome.scss" />
+    <Content Include="assets\libs\font-awesome\scss\_animated.scss" />
+    <Content Include="assets\libs\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="assets\libs\font-awesome\scss\_core.scss" />
+    <Content Include="assets\libs\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="assets\libs\font-awesome\scss\_icons.scss" />
+    <Content Include="assets\libs\font-awesome\scss\_larger.scss" />
+    <Content Include="assets\libs\font-awesome\scss\_list.scss" />
+    <Content Include="assets\libs\font-awesome\scss\_mixins.scss" />
+    <Content Include="assets\libs\font-awesome\scss\_path.scss" />
+    <Content Include="assets\libs\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="assets\libs\font-awesome\scss\_screen-reader.scss" />
+    <Content Include="assets\libs\font-awesome\scss\_stacked.scss" />
+    <Content Include="assets\libs\font-awesome\scss\_variables.scss" />
+    <Content Include="assets\libs\entypo\fonts\entypo.eot" />
+    <Content Include="assets\libs\entypo\fonts\entypo.ttf" />
+    <Content Include="assets\libs\entypo\fonts\entypo.woff" />
+    <Content Include="assets\fonts\comfortaa-bold.ttf" />
+    <Content Include="assets\fonts\comfortaa-bold.woff" />
+    <Content Include="assets\fonts\comfortaa-bold.woff2" />
+    <Content Include="assets\fonts\helvetica.eot" />
+    <Content Include="assets\fonts\helvetica.ttf" />
+    <Content Include="assets\fonts\helvetica.woff" />
+    <Content Include="assets\fonts\helvetica.woff2" />
+    <Content Include="assets\fonts\helveticabold.eot" />
+    <Content Include="assets\fonts\helveticabold.ttf" />
+    <Content Include="assets\fonts\helveticabold.woff" />
+    <None Include="Properties\PublishProfiles\go-stacktive-pedal - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\go-stacktive-pedal.pubxml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\PublishProfiles\go-stacktive-pedal__go-stacktive-pedal-staging.pubxml" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="assets\aspnet\api.url.aspx.cs">
+      <DependentUpon>api.url.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="assets\aspnet\api.url.aspx.designer.cs">
+      <DependentUpon>api.url.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="app\components\gym\contract\views\" />
+    <Folder Include="app\components\gym\editPicture\controllers\" />
+    <Folder Include="app\components\gym\editPicture\services\" />
+    <Folder Include="app\components\main\privacy\controllers\" />
+    <Folder Include="app\components\main\privacy\services\" />
+    <Folder Include="app\components\main\terms\controllers\" />
+    <Folder Include="app\components\main\terms\services\" />
+    <Folder Include="app\shared\" />
+    <Folder Include="assets\html\" />
+    <Folder Include="assets\js\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UniversalGym.Data\UniversalGym.Data.csproj">
+      <Project>{11d83db7-dd7b-42cb-9b6d-9098dc9f6762}</Project>
+      <Name>UniversalGym.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UniversalGym.WebService\UniversalGym.API.csproj">
+      <Project>{0a25b2c3-b370-4bf9-8e9f-d9ab35110210}</Project>
+      <Name>UniversalGym.API</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>60105</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:60106/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

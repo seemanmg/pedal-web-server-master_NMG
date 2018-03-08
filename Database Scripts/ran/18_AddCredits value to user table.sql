@@ -1,0 +1,1 @@
+ALTER TABLE Users ADD Credits int NOT NULL DEFAULT 0;

@@ -1,0 +1,124 @@
+﻿<!doctype html>
+<html lang="en" ng-app="gymApp">
+<head>
+    <link href="/assets/libs/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/css/custom.css" />
+    <link href="assets/libs/imageCrop/imageCropperStyle.css" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.1/toastr.min.css">
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="googlebot" content="index,follow">
+
+    <!-- Title -->
+    <title>Pedal - Gym</title>
+
+    <!-- Core CSS -->
+    <link href="/assets/css/application.css?v=7" rel="stylesheet">
+
+    <!-- Font Awesome CSS -->
+    <link href="/assets/libs/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Entypo CSS -->
+    <link href="/assets/libs/entypo/entypo.css" rel="stylesheet">
+
+    <!-- Favicons -->
+    <link href="http://pictures.pedal.com/frontend/favicon.png" rel="shortcut icon">
+    <link href="http://pictures.pedal.com/frontend/apple-touch-icon-57-precomposed.png" rel="apple-touch-icon">
+    <link href="http://pictures.pedal.com/frontend/apple-touch-icon-72-precomposed.png" rel="apple-touch-icon" sizes="72x72">
+    <link href="http://pictures.pedal.com/frontend/apple-touch-icon-144-precomposed.png" rel="apple-touch-icon" sizes="114x114">
+
+
+    <script src="/assets/libs/bootstrap/javascript/vendor/modernizr-2.7.1.min.js"></script>
+
+</head>
+
+<body>
+
+    <div class="outer-container">
+        <div ng-show="activetab != '/register' && activetab != '/login' && activetab != '/forgotPassword' && activetab != '/resetPassword'" class="side-bar-container" ng-controller="navBarController">
+            <div ng-include="'/app/components/gym/navBar/views/navBarView.html'"></div>
+        </div>
+
+        <div ng-class="{dashboardContent: activetab != '/register' && activetab != '/login' && activetab != '/forgotPassword' && activetab != '/resetPassword'}" class="centered" ng-view></div>
+    </div>
+    
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.16/angular-route.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.1/toastr.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular-cookies.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.min.js"></script>
+    <script src="/assets/libs/angular-chart/angular-chart.js"></script>
+    <script src="/assets/aspnet/api.url.aspx"></script>
+    <script src="https://js.stripe.com/v2/"></script>
+    <script src="assets/libs/imageCrop/ng-file-upload-shim.js"></script>
+    <script src="assets/libs/imageCrop/ng-file-upload.js"></script>
+    <script src="assets/libs/imageCrop/ng-img-crop.js"></script>
+
+    <script type="text/javascript">
+        document.write("<script src='https://maps.googleapis.com/maps/api/js?key=" + window.googleApiKey + "&v=3.exp&signed_in=true&libraries=places'><\/script>");
+    </script>
+    <script src="/app/gym.app.js"></script>
+
+    <!-- Navigation Bar -->
+    <script src="app/components/gym/navBar/services/navBarService.js"></script>
+    <script src="app/components/gym/navBar/controllers/navBarController.js"></script>
+
+    <!-- Login -->
+    <script src="/app/components/gym/login/controllers/loginController.js"></script>
+    <script src="app/components/gym/login/Services/loginService.js"></script>
+
+    <!-- Dashboard Main -->
+    <script src="app/components/gym/dashboardMain/Controllers/dashboardMainController.js"></script>
+    <script src="app/components/gym/dashboardMain/Services/dashboardMainService.js"></script>
+
+    <!-- Dashboard Account -->
+    <script src="app/components/gym/dashboardAccount/Controllers/dashboardAccountController.js"></script>
+    <script src="app/components/gym/dashboardAccount/Services/dashboardAccountService.js"></script>
+
+    <!-- Dashboard Contact -->
+    <script src="app/components/gym/dashboardContact/controllers/dashboardContactController.js"></script>
+    <script src="app/components/gym/dashboardContact/services/dashboardContactService.js"></script>
+
+    <!-- Forgot Password -->
+    <script src="app/components/gym/forgotPassword/controllers/forgotPasswordController.js"></script>
+    <script src="app/components/gym/forgotPassword/services/forgotPasswordService.js"></script>
+
+    <!-- Reset Password -->
+    <script src="app/components/gym/resetPassword/controllers/resetPasswordController.js"></script>
+    <script src="app/components/gym/resetPassword/services/resetPasswordService.js"></script>
+
+    <!-- Dashboard Contract -->
+    <script src="app/components/gym/dashboardContract/controllers/dashboardContractController.js"></script>
+    <script src="app/components/gym/dashboardContract/services/dashboardContractService.js"></script>
+
+    <!-- Contract -->
+    <script src="app/components/gym/contract/controllers/contractController.js"></script>
+    <script src="app/components/gym/contract/services/contractService.js"></script>
+
+    <!-- Register -->
+    <script src="app/components/gym/register/controllers/registerController.js"></script>
+    <script src="app/components/gym/register/Services/registerService.js"></script>
+
+    <!-- Contract -->
+    <script src="app/components/gym/contract/Services/contractService.js"></script>
+
+
+    <script>toastr.options.positionClass = "toast-bottom-right";</script>
+    
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/assets/libs/bootstrap/javascript/vendor/jquery-2.1.0.min.js"></script>
+    <script src="/assets/libs/bootstrap/javascript/bootstrap.min.js"></script>
+    <script src="/assets/libs/bootstrap/javascript/assets/application.js"></script>
+    <!-- Core CSS -->
+    <link href="/assets/css/application.css?v=7" rel="stylesheet">
+    
+</body>
+</html>

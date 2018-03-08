@@ -1,0 +1,298 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+section#login {
+    margin: 0 auto;
+    width: 400px;
+    text-align: center;
+}
+
+#login h1,
+#signup h1 {
+    margin: 20px 0 30px 0;
+    font-weight: 500;
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #37CFDF;
+}
+
+#signup h1 {
+    text-align: center;
+    font-size: 39px;
+    font-weight: 300;
+    margin: 50px;
+}
+
+#login input,
+#signup input:not([type="radio"]),
+#dashboard input,
+#gym-signup input {
+    line-height: 40px;
+    height: 40px;
+    min-width: 280px;
+    text-indent: 8px;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+#login input,
+#signup input:not([type="radio"]),
+#dashboard input,
+#gym-signup input:not([type="radio"]) {
+    width: 100%;
+}
+
+.cash {
+    position: relative;
+}
+
+    .cash span {
+        position: absolute;
+        line-height: 48px;
+        font-size: 18px;
+        left: 15px;
+    }
+
+    .cash input {
+        text-indent: 24px !important;
+    }
+
+#login button {
+    width: 160px;
+}
+
+#login p a {
+    margin-top: 10px;
+    display: block;
+    font-size: 12px;
+}
+
+.ng-invalid-required.ng-touched {
+    border: 1px solid #37CFDF;
+}
+
+section#signup,
+#gym-signup {
+    width: 550px;
+    margin: 0 auto;
+}
+
+#gym-signup {
+    background: #fff !important;
+}
+
+    #gym-signup .price {
+        padding: 10px 40px 10px 20px;
+        background-color: #eee;
+        border: 1px solid #CCC;
+        border-radius: 5px;
+        margin-top: 14px;
+        margin-bottom: 20px;
+    }
+
+.price-rec {
+    padding: 10px 0;
+    font-size: 15px;
+}
+
+#signup h3 {
+    font-size: 18px;
+    color: #37CFDF;
+}
+
+#signup button {
+    margin: 20px auto;
+    width: 200px;
+}
+
+#signup input[type="text"] {
+    width: 100%;
+    max-width: 100%;
+}
+
+#signup label {
+    font-size: 18px;
+}
+
+#signup input[type="radio"] {
+    position: relative;
+    top: -3px;
+    margin-right: 6px;
+}
+
+#signup p {
+    font-size: 12px;
+    text-align: center;
+}
+
+.nav {
+    position: fixed;
+    width: 230px;
+    height: 100%;
+    background-color: #262626;
+}
+
+    .nav ul {
+        margin: 0;
+        margin-top: 50%;
+        position: relative;
+        top: -75px;
+    }
+
+        .nav ul li {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            padding-left: 20px;
+        }
+
+    .nav li:hover {
+        padding-left: 0;
+    }
+
+        .nav li:hover a {
+            padding-left: 20px;
+        }
+
+    .nav ul li a {
+        line-height: 50px;
+        font-size: 20px;
+        background-color: #262626;
+        border-bottom: 1px solid #7E7E7E;
+        display: block;
+    }
+
+        .nav ul li a:hover {
+            text-decoration: none;
+            background: #37CFDF;
+            color: #fff;
+            cursor: pointer;
+        }
+
+.logo {
+    width: 200px;
+    margin: 20px 14px;
+}
+
+#dashboard .container-fluid {
+    margin-left: 250px;
+    padding-top: 45px;
+}
+
+#dashboard h1 {
+    padding-bottom: 20px;
+}
+
+    #dashboard h1.hello {
+        position: absolute;
+        top: -7px;
+        right: 20px;
+        font-size: 18px;
+        font-weight: 300;
+    }
+
+#dashboard thead {
+    display: table-header-group;
+    width: auto;
+}
+
+#dashboard tbody {
+    display: table-row-group;
+    width: auto;
+}
+
+#dashboard tr {
+    width: 100%;
+}
+
+#dashboard th {
+    padding-left: 20px !important;
+}
+
+#dashboard td:nth-child(2) {
+    padding-left: 0;
+}
+
+#dashboard input {
+    float: left;
+    margin-right: 10px;
+}
+
+#dashboard .btn {
+    float: left;
+    height: 50px;
+    min-width: 110px;
+}
+
+#dashboard span.pw {
+    font-size: 14px;
+    background-color: #ccc;
+    padding: 10px;
+    margin-top: 10px;
+    position: relative;
+    top: 10px;
+}
+
+.searchBoxContainer {
+    height: 3em;
+    text-align: center;
+}
+
+.map {
+    background-color: #262626 !important;
+    height: 700px;
+    margin: 7em auto;
+    width: 90%;
+}
+
+.searchbox {
+    border: 2px solid #fff;
+    background-color: transparent;
+    height: 48px;
+    line-height: 50px;
+    color: #fff;
+    text-indent: 10px;
+    font-size: 20px;
+    font-weight: 300;
+    width: 20em;
+}
+
+
+
+.map ul {
+    color: #fff;
+    columns: 4;
+    -webkit-columns: 4;
+    -moz-columns: 4;
+     list-style-type: none;
+}
+
+    .map ul li {
+        margin-bottom: 9px;
+    }
+
+.map h2,
+.map #stateList,
+#map-canvas > div > div:nth-child(2),
+#map-canvas > div > div:nth-child(4),
+#map-canvas > div > div:nth-child(6),
+#map-canvas > div > div:nth-child(7),
+#map-canvas > div > div:nth-child(8) > div:nth-child(2),
+#map-canvas > div > div:nth-child(8) > div:nth-child(1),
+#map-canvas > div > div:nth-child(9) {
+    display: none;
+}
+
+.map button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1;
+}
+
+#map-canvas > div > div:nth-child(8) > div:nth-child(4) {
+    top: 27px !important;
+}

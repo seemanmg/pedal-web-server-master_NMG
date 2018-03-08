@@ -1,0 +1,1 @@
+ALTER TABLE GymPaymentAccountInfo ADD CustomerHref VARCHAR(max) NULL;

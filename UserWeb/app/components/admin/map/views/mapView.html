@@ -1,0 +1,1035 @@
+﻿<div id="map"></div>
+
+<button ng-click="deleteMarkers()">Delete All Markers</button>
+
+<a href="https://slack.com/oauth/authorize?scope=incoming-webhook,commands,bot&client_id=67638680707.88415888564"><img alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" /></a>
+
+
+<button ng-click="showGymsClick()" ng-hide="isShowGyms">Show All Gyms</button>
+<div ng-show="isShowGyms">
+
+    <h2> Showing gyms {{ currentGymPage }} to {{ currentGymPage + 10 }} out of {{ gyms.length }} </h2>
+    <button ng-disabled="showLastGymIsntReady" ng-click="showLastGym()">Show last 10</button>
+    <button ng-disabled="showNextGymIsntReady" ng-click="showNextGym()">Show next 10</button>
+    <button ng-click="isShowGyms = false">Reset</button>
+
+    <h6> Avg. Passes Sold Per Gym: {{ totalStatsGyms.GymPassCount / gyms.length }}  </h6>
+    <h6> Total Revenue: {{ formatCash(totalStatsGyms.TotalRevenue) }}  </h6>
+    <h6> Avg. Revenue per Gym: {{ formatCash(totalStatsGyms.TotalRevenue / gyms.length) }}  </h6>
+    <h6> Total Costs: {{ formatCash(totalStatsGyms.TotalCosts) }}  </h6>
+    <h6> Avg. Costs per Gym: {{ formatCash(totalStatsGyms.TotalCosts / gyms.length) }}  </h6>
+    <h6> Total Pay Not Collected: {{ formatCash(totalStatsGyms.TotalPayNotCollected) }}  </h6>
+    <h6> Avg. Total Pay Not Collected per Gym: {{ formatCash(totalStatsGyms.TotalPayNotCollected / gyms.length) }}  </h6>
+    <h6> Total Profit: {{ formatCash(totalStatsGyms.TotalProfit) }}  </h6>
+    <h6> Avg. Profit per Gym: {{ formatCash(totalStatsGyms.TotalProfit / gyms.length) }}  </h6>
+
+
+    <table class="fixed">
+        <thead>
+            <tr>
+                <th colspan="55">Gyms</th>
+            </tr>
+            <tr>
+                <th colspan="14"></th>
+                <th colspan="4">GymPhotoGallery 1</th>
+                <th colspan="4">GymPhotoGallery 2</th>
+                <th colspan="4">GymPhotoGallery 3</th>
+                <th colspan="2"></th>
+                <th colspan="11">OwnerContactInfo</th>
+                <th colspan="1"></th>
+                <th colspan="2">Position</th>
+                <th colspan="1"></th>
+                <th colspan="11">PublicContactInfo</th>
+                <th colspan="4"></th>
+            </tr>
+            <tr>
+                <th colspan="31"></th>
+                <th colspan="8">Address</th>
+                <th colspan="7"></th>
+                <th colspan="8">Address</th>
+                <th colspan="4"></th>
+            </tr>
+            <tr>
+                <th colspan="36"></th>
+                <th colspan="3">TypeState</th>
+                <th colspan="12"></th>
+                <th colspan="3">TypeState</th>
+                <th colspan="4"></th>
+            </tr>
+            <tr>
+                <th colspan="1"></th>
+                <th colspan="1"></th>
+                <th colspan="1">GymPassCount</th>
+                <th colspan="1">TotalRevenue</th>
+                <th colspan="1">TotalCosts</th>
+                <th colspan="1">TotalPayNotCollected</th>
+                <th colspan="1">TotalProfit</th>
+                <th colspan="1">ApplicationDate</th>
+                <th colspan="1">CreditDollarValue</th>
+                <th colspan="1">CurrentToken</th>
+                <th colspan="1">GymGuid</th>
+                <th colspan="1">GymId</th>
+                <th colspan="1">GymInfo</th>
+                <th colspan="1">GymName</th>
+                <th colspan="1">GymPhotoGalleryId</th>
+                <th colspan="1">IsCoverPhoto</th>
+                <th colspan="1">Photo</th>
+                <th colspan="1">Photo (to view)</th>
+                <th colspan="1">GymPhotoGalleryId</th>
+                <th colspan="1">IsCoverPhoto</th>
+                <th colspan="1">Photo</th>
+                <th colspan="1">Photo (to view)</th>
+                <th colspan="1">GymPhotoGalleryId</th>
+                <th colspan="1">IsCoverPhoto</th>
+                <th colspan="1">Photo</th>
+                <th colspan="1">Photo (to view)</th>
+                <th colspan="1">IsActive</th>
+                <th colspan="1">IsApproved</th>
+                <th colspan="1">AddressId</th>
+                <th colspan="1">City</th>
+                <th colspan="1">StreetLine1</th>
+                <th colspan="1">StreetLine2</th>
+                <th colspan="1">StateAbbreviation</th>
+                <th colspan="1">StateName</th>
+                <th colspan="1">TypeStateId</th>
+                <th colspan="1">Zip</th>
+                <th colspan="1">ContactInfoId</th>
+                <th colspan="1">Email</th>
+                <th colspan="1">Phone</th>
+                <th colspan="1">OwnerName</th>
+                <th colspan="1">Latitude</th>
+                <th colspan="1">Longitude</th>
+                <th colspan="1">PriceToCharge</th>
+                <th colspan="1">AddressId</th>
+                <th colspan="1">City</th>
+                <th colspan="1">StreetLine1</th>
+                <th colspan="1">StreetLine2</th>
+                <th colspan="1">StateAbbreviation</th>
+                <th colspan="1">StateName</th>
+                <th colspan="1">TypeStateId</th>
+                <th colspan="1">Zip</th>
+                <th colspan="1">ContactInfoId</th>
+                <th colspan="1">Email</th>
+                <th colspan="1">Phone</th>
+                <th colspan="1">ScheduleUrl</th>
+                <th colspan="1">StripeUrl</th>
+                <th colspan="1">Url</th>
+                <th colspan="1">Active Date</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr ng-repeat="gym in showGyms ">
+                <td class="fixed">
+                    <div class="scrollable">
+                        <a href="#" ng-click="openInfoWindow($event, gym.marker)">Open in Map</a>
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        <button ng-click="deleteGym(gym.GymId)">Delete</button>
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.GymPassCount}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.TotalRevenue}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.TotalCosts}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.TotalPayNotCollected}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.TotalProfit}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.ApplicationDate}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.CreditDollarValue}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.CurrentToken}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.GymGuid}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.GymId}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.GymInfo}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.GymName}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.GymPhotoGalleries[0].GymPhotoGalleryId}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.GymPhotoGalleries[0].IsCoverPhoto}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.GymPhotoGalleries[0].Photo}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        <img ng-src="{{gym.GymPhotoGalleries[0].Photo}}" />
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.GymPhotoGalleries[1].GymPhotoGalleryId}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.GymPhotoGalleries[1].IsCoverPhoto}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.GymPhotoGalleries[1].Photo}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        <img ng-src="{{gym.GymPhotoGalleries[1].Photo}}" />
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.GymPhotoGalleries[2].GymPhotoGalleryId}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.GymPhotoGalleries[2].IsCoverPhoto}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.GymPhotoGalleries[2].Photo}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        <img ng-src="{{gym.GymPhotoGalleries[2].Photo}}" />
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.IsActive}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.IsApproved}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.OwnerContactInfo.Address.AddressId}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.OwnerContactInfo.Address.City}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.OwnerContactInfo.Address.StreetLine1}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.OwnerContactInfo.Address.StreetLine2}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.OwnerContactInfo.Address.TypeState.StateAbbreviation}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.OwnerContactInfo.Address.TypeState.StateName}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.OwnerContactInfo.Address.TypeState.TypeStateId}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.OwnerContactInfo.Address.Zip}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.OwnerContactInfo.ContactInfoId}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.OwnerContactInfo.Email}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.OwnerContactInfo.Phone}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.OwnerName}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.Position.Latitude}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.Position.Longitude}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.PriceToCharge}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.PublicContactInfo.Address.AddressId}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.PublicContactInfo.Address.City}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.PublicContactInfo.Address.StreetLine1}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.PublicContactInfo.Address.StreetLine2}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.PublicContactInfo.Address.TypeState.StateAbbreviation}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.PublicContactInfo.Address.TypeState.StateName}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.PublicContactInfo.Address.TypeState.TypeStateId}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.PublicContactInfo.Address.Zip}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.PublicContactInfo.ContactInfoId}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.PublicContactInfo.Email}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.PublicContactInfo.Phone}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.ScheduleUrl}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.StripeUrl}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.Url}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gym.ActiveDate}}
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+
+<button ng-click="showUsersClick()" ng-hide="isShowUsers">Show All Users</button>
+<div ng-show="isShowUsers">
+
+    <h2> Showing users {{ currentUserPage }} to {{ currentUserPage + 10 }} out of {{ users.length }} </h2>
+    <button ng-disabled="showLastUserIsntReady" ng-click="showLastUser()">Show last 10</button>
+    <button ng-disabled="showNextUserIsntReady" ng-click="showNextUser()">Show next 10</button>
+    <button ng-click="isShowUsers = false">Reset</button>
+
+
+
+    <h6> Avg. Passes Sold Per User: {{ totalStatsUsers.GymPassCount / users.length  }}  </h6>
+    <h6> Total Revenue: {{ formatCash(totalStatsUsers.TotalRevenue) }}  </h6>
+    <h6> Avg. Revenue per User: {{ formatCash(totalStatsUsers.TotalRevenue / users.length) }}  </h6>
+    <h6> Total Costs: {{ formatCash(totalStatsUsers.TotalCosts) }}  </h6>
+    <h6> Avg. Costs per User: {{ formatCash(totalStatsUsers.TotalCosts / users.length) }}  </h6>
+    <h6> Total Credits: {{ formatCash(totalStatsUsers.Credits) }}  </h6>
+    <h6> Avg. Credits per User: {{ formatCash(totalStatsUsers.Credits / users.length) }}  </h6>
+    <h6> Total Profit: {{ formatCash(totalStatsUsers.TotalProfit) }}  </h6>
+    <h6> Avg. Profit per User: {{ formatCash(totalStatsUsers.TotalProfit / users.length) }}  </h6>
+    
+
+    <table class="fixed">
+        <thead>
+            <tr>
+                <th colspan="16">Users</th>
+            </tr>
+            <tr>
+                <th colspan="1">GymPassCount</th>
+                <th colspan="1">TotalRevenue</th>
+                <th colspan="1">TotalCosts</th>
+                <th colspan="1">TotalProfit</th>
+                <th colspan="1">Credits</th>
+                <th colspan="1">CurrentToken</th>
+                <th colspan="1">Email</th>
+                <th colspan="1">FirstName</th>
+                <th colspan="1">LastName</th>
+                <th colspan="1">ReferalUrl</th>
+                <th colspan="1">StripeUrl</th>
+                <th colspan="1">UserGuid</th>
+                <th colspan="1">UserId</th>
+                <th colspan="1">hasActiveSubscription</th>
+                <th colspan="1">hasCreditCard</th>
+                <th colspan="1">joinDate</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr ng-repeat="user in showUsers ">
+                 <td class="fixed">
+                    <div class="scrollable">
+                        {{user.GymPassCount}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{user.TotalRevenue}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{user.TotalCosts}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{user.TotalProfit}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{user.ContactInfo.Address.AddressId}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{user.ContactInfo.Address.city}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{user.ContactInfo.Address.StreetLine1}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{user.ContactInfo.Address.StreetLine2}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{user.ContactInfo.Address.TypeState.StateAbbreviation}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{user.ContactInfo.Address.TypeState.StateName}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{user.ContactInfo.Address.TypeState.TypeStateId}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{user.ContactInfo.Address.Zip}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{user.ContactInfo.ContactInfoId}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{user.ContactInfo.Email}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{user.ContactInfo.Phone}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{user.Credits}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{user.CurrentToken}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{user.Email}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{user.FirstName}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{user.LastName}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{user.ReferalUrl}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{user.StripeUrl}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{user.UserGuid}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{user.UserId}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{user.hasActiveSubscription}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{user.hasCreditCard}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{user.joinDate}}
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+
+
+
+
+
+<button ng-click="showGymPassesClick()" ng-hide="isShowGymPasses">Show All Gym Passes</button>
+<div ng-show="isShowGymPasses">
+
+    <h2> Showing Gym Passes {{ currentGymPassPage }} to {{ currentGymPassPage + 10 }} out of {{ gymPasses.length }} </h2>
+    <button ng-disabled="showLastGymPassIsntReady" ng-click="showLastGymPass()">Show last 10</button>
+    <button ng-disabled="showNextGymPassIsntReady" ng-click="showNextGymPass()">Show next 10</button>
+    <button ng-click="isShowGymPasses = false">Reset</button>
+
+
+    <h6> Total Revenue: {{ formatCash(totalStatsGymPasses.CreditsUsed + totalStatsGymPasses.AmountCharged) }}  </h6>
+    <h6> Avg. Revenue per GymPass: {{ formatCash((totalStatsGymPasses.CreditsUsed + totalStatsGymPasses.AmountCharged) / gymPasses.length) }}  </h6>
+    <h6> Total Costs: {{ formatCash(totalStatsGymPasses.GymPassCost) }}  </h6>
+    <h6> Avg. Cost per GymPass: {{ formatCash(totalStatsGymPasses.GymPassCost / gymPasses.length) }}  </h6>
+    <h6> Total Charge: {{ formatCash(totalStatsGymPasses.AmountCharged) }}  </h6>
+    <h6> Avg. Charge per GymPass: {{ formatCash(totalStatsGymPasses.AmountCharged / gymPasses.length) }}  </h6>
+    <h6> Total Credits: {{ formatCash(totalStatsGymPasses.CreditsUsed) }}  </h6>
+    <h6> Avg. Credits per GymPass: {{ formatCash(totalStatsGymPasses.CreditsUsed / gymPasses.length) }}  </h6>
+    <h6> Total Profit: {{ formatCash(totalStatsGymPasses.GymPassProfit) }}  </h6>
+    <h6> Avg. Profit per GymPass: {{ formatCash(totalStatsGymPasses.GymPassProfit / gymPasses.length) }}  </h6>
+    <h6> Percent Paid from Subscription Credits: {{ (totalStatsGymPasses.CreditsUsed  * 100) / (totalStatsGymPasses.CreditsUsed + totalStatsGymPasses.AmountCharged)}}%  </h6>
+
+    <table class="fixed">
+        <thead>
+            <tr>
+                <th colspan="13">Gym Passes</th>
+            </tr>
+           
+            <tr>
+                <th colspan="1"></th>
+                <th colspan="1"> Profit </th>
+                <th colspan="1">AmountCharged</th>
+                <th colspan="1">CreditsUsed</th>
+                <th colspan="1">GymId</th>
+                <th colspan="1">GymName</th>
+                <th colspan="1">Id</th>
+                <th colspan="1">LocalDateBought</th>
+                <th colspan="1">LocalDateExpired</th>
+                <th colspan="1">ServerTimeDateBought</th>
+                <th colspan="1">UserId</th>
+                <th colspan="1">UserName</th>
+                <th colspan="1">GymPassCost</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr ng-repeat="gymPass in showGymPasses ">
+                <td class="fixed">
+                    <div class="scrollable">
+                        <a href="#" ng-click="openInfoWindow($event, gymPass.marker)">Open in Map</a>
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gymPass.GymPassProfit}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gymPass.AmountCharged}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gymPass.CreditsUsed}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gymPass.GymId}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollablae">
+                        {{gymPass.GymName}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gymPass.Id}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gymPass.LocalDateBought}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gymPass.LocalDateExpired}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gymPass.ServerTimeDateBought}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gymPass.UserId}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gymPass.UserName}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{gymPass.GymPassCost}}
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+
+
+<button ng-click="showSearchRequestsClick()" ng-hide="isShowSearchRequests">Show All Search Requests</button>
+<div ng-show="isShowSearchRequests">
+
+    <h2> Showing Search Requests {{ currentSearchRequestPage }} to {{ currentSearchRequestPage + 10 }} out of {{ searchRequests.length }} </h2>
+    <button ng-disabled="showLastSearchRequestIsntReady" ng-click="showLastSearchRequest()">Show last 10</button>
+    <button ng-disabled="showNextSearchRequestIsntReady" ng-click="showNextSearchRequest()">Show next 10</button>
+    <button ng-click="isShowSearchRequests = false">Reset</button>
+
+
+    <table class="fixed">
+        <thead>
+            <tr>
+                <th colspan="9">Search Requests</th>
+            </tr>
+            <tr>
+                <th colspan="2"></th>
+                <th colspan="2">Position</th>
+                <th colspan="5"></th>
+            </tr>
+            <tr>
+                <th colspan="1"></th>
+                <th colspan="1">Id</th>
+                <th colspan="1">Latitude</th>
+                <th colspan="1">Longitude</th>
+                <th colspan="1">Request</th>
+                <th colspan="1">SearchDate</th>
+                <th colspan="1">UniqueDeviceIndentifier</th>
+                <th colspan="1">UserId</th>
+                <th colspan="1">UserName</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr ng-repeat="searchRequest in showSearchRequests ">
+
+                <td class="fixed">
+                    <div class="scrollable">
+                        <a href="#" ng-click="openInfoWindow($event, searchRequest.marker)">Open in Map</a>
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{searchRequest.Id}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{searchRequest.Position.Latitude}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{searchRequest.Position.Longitude}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollablae">
+                        {{searchRequest.Request}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{searchRequest.SearchDate}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{searchRequest.UniqueDeviceIndentifier}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{searchRequest.UserId}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{searchRequest.UserName}}
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+
+
+
+
+<button ng-click="showGiveCreditsClick()" ng-hide="isShowGiveCredits">Show All Give Credits</button>
+<div ng-show="isShowGiveCredits">
+
+    <h2> Showing Give Credits {{ currentGiveCreditPage }} to {{ currentGiveCreditPage + 10 }} out of {{ giveCredits.length }} </h2>
+    <button ng-disabled="showLastGiveCreditIsntReady" ng-click="showLastGiveCredit()">Show last 10</button>
+    <button ng-disabled="showNextGiveCreditIsntReady" ng-click="showNextGiveCredit()">Show next 10</button>
+    <button ng-click="isShowGiveCredits = false">Reset</button>
+
+
+    <table class="fixed">
+        <thead>
+            <tr>
+                <th colspan="10">Give Credits</th>
+            </tr>
+
+            <tr>
+                <th colspan="1">AmountToGiveNewUser</th>
+                <th colspan="1">AmountToGiveReferer</th>
+                <th colspan="1">DateTime</th>
+                <th colspan="1">GiveCreditsId</th>
+                <th colspan="1">GivenUserName</th>
+                <th colspan="1">RefererUserName</th>
+                <th colspan="1">UserIdToGiveCredits</th>
+                <th colspan="1">UserIdWhoGiveCredits</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr ng-repeat="giveCredit in showGiveCredits ">
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{giveCredit.AmountToGiveNewUser}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{giveCredit.AmountToGiveReferer}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{giveCredit.DateTime}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollablae">
+                        {{giveCredit.GiveCreditsId}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{giveCredit.GivenUserName}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{giveCredit.RefererUserName}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{giveCredit.UserIdToGiveCredits}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{giveCredit.UserIdWhoGiveCredits}}
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+
+
+
+
+
+
+<button ng-click="showGymInvoicesClick()" ng-hide="isShowGymInvoices">Show All Gym Invoices</button>
+<div ng-show="isShowGymInvoices">
+
+    <h2> Showing Gym Invoices {{ currentGymInvoicePage }} to {{ currentGymInvoicePage + 10 }} out of {{ gymInvoices.length }} </h2>
+    <button ng-disabled="showLastGymInvoiceIsntReady" ng-click="showLastGymInvoice()">Show last 10</button>
+    <button ng-disabled="showNextGymInvoiceIsntReady" ng-click="showNextGymInvoice()">Show next 10</button>
+    <button ng-click="isShowGymInvoices = false">Reset</button>
+
+    <table class="fixed">
+        <thead>
+            <tr>
+                <th colspan="10">Gym Invoices</th>
+            </tr>
+
+            <tr>
+                <th colspan="1">AmountToGiveNewUser</th>
+                <th colspan="1">AmountToGiveReferer</th>
+                <th colspan="1">DateTime</th>
+                <th colspan="1">GiveCreditsId</th>
+                <th colspan="1">GivenUserName</th>
+                <th colspan="1">RefererUserName</th>
+                <th colspan="1">UserIdToGiveCredits</th>
+                <th colspan="1">UserIdWhoGiveCredits</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr ng-repeat="gymInvoice in showGymInvoices ">
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{giveCredit.AmountToGiveNewUser}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{giveCredit.AmountToGiveReferer}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{giveCredit.DateTime}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollablae">
+                        {{giveCredit.GiveCreditsId}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{giveCredit.GivenUserName}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{giveCredit.RefererUserName}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{giveCredit.UserIdToGiveCredits}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{giveCredit.UserIdWhoGiveCredits}}
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+
+
+
+
+<button ng-click="showLogsClick(true, true)" ng-hide="isShowLogs">Show All Logs</button>
+<button ng-click="showLogsClick(true, false)" ng-hide="isShowLogs">Show Error Logs</button>
+<button ng-click="showLogsClick(false, true)" ng-hide="isShowLogs">Show Action Logs</button>
+
+<div ng-show="isShowLogs">
+
+    <h2> Showing Logs {{ currentLogPage }} to {{ currentLogPage + 10 }} out of {{ logs.length }} </h2>
+    <button ng-disabled="showLastLogIsntReady" ng-click="showLastLog()">Show last 10</button>
+    <button ng-disabled="showNextLogIsntReady" ng-click="showNextLog()">Show next 10</button>
+    <button ng-click="isShowLogs = false">Reset</button>
+
+
+    <table class="fixed">
+        <thead>
+            <tr>
+                <th colspan="4">Logs</th>
+            </tr>
+
+            <tr>
+                <th colspan="1">LogId</th>
+                <th colspan="1">LogMessage</th>
+                <th colspan="1">InsertDate</th>
+                <th colspan="1">IsError</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr ng-repeat="log in showLogs ">
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{log.LogId}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{log.LogMessage}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollable">
+                        {{log.InsertDate}}
+                    </div>
+                </td>
+                <td class="fixed">
+                    <div class="scrollablae">
+                        {{log.IsError}}
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+

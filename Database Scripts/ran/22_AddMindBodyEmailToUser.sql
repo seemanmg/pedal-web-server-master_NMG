@@ -1,0 +1,1 @@
+ALTER TABLE Users ADD MindBodyEmail VARCHAR(100) NULL;

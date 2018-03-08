@@ -1,0 +1,1 @@
+ALTER TABLE GymPaymentAccountInfo ADD RoutingNo VARCHAR(20) NULL;

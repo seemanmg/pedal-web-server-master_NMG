@@ -1,0 +1,1 @@
+ALTER TABLE [dbo].[PaymentInfo] ADD [CardHref] [varchar](max) NULL,	[ExpMonth] [int] NULL,	[ExpYear] [int] NULL ;

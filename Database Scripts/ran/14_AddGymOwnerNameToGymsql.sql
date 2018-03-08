@@ -1,0 +1,1 @@
+ALTER TABLE Gyms ADD OwnerName [varchar](250) NULL

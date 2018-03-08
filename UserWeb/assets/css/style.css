@@ -1,0 +1,1946 @@
+/* Reuben Styles */
+
+@import url(https://fonts.googleapis.com/css?family=Oswald:400,700,300);
+
+body{
+	background: #eee !important;
+}
+
+.container{
+	max-width: 960px;
+}
+
+.centered {
+    margin: 0 auto;
+    width: 500px; 
+
+}
+
+.infoWindowContent {
+  font-size: 14px !important;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+}
+
+h2 {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+            .check-label {
+                display: block !important;
+                padding-left: 15px !important;
+                text-indent: -15px !important;
+            }
+
+            .my-check {
+                width: 13px !important;
+                min-width: 20px !important;
+                height: 13px !important;
+                padding: 0 !important;
+                padding-right: 2em !important;
+                margin: 0 !important;
+                vertical-align: bottom !important;
+                position: relative !important;
+                top: -1px !important;
+                *overflow: hidden !important;
+            }
+
+#locationField, #controls {
+            position: relative;
+        }
+
+
+        #autocomplete {
+            top: 0px;
+            left: 0px;
+            width: 99%;
+        }
+
+        #successMessage {
+            font-size: 20px;
+            line-height: 25px;
+            background-color: #B7FDB7;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #3C943C;
+        }
+
+        #errorMessage {
+            line-height: 25px;
+            background-color: red;
+            color: white;
+            text-align: center;
+            margin: 20px;
+        }
+
+        #state {
+            width: 100%;
+        }
+
+h2{
+	margin-top: -10px;
+	font-size: 24px;
+	margin-bottom: 20px;
+	border-bottom: 1px solid rgb(226, 226, 226);
+	padding-bottom: 5px;
+}
+
+a{
+	color: #37CFDF !important;
+}
+a:hover{
+	color: #FFFFFF !important;
+}
+
+.heavy {
+    font-weight: bold;
+}
+
+.header{
+	background: #37CFDF !important;
+	margin-bottom: 30px !important;
+	height: 100px;
+}
+
+.page-header{
+	background: #37CFDF;
+	padding: 0;
+	margin: 0;
+	padding-bottom: 15px;
+	padding-left: 160px;
+	margin: 0 !important;
+	margin-top: -65px !important;
+}
+
+.title h1{
+	background: url(http://pictures.pedal.com/frontend/logo.png);
+	width: 270px;
+	height: 66px;
+	margin-top: 15px;
+}
+
+
+.btn, input[type="submit"]{
+	background: #37CFDF;
+	color: #fff;
+	text-shadow: none;
+	border: 2px solid #fff;
+	border-radius: 0;
+	padding: 10px;
+	font-weight: 300;
+	text-transform: uppercase;
+	display: block;
+	margin: 0 auto;
+	padding: 10px 15px;
+}
+
+	.btn:hover, .btn:active, input[type="submit"]:active, input[type="submit"]:hover{
+		background: #37CFDF;
+		color: #262626;
+	}
+
+	table .btn, table input[type="submit"] {
+		padding: 3px 11px;
+		font-size: 13px;
+	}
+
+table{
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	background: #fff !important;
+	width: 100%;
+	font-size: 16px;
+	font-weight: 300;
+	display: table;
+}
+
+thead, tbody{
+	display: table;
+	width: 100%;
+}
+
+table a{ color: #37CFDF !important; }
+
+tr{
+	line-height: 30px;
+}
+
+	tr:nth-child(even) td{
+		background: #eee;
+	}
+
+	/*div:not(#ui-datepicker-div) td:first-child, div:not(#ui-datepicker-div) th:first-child{
+		display: block;
+		margin-left: 10px;
+	}
+
+	div:not(#ui-datepicker-div) td:last-child, div:not(#ui-datepicker-div) th:last-child{
+		display: block;
+		margin-right: 10px;
+	}
+
+	div:not(#ui-datepicker-div) tbody:after {
+		content: "";
+		display: block;
+		height: 10px;
+	}*/
+
+	thead{
+		padding: 10px 20px;
+	}
+
+	thead tr{
+		background: #262626 !important;
+		color: #fff;
+	}
+
+		th{
+			text-align: left;
+			font-size: 17px;
+			padding: 10px 0;
+			font-weight: normal;
+		}
+
+			th:first-child {
+				padding-left: 20px;
+			}
+
+			th:not(:first-child) {
+				left: -20px;
+				position: relative;
+			}
+
+td{
+	padding: 10px 20px;
+	/*width: 100%;*/
+}
+
+input{
+	font-style: normal;
+	font-weight: 300;
+}
+
+.span3 > div {
+	margin-bottom: 20px;
+}
+
+#slider_holder{
+	float: none !important;
+}
+
+#slider{
+	height: 250px;
+	overflow: hidden;
+}
+
+	#slider img{
+		width: 100%;
+		height: auto !important;
+	}
+
+[action="Dashboard.aspx"] .span2 > div{
+		padding: 15px;
+		background: #fff;
+		margin-bottom: 20px;
+		border-right: 1px solid #ccc;
+		border-bottom: 1px solid #ccc;
+		text-align: center;
+}
+	
+	#MainContent_userImage{
+		height: auto !important;
+	}
+
+	#MainContent_lblFullName{
+		font-size: 14px;
+		color: #37CFDF;
+		font-weight: 700;
+		text-transform: uppercase;
+		padding-top: 10px;
+		display: block;
+		text-align: center;
+		margin-bottom: 10px;
+	}
+
+	#MainContent_lblPlanName{
+		font-size: 18px;
+		text-transform: uppercase;
+		font-weight: 700;
+		color: #37CFDF;
+	}
+
+	#MainContent_lblCreditsMonth, #MainContent_lblCreditsPerMonthText{
+		font-size: 12px;
+		margin-right: 5px;
+		font-weight: 400;
+	}
+
+		#MainContent_lblCreditsPerMonthText{
+			margin-right: 0;
+		}
+
+		#MainContent_tb_creditsLeft{
+			display: block;
+			margin-top: 10px;
+			padding-top: 26px;
+			border-top: 1px solid #ccc;
+			font-size: 50px !important;
+			font-weight: 700;
+			padding-bottom: 23px;
+			color: #37CFDF;
+			font-family: 'Oswald', sans-serif;
+		}
+
+		#MainContent_lblCreditsLeftText{
+			font-size: 12px;
+			text-transform: uppercase;
+			font-weight: 700;
+		}
+
+[action="Dashboard.aspx"] .span2 > div:nth-child(3){
+	background: transparent;
+	border: none;
+	padding: 0;
+	margin-top: -10px;
+}
+
+	#MainContent_lblNeedMore{
+		font-size: 12px;
+		text-transform: uppercase;
+		font-weight: 700;
+		display: block;
+		margin-bottom: 5px;
+	}
+
+.userWebMenu{
+	margin-top: 28px;
+	float: right !important;
+	margin-right: -20px;
+}
+
+.userWebMenu ul{
+	list-style: none;
+}
+
+	.userWebMenu li{
+		margin-right: 30px;
+	}
+
+		.userWebMenu li a{
+			color: #fff;
+			font-weight: 500;
+			font-size: 17px;
+			text-decoration: none;
+		}
+
+			.userWebMenu li a:hover{
+				color: #262626;
+			}
+
+.loginDisplay {
+	text-align: right;
+	margin-top: 5px;
+	margin-bottom: 10px;
+	font-weight: 300;
+}
+
+	.loginDisplay a{
+		color: #fff;
+		text-decoration: none;
+	}
+
+	.loginDisplay a:hover{
+		color: #262626;
+	}
+
+[action="Dashboard.aspx"] .span3 > div{
+	background: #fff;
+	margin-bottom: 20px;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+
+[action="Dashboard.aspx"] .span3 > div:nth-child(1){
+	padding: 15px;
+}
+
+	[action="Dashboard.aspx"] .span3 > div:nth-child(1) .btn{
+		margin: 0;
+	}
+
+[action="Dashboard.aspx"] .span3 > div:nth-child(2) table{
+	border: none;
+}
+
+#inviteFriends #MainContent_lbl_inviteFriendsMsg{
+	text-transform: uppercase;
+	display: block;
+	margin-bottom: 5px;
+	font-size: 13px;
+	font-weight: 700;
+	color: rgb(226, 70, 16);
+	text-align: center;
+}
+
+#MainContent_txtEmailAddresses{
+	width: calc(100% - 15px);
+	margin-top: 5px;
+	margin-bottom: 0;
+	padding-bottom: 0;
+	line-height: 30px;
+	height: 30px;
+}
+
+#MainContent_btnInviteFriends{
+	width: 100%;
+	margin-top: 10px;
+}
+
+.header .page-header{
+	border-bottom: none;
+	margin-right: 4% !important;
+}
+
+hr{
+	border-bottom: none;
+	border-top: 1px solid #ccc;
+}
+
+#photo-view
+#photo-view
+{
+	box-sizing: border-box;
+	background: #fff;
+	padding: 20px;
+}
+
+[value="EDIT"], [value="VIEW"], [value="Edit"]{
+	float: right;
+	margin-top: -40px;
+	background: transparent;
+	border: none;
+	color: #37CFDF;
+	font-size: 13px;
+	text-transform: capitalize;
+	text-transform: uppercase;
+}
+
+#AwaitingGyms{
+	background: #FFF;
+	width: 17px;
+	display: inline-block;
+	height: 16px;
+	line-height: 16px;
+	text-align: center;
+	border-radius: 8px;
+	position: relative;
+	top: -10px;
+	font-size: 11px;
+	color: #37CFDF;
+	font-weight: bold;
+	margin-right: -16px;
+	margin-left: -2px;
+}
+
+#MainContent_btn_createGym{
+	float: right;
+}
+
+#MainContent_lb_selType{
+	height: 30px;
+	line-height: 30px;
+	text-transform: uppercase;
+	font-weight: 500;
+}
+
+#MainContent_lb_selType,
+#id_1_1_1 > select
+{
+	float: left;
+	margin-right: 5px;
+}
+
+.ToggleButton{
+	display: inline;
+	border-radius: 4px;
+}
+
+.ToggleButton a{
+	display: inline-block;
+	padding: 4px 15px;
+	text-align: center;
+	float: left;
+	background: #FFF;
+	border: 1px solid #111;
+	font-weight: bold;
+	font-size: 12px;
+	text-transform: uppercase;
+}
+
+	.ToggleButton a:hover{
+		text-decoration: none;
+	}
+
+.ToggleButton span.active a{
+	background: #37CFDF;
+	color: #fff;
+}
+
+	.ToggleButton span.active:last-child a{
+		border-left: none;
+	}
+
+	.ToggleButton span.active:first-child a{
+		border-right: none;
+	}
+
+.ToggleButton span:last-child a{
+	margin-right: 5px;
+}
+
+#MainContent_lkbtn_changePW{
+	float: right;
+}
+
+.title.login-logo{
+	width: 434px;
+	margin: 0 auto;
+	clear: both;
+	float: none;
+}
+
+	.title.login-logo h1{
+		margin: 0;
+		background: url(i/logo-red.png);
+		margin-top: 50px;
+		margin-bottom: 40px;
+		width: 434px;
+		height: 105px;
+	}
+
+#login_main_div{
+	width: 334px;
+	margin: 0 auto;
+	padding: 50px;
+	background: #eee;
+	clear: both;
+	margin-top: 20px;
+	float: none;
+}
+
+	#login_main_div h2{
+		border: none;
+		text-align: center;
+		margin-top: -30px;
+		font-size: 27px;
+		text-transform: uppercase;
+	}
+
+	#login_main_div input{
+		height: 40px;
+		font-size: 20px;
+		line-height: 30px;
+		text-indent: 5px;
+		font-weight: 300;
+	}
+
+		#login_main_div input[type="submit"]{
+			background: #37CFDF;
+			border: 1px solid #fff;
+			color: #fff;
+			text-transform: uppercase;
+			font-size: 15px;
+			padding: 10px 20px;
+			line-height: 19px;
+			text-indent: 0;
+			margin: 0 auto;
+			display: block;
+			margin-top: 10px;
+			font-family: helvetica neue;
+			font-weight: 300;
+			letter-spacing: 1px;
+		}
+
+		#d_3_3{
+			width: 100%;
+			text-align: center;
+			margin-top: 10px;
+			margin-bottom: -50px;
+			position: relative;
+			top: 33px;
+		}
+
+			#d_3_3 a{
+				color: #972F0B;
+			}
+
+	body.login{
+		background: #37CFDF !important;
+	}
+
+	textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, .uneditable-input:focus {   
+		border-color: rgba(226, 70, 16, 0.8);
+		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(226, 70, 16, 0.6);
+		outline: 0 none;
+	}
+
+
+	#MainContent_ctl00{
+		margin-bottom: 20px;
+	}
+
+	#MainContent_tb_search{
+		line-height: 30px;
+		height: 30px;
+		font-family: helvetica neue;
+		font-style: normal;
+		font-weight: 300;
+		font-size: 16px;
+		text-indent: 3px;
+	}
+
+	#MainContent_tb_search+ * + .add-on{
+		height: 30px;
+		width: 30px;
+		line-height: 30px;
+	}
+
+	#MainContent_UpdatePanel1{
+		margin-top: 10px;
+	}
+
+	#MainContent_UpdatePanel2 h3{
+		margin-top: 0;
+	}
+
+	#MainContent_UpdatePanel2 h4{
+		text-align: left;
+		font-size: 18px;
+		margin-top: 20px;
+		margin-bottom: 10px;
+	}
+
+	.ManualCheckInSection{
+		float: right;
+		margin-top: 6px;
+	}
+
+	#btn_showMCI{
+		background: #fff;
+		border: 1px solid #fff;
+		color: #37CFDF;
+		padding: 10px 15px;
+		font-weight: 500;
+		font-size: 17px;
+	}
+
+		#btn_showMCI:hover{
+			background: #37CFDF;
+			color: #fff;
+		}
+
+	.NavigationBar{
+		float: left;
+		margin-top: 0;
+		font-size: 18px;
+		font-weight: 500;
+		margin-left: 30px;
+	}
+
+	#d_2_1{
+		margin-bottom: 30px;
+	}
+
+	#MainContent_gv_ai{
+		font-size: 20px;
+	}
+
+	#h3_001 select{
+		float: right;
+		margin-top: 10px;
+	}
+
+	#MainContent_txtGymName{
+		width: 100%;
+		height: 50px;
+		font-size: 23px;
+		font-weight: 300;
+		text-indent: 5px;
+	}
+
+	#tb_gymDescription{
+		width: 99%;
+		font-size: 18px;
+		font-weight: 300;
+		padding: 1%;
+		line-height: 30px;
+	}
+
+	#MainContent_UpdatePanel2 td{
+		width: 100%;
+	}
+
+	#MainContent_UpdatePanel2 td:first-child input{
+		font-size: 18px;
+		line-height: 30px;
+		height: 30px;
+		margin-bottom: 0;
+		font-weight: 300;
+		text-indent: 5px;
+		width: 100%;
+	}
+
+	#MainContent_UpdatePanel2 td:last-child input{
+		height: 30px;
+	}
+
+	#MainContent_UpdatePanel2 table tr{
+		background: transparent !important;
+	}
+
+	#MainContent_UpdatePanel2 table tr:first-child td{
+		padding-top: 20px;
+	}
+
+	#MainContent_UpdatePanel2 table tr:last-child td{
+		padding-bottom: 20px;
+	}
+
+
+	#div_inner_hours > div{
+		display: table;
+		width: 100%;
+	}
+
+	#div_inner_hours > div label:nth-child(2){
+		float: left;
+	}
+
+	#div_inner_hours > div input:first-child{
+		float: left;
+		margin-right: 10px;
+	}
+
+	#div_inner_hours > div > div:first-child{
+		float: left;
+		clear: right;
+		width: 330px;
+		margin-left: 20px;
+	}
+
+		#div_inner_hours > div input:first-child {
+			float: left;
+			margin-right: 10px;
+		}
+
+		#div_inner_hours > div > label{
+			font-size: 23px;
+			font-weight: 300;
+			line-height: 29px;
+		}
+
+		#div_inner_hours > div > input{
+			width: 20px;
+			height: 20px;
+			margin-top: 8px;
+		}
+
+		#div_inner_hours div[id*="_timeSchedule"]{
+			float: right;
+		}
+
+			#div_inner_hours div[id*="_timeSchedule"] input{
+				width: 18px;
+			}
+
+		#div_inner_hours div[id*="_timeSchedule"] select + span{
+			display: inline;
+			padding: 0 5px;
+			text-transform: uppercase;
+			position: relative;
+			top: -2px;
+			font-weight: 300;
+			letter-spacing: 1px;
+		}
+
+		#div_inner_hours div[id*="ScheduleClosed"]{
+			display: block;
+			font-size: 14px;
+			height: 30px;
+			line-height: 30px;
+			color: rgb(255, 255, 255);
+			width: 311px;
+			text-align: center;
+			background: rgb(226, 70, 16);
+			margin-bottom: 10px;
+			text-transform: uppercase;
+			font-weight: 300;
+		}
+
+		#MainContent_GalleryUpdatePanel #imgGalOrderedList li{
+			position: relative;
+			width: 150px;
+			height: 150px;
+			float: left;
+			margin-left: 10px;
+			margin-bottom: 10px;
+			list-style: none;
+		}
+
+			#div_inner_imgGallery #imgGalOrderedList{
+				left: -35px;
+				position: relative;
+				width: 100%;
+			}
+
+			#MainContent_GalleryUpdatePanel #imgGalOrderedList li input:nth-child(2){
+				display: none;
+			}
+
+			#MainContent_GalleryUpdatePanel #imgGalOrderedList li input:nth-child(3){
+				display: none;
+			}
+
+			#MainContent_GalleryUpdatePanel #imgGalOrderedList li:hover input:nth-child(2){
+				display: block;
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				background: rgba(226, 70, 16, 0.9);
+				color: #fff;
+				top: 0;
+				left: 0;
+				border: none;
+				font-size: 17px;
+				text-transform: uppercase;
+				font-weight: 500;
+			}
+
+			#MainContent_GalleryUpdatePanel #imgGalOrderedList li:hover input:nth-child(3){
+				display: block;
+				position: absolute;
+				top: -12px;
+				right: -12px;
+				background: rgba(0, 0, 0, 0) url(i/exit.png) center center;
+				background-size: 100%;
+				text-indent: -9999em;
+				border: none;
+				width: 24px;
+				height: 24px;
+				z-index: 1;
+			}
+
+				#imgUploadBtn{
+					background-image: url(i/add.png) !important;
+					background-position: top;
+					float: left;
+					width: 150px;
+					height: 150px;
+					overflow: hidden;
+					margin: 20px;
+				}
+
+				#imgUploadBtn:hover{
+					background-position: bottom;
+					cursor: pointer;
+				}
+
+	#MainContent_txtZipEdit{
+		margin-left: 18px;
+		width: 60px;
+	}
+
+	#MainContent_ddl_state{
+		margin-left: 71px;
+	}
+
+	#MainContent_txtCityEdit{
+		width: 152%;
+	}
+
+	#MainContent_txtAddressEdit, #MainContent_txtAddress2Edit{
+		width: 91%;
+	}
+
+	#MainContent_lblHours{
+		font-size: 18px;
+		font-weight: 500;
+		margin-right: 10px;
+		color: #37CFDF;
+	}
+
+	#d_8 > input{
+		width: 22px;
+		margin-right: 5px;
+	}
+
+	#lbtn_classes_next,
+	#lbtn_pending_next,
+	#MainContent_lbtn_pending_next,
+	#MainContent_lbtn_active_next,
+	#MainContent_lbtn_coups_next
+	{
+		display: block;
+		text-indent: -9999em;
+		width: 24px;
+		height: 24px;
+		border-radius: 24px;
+		float: right;
+		background: url(i/arrow.png) left center;
+		margin-top: 10px;
+	}
+
+	#lbtn_classes_prev,
+	#lbtn_pending_prev,
+	#MainContent_lbtn_pending_prev,
+	#MainContent_lbtn_active_prev,
+	#MainContent_lbtn_coups_prev
+	{
+		display: block;
+		text-indent: -9999em;
+		width: 24px;
+		height: 24px;
+		border-radius: 24px;
+		float: left;
+		background: url(i/arrow.png) right center;
+		margin-top: 10px;
+	}
+
+	#MainContent_lblHoursTo{
+		display: inline;
+		padding: 0 10px;
+		font-size: 16px;
+		text-transform: uppercase;
+		font-weight: 300;
+		letter-spacing: 2px;
+		position: relative;
+		top: -2px;
+	}
+
+	#MainContent_ddlWeekDays{
+		width: 100%;
+	}
+
+	.chosen-container-multi .chosen-choices li.search-choice {
+		font-size: 19px;
+		height: 20px;
+		line-height: 20px;
+		font-weight: 300;
+		padding: 8px 20px 8px 8px;
+	}
+
+	.chosen-choices{
+		height: 93px !important;
+	}
+
+	#div_manChkIn_holder{
+		padding: 20px 20px 10px 20px;
+		background: #fff;
+		border-right: 1px solid #ccc;
+		border-bottom: 1px solid #ccc;
+	}
+
+	#div_manChkIn_holder input {
+		height: 30px;
+		width: 94%;
+		text-indent: 5px;
+		font-size: 16px;
+	}
+
+	#div_manChkIn_holder h3{
+		margin-top: -10px;
+	}
+
+	#search_btn{
+		height: 30px;
+		width: 30px;
+		line-height: 30px;
+		border-top-right-radius: 4px;
+		border-bottom-right-radius: 4px;
+	}
+
+	#MainContent_Button1{
+		float: right;
+		margin-top: 20px;
+		margin-bottom: -40px;
+	}
+
+	.nav-tabs a{
+		font-size: 14px;
+		font-weight: 300;
+		letter-spacing: 0.05em;
+	}
+
+	.gymsContent{
+		margin-bottom: 30px;
+	}
+
+	.gymDetails{
+		margin-bottom: 20px;
+		clear: both;
+		display: table;
+		width: calc( 100% - 40px);
+	}
+
+		.gymDetailsLeft{
+			width: calc( 30% - 25px );
+			float: left;
+			margin-right: 25px;
+		}
+
+			.gymLogo{
+				width: 100%;
+			}
+
+			.gymCredits{
+				text-align: center;
+				margin-top: 15px;
+				font-size: 20px;
+				font-weight: 300;
+			}
+
+		.gymDetailsRight{
+			float: left;
+			width: 70%;
+		}
+
+			.gymName {
+				font-size: 24px;
+				float: none;
+				display: block;
+				margin-bottom: 15px;
+			}
+
+			.gymDesc {
+				font-size: 16px;
+				font-weight: 300;
+				margin-bottom: 20px;
+				display: block;
+			}
+
+			.gymDetailsRight ul{
+				list-style: none;
+				margin: 0;
+			}
+
+			.gymDetailsRight li {
+				display: block;
+				float: left;
+				background: rgb(226, 70, 16);
+				color: rgb(255, 255, 255);
+				text-transform: capitalize;
+				padding: 5px 10px;
+				margin-right: 5px;
+				margin-bottom: 5px;
+			}
+
+		.gymListFilter #MainContent_txtSearch{
+			height: 35px;
+			font-size: 16px;
+			text-indent: 5px;
+			line-height: 35px;
+			float: left;
+			width: calc( 100% - 125px );
+			margin-right: 10px;
+		}
+
+			.gymListFilter #MainContent_txtSearch + .btn{
+				float: left;
+				width: 100px;
+			}
+
+		.gymListFilter h4 {
+			font-size: 20px;
+			margin-bottom: 20px;
+		}
+
+		.gymListFilter tr input{
+			float: left;
+			margin-right: 10px;
+		}
+
+		.gymListFilter label{
+			text-transform: capitalize;
+			float: left;
+			width: calc(100% - 22px);
+		}
+
+		.gymListFilter tr, .gymListFilter table{
+			background: transparent !important;
+			border: none !important;
+		}
+
+		.gymListFilter td{
+			padding: 0;
+		}
+
+		#MainContent_ddlRadius{
+			margin-top: 30px;
+		}
+
+		.ui-datepicker th{
+			font-size: 11px;
+		}
+
+		.ui-datepicker td a{
+			text-align: center;
+		}
+
+		.ui-datepicker .ui-state-highlight{
+			background: rgb(226, 70, 16);
+			color: rgb(255, 255, 255) !important;
+			border: rgb(0, 0, 0) !important;
+		}
+
+		#userActivity_main_div #filtersInfo{
+			margin-top: 70px;
+			padding: 20px;
+			background: rgb(255, 255, 255);
+			width: 100%;
+			display: table;
+		}
+
+			#userActivity_main_div #filtersInfo h3{
+				margin-top: 0;
+			}
+
+			#userActivity_main_div #filtersInfo input:not(.btn){
+				height: 30px;
+				font-size: 16px;
+				text-indent: 5px;
+			}
+
+			#userActivity_main_div #filtersInfo select{
+				display: block;
+			}
+
+			#userActivity_main_div #filtersInfo span{
+				color: rgb(226, 70, 16);
+				font-size: 14px;
+				font-weight: 500;
+			}
+
+			#userActivity_main_div #filtersInfo .btn{
+				float: left;
+			}
+
+#profilePhoto #photo{
+	float: left;
+	width: calc(40% - 20px);
+	margin-right: 20px;
+}
+
+#userInfo{
+	float: left;
+	width: 60%;
+}
+
+#userInfo ul{
+	list-style: none;
+	margin: 0;
+}
+
+#userInfoList span{
+	font-size: 18px;
+	font-weight: 300;
+	line-height: 33px;
+}
+
+#MainContent_lbl_fullName{
+	font-size: 28px;
+	color: rgb(226, 70, 16);
+	text-transform: capitalize;
+	margin-bottom: 20px;
+	display: block;
+}
+
+#MainContent_lbl_desc{
+	clear: both;
+	padding: 10px 0;
+	border-top: 1px solid rgb(204, 204, 204);
+	border-bottom: 1px solid rgb(204, 204, 204);
+	display: block;
+	position: relative;
+	top: 10px;
+}
+
+#userDashboard_main_div #d12{
+	text-align: center;
+	background: rgb(255, 255, 255);
+	padding: 15px 10px 10px 10px;
+}
+
+#userDashboard_main_div #d13{
+	text-align: center;
+	margin-top: 10px;
+}
+
+#inviteFriends{
+	background: rgb(255, 255, 255);
+	padding: 10px;
+}
+
+#photo-view{
+	/*display: table !important;*/
+}
+
+#photo-view #MainContent_lbl_simpleAssets ul{
+	list-style: none;
+	margin: 0;
+}
+
+#photo-view #MainContent_lbl_simpleAssets li{
+	display: block;
+	float: left;
+	background: rgb(226, 70, 16);
+	color: rgb(255, 255, 255);
+	text-transform: capitalize;
+	padding: 5px 10px;
+	margin-right: 5px;
+	margin-bottom: 5px;
+}
+
+	#d11 #MainContent_btn_planUpgrade, #invitedFriends #MainContent_btn_showInviteFriends{
+		background: #37CFDF;
+		color: #fff;
+		text-shadow: none;
+		border: 2px solid #fff;
+		border-radius: 0;
+		padding: 10px;
+		font-weight: 300;
+		text-transform: uppercase;
+		display: block;
+		padding: 10px 15px;
+		float: left;
+	}
+
+	#d11 a{
+		text-align: right;
+		display: block;
+	}
+
+	#MainContent_btn_parkAccount{
+		background: none;
+		border: none;
+		font-size: 12px;
+		text-align: right;
+		color: rgb(129, 129, 129);
+		display: block;
+		float: right;
+		padding: 0;
+		position: relative;
+		top: -16px;
+	}
+
+	#d16 #MainContent_lbl_inviteFriendsMsg{
+		margin-bottom: 10px;
+		display: block;
+		font-size: 18px;
+		color: rgb(226, 70, 16);
+		margin-top: -5px;
+	}
+
+	#currentPlanInfo .content{
+		display: table;
+		width: calc(100% - 40px);
+	}
+
+	#currentPlanInfo #planImage{
+		width: calc(35% - 20px);
+		margin-right: 20px;
+		float: left;
+	}
+
+	#currentPlanInfo #planDetails{
+		float: left;
+	}
+
+	#currentPlanInfo #planDetails ul{
+		list-style: none;
+		margin: 0;
+	}
+
+	#currentPlanInfo #planDetails li{
+		font-size: 18px;
+		font-weight: 300;
+		margin-bottom: 10px;
+	}
+
+	#currentPlanInfo #planDetails li:first-child span{
+		font-size: 28px;
+		color: #37CFDF;
+		margin-bottom: 20px;
+		display: block;
+	}
+
+#nr_box{
+	margin-top: 30px;
+}
+
+	#nr_box span:first-child{
+		float: none;
+		clear: both;
+		display: block;
+		text-align: center;
+		font-family: 'oswald';
+		font-size: 60px;
+		line-height: 65px;
+		margin-bottom: 10px;
+		color: #20c2d3;
+	}
+
+	#nr_box span:last-child {
+		text-align: center;
+		display: block;
+		color: rgb(141, 141, 141);
+		font-weight: 300;
+		font-size: 15px;
+	}
+
+#MasterGymMngt_main_div #d_6{
+	margin-top: 30px;
+}
+
+.filter select{
+	height: 39px;
+	text-indent: 2px;
+	font-weight: 400;
+}
+
+#MasterPayables_main_div #MainContent_btn_pay{
+	float: right;
+}
+
+#MasterPayables_main_div ul.nav-tabs{
+	margin-top: 30px;
+}
+
+
+
+/* Stacktivity Register */
+
+#register_main_div{
+  padding-left: 15px;
+}
+
+#register_main_div input, #register_main_div textarea, #register_main_div select{
+  width: 285px;
+  line-height: 30px !important;
+  height: 30px !important;
+  font-size: 16px !important;
+  display: block !important;
+}
+
+#register_main_div textarea{
+	height: 100px !important;
+}
+
+#register_main_div select{
+	width: 300px !important;
+	margin: 8px 0;
+}
+
+#acceptTerms{
+	width: 285px;
+}
+
+#acceptTerms input{
+	width: auto;
+	margin-right: 10px;
+	float: left;
+}
+
+#acceptTerms a{
+	float: left;
+	margin-top: 7px;
+}
+
+input#MainContent_RegisterUser_CreateUserStepContainer_CreateUserButton {
+	height: auto !important;
+	margin: 10px 0 0 0;
+}
+
+#register_main_div #d_2_1 {
+	margin-bottom: 0;
+}
+
+#register_main_div span {
+	color: rgb(226, 70, 16);
+	position: relative;
+	top: -10px;
+	line-height: 25px;
+}
+
+#register_main_div span + span {
+	margin-top: 2px;
+}
+
+.manualCheckInClearField{
+	text-indent: -9999em;
+	border: none;
+	background-color: #FFF;
+	width: 16px;
+	height: 16px;
+	position: absolute;
+	right: 10px;
+	top: 13px;
+	padding: 0;
+}
+
+#invitedFriends td{
+	font-size: 12px;
+}
+
+#notif_contentHolder{
+	position: absolute;
+	left: 50% !important;
+	width: 300px;
+	margin-left: -150px;
+	background: #FFF;
+	top: 100px;
+	z-index: 9999;
+	padding: 20px;
+	box-shadow: 0px 5px 13px 2px rgba(0, 0, 0, 0.3);
+	font-size: 16px;
+	text-align: center;
+	font-weight: 300;
+}
+
+#notif_contentHolder hr,
+#notif_contentHolder #notif_header_v2.0,
+#notif_contentHolder input[type="submit"] {
+	display: none;
+}
+
+#invitedFriendsInfo table{
+	font-size: 12px;
+}
+
+#d11{
+	margin-top: 20px;
+}
+
+#d12 input[type="submit"]{
+	text-transform: lowercase;
+}
+
+.paymentUserWeb .container{
+	max-width: 400px;
+}
+
+#MainContent_mpe_inviteFriendsPanel{
+	box-shadow: none !important;
+}
+
+#MainContent_mpe_inviteFriendsPanel #popupBody{
+	background: #fff;
+	padding: 40px;
+}
+
+#MainContent_mpe_inviteFriendsPanel #inviteFriendsInstructions{
+	text-align: center;
+	font-weight: 300;
+	font-size: 14px;
+}
+
+#MainContent_mpe_inviteFriendsPanel #MainContent_mpe_ifEmails{
+	width: 95%;
+	min-height: 70px;
+	margin-top: 10px;
+	margin-bottom: -10px;
+}
+
+#MainContent_mpe_inviteFriendsPanel #MainContent_mpe_ifCancelBtn{
+	max-width: 24px;
+	float: right;
+	margin-top: -11px;
+	margin-right: -11px;
+	background: #fff;
+	padding: 2px;
+	border-radius: 14px;
+}
+
+#MainContent_btn_showInviteFriends{
+	margin-left: 50%;
+	left: -67px;
+	position: relative;
+	margin-top: -30px;
+}
+
+.paymentInfoContainer input{
+	width: 100%;
+	text-indent: 5px;
+	font-weight: 300;
+	margin-bottom: -10px !important;
+}
+
+.paymentInfoContainer #MainContent_txtCvvCode{
+	width: 50px;
+}
+
+.paymentInfoContainer #d_11{
+	width: 103%;
+}
+
+.paymentInfoContainer #d_11 #d_13{
+	width: auto;
+}
+
+.paymentInfoContainer select{
+	font-weight: 300;
+}
+
+.paymentInfoContainer #d_11 #d_14{
+	max-width: 67px;
+}
+
+.paymentInfoContainer #MainContent_ddl_ccMonth{
+	margin-left: 69px;
+	margin-right: 10px;
+}
+
+.paymentInfoContainer select#MainContent_ddlCardType {
+	width: 198px;
+}
+
+.paymentInfoContainer #h3_2{
+	margin-top: 20px;
+}
+
+.paymentInfoContainer > #d_7{
+	display: none;
+}
+
+.contactInfoContainer{
+	margin-bottom: 20px;
+}
+
+.contactInfoContainer #d_20 #d_21{
+	width: 160px;
+}
+
+.contactInfoContainer #d_20 #d_22{
+	margin-left: 25px;
+	margin-top: 1px;
+	max-width: 78px;
+}
+
+.contactInfoContainer #d_18 > span:first-child(){
+	font-size: 12px;
+	font-weight: 900;
+	text-indent: 5px;
+	display: block;
+	margin-bottom: -13px;
+	color: #37CFDF;
+}
+
+.contactInfoContainer #MainContent_cbCheckBox{
+	margin-top: -12px;
+	margin-right: 5px;
+}
+
+.contactInfoContainer #MainContent_btnLetsDoThis{
+	margin-top: 20px;
+}
+
+#MainContent_lblCredits,
+#userGymD_main_div #d132
+{
+	display: none;
+}
+
+#userGymD_main_div #d11{
+	margin-top: 0;
+}
+
+#userGymD_main_div .span6 > .row-fluid:not(:first-child) {
+	background: #fff;
+	padding: 30px;
+	margin: 0px;
+	width: calc(100% - 60px);
+	font-size: 16px;
+	font-weight: 300;
+	line-height: 30px;
+	margin-bottom: 30px;
+	position: relative;
+}
+
+#MainContent_panel_photos img{
+	width: auto;
+	height: 100%;
+	margin: 0 -50%;
+	max-width: none;
+}
+
+#MainContent_panel_photos .span4{
+	overflow: hidden;
+	height: 150px;
+}
+
+#userGymD_main_div #d5 h3, 
+#userGymD_main_div #d7 h3,
+#userGymD_main_div #dx1 h3{
+	margin-top: -9px;
+}
+
+#userGymD_main_div #d5,
+#userGymD_main_div #d7,
+#userGymD_main_div #dx1{
+	padding: 0;
+	background: none;
+	margin: 0;
+}
+
+#userGymD_main_div #MainContent_iframeLocation{
+	width: 100%;
+	height: 300px;
+}
+
+#userGymD_main_div #MainContent_btnDirections{
+	position: absolute;
+	top: 42px;
+	right: 38px;
+}
+
+#userGymD_main_div #MainContent_img_gymCover{
+	width: 100%;
+}
+
+#userGymD_main_div div#d51 .row-fluid {
+	width: auto;
+	display: block;
+	float: left;
+	background: #37CFDF;
+	color: #fff;
+	padding: 10px 15px 1px 10px;
+	margin: 2px;
+	font-size: 14px;
+	font-weight: 300;
+}
+
+#userGymD_main_div div#d51 .row-fluid > div:nth-child(2) {
+	display: block;
+	width: 100%;
+}
+
+#userGymD_main_div div#d51 .row-fluid > div:nth-child(1) {
+	display: none;
+}
+
+#MainContent_lblUpdatedOn{
+	display: none;
+}
+
+#suggestedGyms:empty{
+	display: none;
+}
+
+#MainContent_txtEmail,
+#MainContent_txtPhone,
+#MainContent_txtStreet,
+#MainContent_txtStreetTwo{
+	width: 100%;
+}
+
+.contactInfoContainer #d_18 span:first-child{
+	font-weight: bold;
+	margin-bottom: -15px;
+	display: block;
+}
+
+#MainContent_txtCity{
+	width: 100%;
+}
+
+#MainContent_txtZip{
+	width: 50%;
+}
+
+.contactInfoContainer #d_20 #d_21 {
+	width: 124px;
+}
+
+.MainContent_pnlPaymentInfo #h3_2{
+	margin-top: 10px;
+}
+
+.paymentInfoContainer,
+.contactInfoContainer{
+	background: #fff;
+	padding: 30px 60px 30px 30px;
+	width: 100%;
+}
+
+.error{
+	border: 1px solid #37CFDF !important;
+	box-shadow: 0px 0px 7px #37CFDF !important;
+}
+
+#MainContent_cbCheckBox{
+	margin: -2px 4px 0 0;
+}
+
+#MainContent_lnkBtn_discountCode{
+	display: block;
+	margin-top: 10px;
+}
+
+#MainContent_btnLetsDoThis{
+	margin-top: 20px;
+}
+
+#MainContent_pnlProfileInfo #MainContent_pnlProfileInfo input {
+	width: 100% !important;
+	height: 30px !important;
+	text-indent: 5px !important;
+	font-size: 16px !important;
+}
+
+#MainContent_pnlProfileInfo #MainContent_pnlProfileInfo #d3{
+	font-size: 13px;
+	font-weight: bold;
+	color: #37CFDF;
+}
+
+#MainContent_pnlProfileInfo #MainContent_rbMale{
+	position: relative;
+	top: -3px;
+	left: 3px;
+}
+
+#MainContent_pnlProfileInfo #MainContent_rbFemale{
+	position: relative;
+	top: -3px;
+}
+
+#MainContent_pnlProfileInfo #MainContent_ddlNumberOfTimes{
+	height: 30px;
+	width: 150px;
+	display: block;
+	float: left;
+	margin-right: 10px;
+}
+
+#MainContent_pnlProfileInfo #MainContent_select_assets{
+	width: 310px;
+	font-size: 16px;
+}
+
+#MainContent_pnlProfileInfo #MainContent_btnThisIsMe{
+	height: 60px !important;
+}
+
+#MainContent_pnlProfileInfo #MainContent_userImage{
+	height: 250px !important;
+	width: 250px !important;
+}
+
+.icon-remove.manualCheckInClearField{
+	display: none !important;
+}
+
+#GymDashboard_main_div th:not(:first-child){
+	position: static;
+	left: 0;
+}
+
+#aci_mpe_panel{
+	box-shadow: none;
+}
+
+#aci_mpe_panel .pull-left {
+	float: none;
+}
+
+#aci_btn_checkIn{
+	padding: 10px 25px;
+	font-size: 16px;
+}
+
+#aci_btn_cancel{
+	height: 15px;
+	width: 15px;
+	float: right;
+	position: relative;
+	left: -10px;
+	top: 23px;
+}
+
+#userGymD_main_div #d12 a{
+	display: block;
+	background: #37CFDF;
+	color: #fff;
+	padding: 10px;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 19px;
+	margin-top: 10px;
+	text-decoration: none;
+}
+
+#MainContent_pnlPaymentInfo #h3_2{
+	margin-top: 30px;
+}
+
+.paymentInfoContainer #d_12{
+	width: 200px;
+}
+
+.paymentInfoContainer #d_13{
+	margin-left: 10px;
+}
+
+.paymentInfoContainer #MainContent_ddl_ccMonth{
+	margin-left: 0 !important;
+}
+
+div#MainContent_pnlProfileInfo input {
+	height: 30px;
+	width: 400px !important;
+	font-size: 16px;
+	text-indent: 5px;
+}
+
+div#MainContent_pnlProfileInfo h3{
+	margin-top: 0;
+}
+
+div#MainContent_pnlProfileInfo #d3{
+	color: #37CFDF;
+	width: 440px;
+	font-weight: 500;
+}
+
+select#MainContent_ddlNumberOfTimes{
+	width: 253px !important;
+}
+
+#userDashboard_main_div #MainContent_ctl00 th:nth-child(2),
+#userDashboard_main_div #MainContent_ctl00 td:nth-child(2){
+	display: none;
+}
+
+#userDashboard_main_div #d11{
+	margin-top: 0;
+}
+
+#userDashboard_main_div #h3_1{  /* Temp height fix for removed sliders */ 
+	margin-top: 0;
+}
+
+#slider_holder{  /* Temp remove sliders */ 
+	display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* White box with borders */
+#div_inner_hours,
+#div_inner_contactDetails,
+.gymDetails,
+.box .content,
+#nr_box
+{
+	background: #fff;
+	padding: 20px;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+
+/* White with Borders */
+#d_1_1_1_1,
+#d_1_1_1_2,
+#d_2_1_1
+{
+	background: #fff;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	padding: 20px 0;
+	min-height: 150px;
+}
+
+/* Numbers and Text */
+#d_1_1_1_1 > div > span:first-child,
+#d_1_1_1_2 > div > span:first-child,
+#d_2_1_1 > span:first-child
+{
+	font-size: 90px;
+	font-family: 'oswald';
+	font-weight: 300;
+	color: #20c2d3;
+	line-height: 90px;
+	text-align: center;
+	display: block;
+	clear: both;
+}
+
+#d_1_1_1_1 > div > span:last-child,
+#d_1_1_1_2 > div > span:last-child,
+#d_2_1_1 > span:last-child
+{
+	font-size: 18px;
+	display: block;
+	margin-top: 15px;
+	font-weight: 300;
+	text-align: center;
+	display: block;
+	clear: both
+}
+
+/* HIDE */
+#MainContent_fuUploadFoto,
+#MainContent_btnUploadPhoto,
+.loginDisplay .bold,
+.hideThis
+{
+	display: none;
+}
+
+
+.display-inline-block{
+    display:inline-block;
+}
+
+
+.nav > div:last-child {
+   padding: 0 20px;
+   color: #fff;
+}
+
+.nav > div:last-child a {
+   width: 100%;
+   display: block;
+   line-height: 40px;
+   font-size: 21px;
+   font-weight: 100;
+   border: 1px #ccc solid;
+   margin: 10px 0;
+   text-align: center;
+}

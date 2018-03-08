@@ -1,0 +1,183 @@
+﻿<div class="dashboardPage">
+
+    <div class="history-gym-info-outer">
+        <div class="row row-width-mod">
+            <div class="col-sm-12">
+                <div class="row history-gym-info-inner">
+                    <div class="col-sm-6">
+                        <h1>{{ gym.gymName }}</h1>
+                        <h3>Check In's & History</h3>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="refresh-stats">
+                            <a ng-click="loadCheckins()" class="a-icon">
+                                Refresh Stats
+                                <i class="refresh-stat-icon entypo-cw"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="gym-main-top-row">
+        <div class="row">
+            <div class="col-sm-5">
+                
+                <div class="gym-listed-status-inner">
+                    <div class="dash-box dash-box-default">
+                        <div class="dash-box-heading">
+                            <div class="dash-box-title">
+                                Gym Listing Status
+                            </div>
+                        </div>
+                        <div class="row dash-box-body">
+                                <div ng-show="gym.isApproved" class="col-sm-12" id="gym-is-listed">
+                                    <div class="row">
+                                        <div class="col-sm-10">
+                                            Approved and listed
+                                        </div>
+                                        <div id="gym-listed-icon" class="col-sm-2">
+                                            <i style="color:#00A65A;" class="entypo-thumbs-up"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div ng-show="!gym.isApproved" class="col-sm-12" id="gym-is-not-listed">
+                                    <div class="row">
+                                        <div class="col-sm-10 gym-aprvl-txt">
+                                            Approval pending
+                                        </div>
+                                        <div id="gym-not-listed-icon" class="col-sm-2">
+                                            <i style="color:#F56954;" class="entypo-hourglass"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gym-passes-inner">
+                    <div class="dash-box dash-box-default">
+                        <div class="dash-box-heading">
+                            <div class="dash-box-title">
+                                Revenue Data
+                            </div>
+                        </div>
+                        <div class="dash-box-body with-table">
+                            <table class="table table-bordered table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th>Check-in's This Month</th>
+                                        <th>Monthly Revenue</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>{{recentCheckIns.length}}</td>
+                                        <td>{{recentCheckIns.length / 100 * gym.price| currency}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gym-payout-inner">
+                    <div class="dash-box dash-box-default">
+                        <div class="dash-box-heading">
+                            <div class="dash-box-title">
+                                Payment Request
+                            </div>
+                        </div>
+                        <div class="dash-box-body">
+                            <div class="row dash-row">
+                                
+                                <div class="col-sm-12 dash-col" ng-show="isApproved">
+                                    <div class="row dash-row payment-request-align">
+                                        The current payment period from {{gym.startingPaymentDate}} to {{gym.endingPaymentDate}} will be available for ACH transfer on {{gym.endingPaymentDate}}.
+                                        You have ${{gym.currentPaymentBalance / 100}} to collect during this period so far.
+                                        <br/><br/>
+                                        You currently have ${{gym.collectPaymentBalance / 100}} in uncollected payments.
+                                    </div>
+                                    <div class="row dash-row" ng-show="gym.collectPaymentBalance > 0">
+                                        <div style="line-height:2.0em;" class="col-sm-6 dash-col payment-request-align">
+                                            Collect ${{gym.collectPaymentBalance / 100}} now
+                                        </div>
+                                        <div class="col-sm-6 dash-col rqst-pay-btn payment-request-align">
+                                            <button class="btn btn-default btn-icon-fa btn-dashboard-sm">
+                                                Request Payment
+                                                <i class="fa fa-money"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-12 dash-col" ng-show="!isApproved">
+                                    <div class="row dash-row payment-request-align">
+                                        <b>Your payment information will be listed here when your app is live! Here is an example:</b>
+                                        <br/><br/>
+                                        The current payment period from Jan 1, 2015 to Jan 15, 2015 will be available for ACH transfer on Jan 16, 2015 at Midnight GMT.
+                                        You have $500.00 to collect during this period so far.
+                                        <br/><br/>
+                                        You currently have $745.00 in uncollected payments.
+                                    </div>
+                                    <div class="row dash-row">
+                                        <div style="line-height:2.0em;" class="col-sm-6 dash-col payment-request-align">
+                                            Collect $745.00 now
+                                        </div>
+                                        <div class="col-sm-6 dash-col rqst-pay-btn payment-request-align">
+                                            <button class="btn btn-default btn-icon-fa btn-dashboard-sm">
+                                                Request Payment
+                                                <i class="fa fa-money"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-sm-7">
+                <div class="gym-checkin-inner">
+                    <div class="dash-box dash-box-default">
+                        <div class="dash-box-heading">
+                            <div class="dash-box-title">
+                                Check-in Data
+                            </div>
+                        </div>
+                        <div class="dash-box-body with-table">
+                            <table class="table table-bordered table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th>User</th>
+                                        <th>Date Pass Purchased</th>
+                                        <th>Date Pass Redeemed</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="user in recentCheckIns track by $index">
+                                        <td>{{user.name}} ({{user.email}})</td>
+                                        <td>{{user.dateBought}}</td>
+                                        <td>{{user.dateUsed}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="dashboard-footer">
+        © 2016
+        <a href="http://www.pedal.com">
+            <strong>Pedal Holdings Inc.</strong>
+        </a>
+        San Francisco, CA
+    </footer>
+</div>

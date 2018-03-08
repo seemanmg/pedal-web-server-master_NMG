@@ -1,0 +1,1 @@
+ALTER TABLE Gyms ADD StripeUrl nvarchar(100) NULL

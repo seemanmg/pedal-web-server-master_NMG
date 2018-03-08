@@ -1,0 +1,381 @@
+﻿    <!-- Jumbotron -->
+    <header class="jumbotron" role="banner">
+
+        <!--div id="video-container">
+            <video preload="auto" muted="" autoplay loop poster="http://pictures.pedal.com/frontend/workout.jpg" id="bgvid">
+                <source src="http://pictures.pedal.com/frontend/workout.webm" codecs="vp8, vorbis" type="video/webm">
+                <source src="http://pictures.pedal.com/frontend/workout.mp4" type="video/mp4">
+                <source src="http://pictures.pedal.com/frontend/workout.ogv" codecs="theora, vorbis" type="video/ogg">
+            </video>
+        </div-->
+        <div id="home-image-container">
+           &nbsp;
+        </div>
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-md-8">
+
+                    <!-- Logo -->
+                    <figure class="text-center logo-home">
+                        <a href="./index.html">
+                            <img class="img-logo" src="https://gympictures.blob.core.windows.net/frontend/home-page-logo.png" alt="">
+                        </a>
+                    </figure> <!-- /.text-center -->
+                    <!-- Title -->
+                    <h1>Discover Fitness That Fits You</h1>
+
+                    <!-- Sub title -->
+                    <p>On-demand access to 300+ gyms, studios, and fitness activities</p>
+
+                    <!-- Button -->
+                    <!--p class="btn-app-store">
+                        <a class="btn btn-danger btn-lg" href="https://itunes.apple.com/us/app/pedal-fitness/id953367967?mt=8">
+                            <img src="http://pictures.pedal.com/frontend/btn-app-store.png" alt="">
+                        </a>
+                    </p--> <!-- /.btn-app-store -->
+
+                </div> <!-- /.col-md-7 -->
+
+                <div class="col-md-4 right-phone">
+
+                    <!-- Images showcase -->
+                    <figure>
+                        <!--img class="img-iPhone" src="http://pictures.pedal.com/frontend/Pedal_iPhone_Green.png" alt=""-->
+                        <img class="img-iPhone" src="http://pictures.pedal.com/frontend/home-mobile-screen.png" alt="" />
+                    </figure>
+
+                </div> <!-- /.col-md-5 -->
+
+            </div> <!-- /.row -->
+
+        </div> <!-- /.container -->
+
+    </header> <!-- /.jumbotron -->
+    
+    <!-- Services -->
+    <section class="services-section" id="section-1">
+
+        <div class="container">
+
+            <div class="row function-title">
+
+                <h1>How does it work?</h1>
+
+                <!-- Row -->
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-3 col-services">
+
+                    <!-- Icons -->
+                    <figure>
+                        <img class="img-noWidth img-margin" src="http://pictures.pedal.com/frontend/user.png" alt="">
+                    </figure>
+
+                    <!-- Title -->
+                    <h4>Sign Up</h4>
+
+                    <!-- Description -->
+                    <p>Join for free and explore fitness options that fit your lifestyle</p>
+
+                </div> <!-- /.col-md-3 -->
+
+                <div class="col-md-3 col-services">
+
+                    <!-- Icons -->
+                    <figure>
+                        <img class="img-noWidth img-margin" src="http://pictures.pedal.com/frontend/search.png" alt="">
+                    </figure>
+
+                    <!-- Title -->
+                    <h4>Find A Gym</h4>
+
+                    <!-- Description -->
+                    <p>Simply search our extensive list of Pedal Partners until you find the perfect match</p>
+
+                </div> <!-- /.col-md-3 -->
+
+                <div class="col-md-3 col-services">
+
+                    <!-- Icons -->
+                    <figure>
+                        <img class="img-noWidth img-margin" src="http://pictures.pedal.com/frontend/basket.png" alt="">
+                    </figure>
+
+                    <!-- Title -->
+                    <h4>Buy A Pass</h4>
+
+                    <!-- Description -->
+                    <p>Choose from a single use day pass or try our unlimited 14-day Pedal Discovery Pass</p>
+
+                </div> <!-- /.col-md-3 -->
+
+                <div class="col-md-3 col-services">
+
+                    <!-- Icons -->
+                    <figure>
+                        <img class="img-noWidth img-margin" src="http://pictures.pedal.com/frontend/iPhone.png" alt="">
+                    </figure>
+
+                    <!-- Title -->
+                    <h4>Workout</h4>
+
+                    <!-- Description -->
+                    <p>Access your pass in the Pedal app and activate when you arrive at the gym</p>
+
+                </div> <!-- /.col-md-3 -->
+
+            </div> <!-- /.row -->
+
+        </div> <!-- /.container -->
+
+    </section> <!-- /.services-section -->
+
+    <!-- Features -->
+    <section class="home-signup-section" id="section-2">
+    <div class="container">
+        <h1>
+            Sign-up for exclusive updates
+        </h1>
+               
+        <form id="myForm" ng-submit="submitExclusiveUpdate()" autocomplete="off" role="form">
+            <div class="row">
+                <div class="col-md-6">
+                    <label class="label-form">
+                        First Name <span class="astrik">*</span>
+                    </label>
+                    <div class="form-group">
+                        <input class="form-control register-form" id="FirstName" type="text" ng-model="FirstName" required placeholder=" ">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label class="label-form">
+                        Last Name <span class="astrik">*</span>
+                    </label>
+                    <div class="form-group">
+                        <input class="form-control register-form" id="gymPhone" type="tel" ng-model="gymPhone" required placeholder="">
+                    </div>
+                </div>
+                <div class="cl"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label class="label-form">
+                        Email Address <span class="astrik">*</span>
+                    </label>
+                    <div class="form-group">
+                        <input class="form-control register-form" id="contactEmail" type="email" ng-model="contactEmail" required placeholder="">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label class="label-form">
+                        Phone Number
+                    </label>
+                    <div class="form-group">
+                        <input class="form-control register-form" id="contactPhone" type="tel" ng-model="contactPhone" placeholder="">
+                    </div>
+                </div>
+                <div class="cl"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label class="label-form">
+                        City
+                    </label>
+                    <div class="form-group">
+                        <input class="form-control register-form" id="autocomplete" type="text" ng-model="cityAndState" autocomplete="off" placeholder="City">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label class="label-form">
+                        State
+                    </label>
+                    <div class="form-group">
+                        <select style="padding: 4px 2px;" class="form-control" id="state" placeholder="state" ng-model="state" ng-options="state.fullName for state in states track by state.shortName">
+                            <option value="" selected disabled>State</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="cl"></div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-12">
+
+                    <div id="errorMessage" ng-show="showErrorMessage">
+                        <h4 class="error-align" style="padding-left:15px; color:#dc554f;">{{ errorMessage }}</h4>
+                    </div>
+                    <div class="reg-form-align">
+                        <button ng-show="!isRegistering" class="btn reg-btn-align" type="submit">Submit</button>
+                    </div>
+                </div>
+                </div>
+
+</form>
+
+
+
+    </div>
+
+</section> <!-- /.features-section -->
+    <!-- Subscribe -->
+    <section class="subscribe-section" id="section-3">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-md-8 register-section-col">
+
+                    <!-- Title -->
+                    <h2>Run a gym?</h2>
+
+                    <p>We would love to have you in our network. Pedal is FREE to join and gives you access to users from across the country. Increasing your revenue without costing you a dime.
+                    <br /><br />
+                        <a href="#" class="more-questions contact-link">Have questions? We are here to help.</a>
+                    </p>
+
+                </div> <!-- /.col-md-8 -->
+
+                <div class="col-md-4">
+                    
+                    <p class="registration-buttons">
+                        <a id="learn-more" class="btn btn-danger" href="/gym.html#/register">Learn More</a>
+                    </p>
+
+                    <p class="registration-buttons">
+                        <a id="sign-in-front" class="btn btn-danger" href="/gym.html#/login">Sign In</a>
+                    </p>
+
+                </div>  <!-- /.col-md-4 -->
+
+            </div> <!-- /.row -->
+
+        </div> <!-- /.container -->
+
+    </section> <!-- /.subscribe-section -->
+
+    <section class="contact-section collapsing-section" id="section-4">
+
+        <div class="container">
+
+            <div style="padding: 0 20px;" class="row">
+
+                <h1 class="get-in-touch-title" ng-show="!sendEmailSuccessful">Get in touch</h1>
+
+                <form ng-show="!sendEmailSuccessful" id="myContactForm" ng-submit="sendContactForm()" autocomplete="off" role="form">
+                    <div class="input-field">
+                        
+                        <div class="form-group">
+                            <input class="register-form form-control contact-form" id="email" type="email" ng-model="email" required placeholder="Your email address">
+                        </div>
+                        <div class="form-group">
+                            <input class="register-form form-control contact-form" id="name" type="text" ng-model="name" required placeholder="Your name">
+                        </div>
+                        <div class="form-group">
+                            <textarea rows="6" class="form-control contact-form" id="message" ng-model="message" required placeholder="What's up?"></textarea>
+                        </div>
+
+                    </div>
+                    <div>
+                        <h2 class="error-align" style="color:#dc554f;">{{ errorMessage }}</h2>
+                    </div>
+                    <div class="get-in-touch-button">
+                        <button ng-show="!isSending" class="btn btn-danger btn-lg" type="submit">Send Message</button>
+                    </div>
+                    <div ng-show="isSending" class="loading-logo" style="margin-left:60px;">
+                        <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="50.000000pt" height="50.000000pt" viewBox="0 0 300.000000 300.000000" preserveAspectRatio="xMidYMid meet">
+                            <g transform="translate(0.000000,300.000000) scale(0.100000,-0.100000)" stroke-width="5px">
+                                <path fill="#CF3029" stroke="#CF3029" class="Animate-Draw" id="top-of-icon" d="M1245 2754 c-326 -46 -516 -233 -517 -509 0 -166 68 -289 292 -530
+                            199 -213 267 -307 307 -425 12 -36 28 -66 35 -68 7 -1 69 6 138 16 l125 19 -3
+                            33 c-5 48 -48 165 -88 236 -47 86 -152 218 -289 364 -193 206 -241 285 -232
+                            379 17 162 170 221 541 208 226 -8 332 -40 384 -117 21 -30 23 -44 19 -97 l-5
+                            -61 85 -52 c46 -28 99 -64 117 -81 19 -16 36 -29 39 -29 3 0 15 37 27 82 18
+                            66 21 102 18 183 -3 90 -7 109 -36 167 -60 123 -184 213 -357 259 -70 19 -110
+                            22 -325 25 -135 1 -258 0 -275 -2z" />
+                                <path fill="#CF3029" stroke="#CF3029" class="Animate-Draw" id="bottom-of-icon" d="M1379 2239 c-123 -13 -279 -59 -279 -82 0 -14 41 -67 117 -153 l63
+                            -71 62 13 c255 54 528 -42 704 -248 60 -71 128 -209 149 -304 24 -104 16 -281
+                            -15 -374 -85 -250 -277 -428 -530 -491 -77 -19 -259 -17 -340 4 -201 53 -385
+                            204 -474 390 -115 239 -88 536 69 741 l36 48 -48 56 c-26 30 -65 78 -86 106
+                            -21 28 -43 51 -50 51 -20 0 -125 -147 -171 -240 -70 -141 -114 -336 -108 -475
+                            30 -660 651 -1119 1277 -944 184 51 335 143 468 284 291 310 356 752 167 1135
+                            -128 260 -374 460 -650 529 -60 14 -235 37 -270 34 -8 0 -49 -4 -91 -9z" />
+                            </g>
+                        </svg>
+                    </div>
+                </form>
+
+                <div ng-show="sendEmailSuccessful">
+                    <h2 class="success-align">Thanks, we'll get back to you as soon as we can!</h2>
+                </div>
+
+
+            </div> <!-- /.row -->
+
+        </div> <!-- /.container -->
+
+    </section> <!-- /.contact-section -->
+   
+    <!-- Footer -->
+    <footer class="footer-section" role="contentinfo">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-md-8 col-footer col-padding">
+
+                    <!-- Footer 1 -->
+                    <section>
+                        <p style="margin:0;">Be sure to read our <a href="/index.html#/terms">Terms of Service</a>.</p>
+                    </section>
+                    <section>
+                        <p style="margin:0;">Feel free to <a class="contact-link" href="#">get in touch</a> or email us at <a href="mailto:hello@pedal.com">hello@pedal.com</a>.</p>
+                    </section>
+
+                    <!-- Social media links
+                    <ul class="social-media-links">
+
+                      <li><a class="fa fa-twitter tw" href="#fakelinks"></a></li>
+                      <li><a class="fa fa-facebook fb" href="https://www.facebook.com/getstacktive/"></a></li>
+
+                    </ul>  /.social-media-links -->
+
+                </div> <!-- /.col-md-4 -->
+
+                <div class="col-md-4 col-footer">
+
+                    <!-- Footer 1 -->
+                    <section>
+                        <p><strong>Pedal Holdings Inc.</strong> <br>San Francisco, CA</p>
+                    </section>
+
+                </div> <!-- /.col-md-4 -->
+
+            </div> <!-- /.row -->
+
+        </div> <!-- /.container -->
+
+    </footer> <!-- /.footer-section -->
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+
+        $(".collapsing-section").hide();
+
+        $('.contact-link').click(function (e) {
+            e.stopPropagation();
+            $(".collapsing-section").slideToggle();
+            return false;
+      });
+
+    });
+
+</script>

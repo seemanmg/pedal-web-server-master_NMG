@@ -1,0 +1,1 @@
+ALTER TABLE Gyms ADD SignUpToken uniqueidentifier NULL DEFAULT NULL;

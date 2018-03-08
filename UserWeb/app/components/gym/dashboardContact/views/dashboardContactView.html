@@ -1,0 +1,86 @@
+﻿
+
+<div class="dashboardPage">
+    
+    <h2 class="dash-contact-title" ng-show="!sendEmailSuccessful">Get in touch</h2>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div ng-show="!sendEmailSuccessful" class="dash-box dash-box-primary">
+                
+                <div class="dash-box-heading">
+                    <div class="dash-box-title">
+                        Contact Us
+                    </div>
+                </div>
+
+                <div class="dash-box-body">
+                    <form class="form-horizontal form-groups-bordered" ng-show="!sendEmailSuccessful" id="myContactForm" ng-submit="sendContactForm()" autocomplete="off" role="form">
+
+                            <div class="form-group">
+                                <label style="width:25%; padding-top:5px;" class="col-sm-3 control-label" for="email">Email</label>
+                                <div class="col-sm-5">
+                                    <input class="form-control form-control-dashboard" id="email" type="email" ng-model="email" required placeholder="Your email address">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label style="width:25%; padding-top:5px;" class="col-sm-3 control-label" for="name">Name</label>
+                                <div class="col-sm-5">
+                                    <input class="form-control form-control-dashboard" id="name" type="text" ng-model="name" required placeholder="Your name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label style="width:25%; padding-top:5px;" class="col-sm-3 control-label" for="message">Message</label>
+                                <div class="col-sm-5">
+                                    <textarea rows="8" class="form-control form-control-dashboard-ta" id="message" ng-model="message" required placeholder="What can we do for you?"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div style="text-align:left;" class="col-sm-offset-3 col-sm-3">
+                                    <button ng-show="!isSending" class="btn btn-default btn-icon btn-dashboard-sm" type="submit">
+                                        Send Message
+                                        <i class="entypo-paper-plane"></i>
+                                    </button>
+                                    <div ng-show="isSending" class="loading-logo" style="margin-left:30px; margin-top:-4px; height:36px">
+                                        <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="32.000000pt" height="32.000000pt" viewBox="0 0 300.000000 300.000000" preserveAspectRatio="xMidYMid meet">
+                                            <g transform="translate(0.000000,300.000000) scale(0.100000,-0.100000)" stroke-width="5px">
+                                                <path fill="#d6d6d8" stroke="#d6d6d8" class="Animate-Draw" id="top-of-icon" d="M1245 2754 c-326 -46 -516 -233 -517 -509 0 -166 68 -289 292 -530
+                                                    199 -213 267 -307 307 -425 12 -36 28 -66 35 -68 7 -1 69 6 138 16 l125 19 -3
+                                                    33 c-5 48 -48 165 -88 236 -47 86 -152 218 -289 364 -193 206 -241 285 -232
+                                                    379 17 162 170 221 541 208 226 -8 332 -40 384 -117 21 -30 23 -44 19 -97 l-5
+                                                    -61 85 -52 c46 -28 99 -64 117 -81 19 -16 36 -29 39 -29 3 0 15 37 27 82 18
+                                                    66 21 102 18 183 -3 90 -7 109 -36 167 -60 123 -184 213 -357 259 -70 19 -110
+                                                    22 -325 25 -135 1 -258 0 -275 -2z" />
+                                                <path fill="#d6d6d8" stroke="#d6d6d8" class="Animate-Draw" id="bottom-of-icon" d="M1379 2239 c-123 -13 -279 -59 -279 -82 0 -14 41 -67 117 -153 l63
+                                                    -71 62 13 c255 54 528 -42 704 -248 60 -71 128 -209 149 -304 24 -104 16 -281
+                                                    -15 -374 -85 -250 -277 -428 -530 -491 -77 -19 -259 -17 -340 4 -201 53 -385
+                                                    204 -474 390 -115 239 -88 536 69 741 l36 48 -48 56 c-26 30 -65 78 -86 106
+                                                    -21 28 -43 51 -50 51 -20 0 -125 -147 -171 -240 -70 -141 -114 -336 -108 -475
+                                                    30 -660 651 -1119 1277 -944 184 51 335 143 468 284 291 310 356 752 167 1135
+                                                    -128 260 -374 460 -650 529 -60 14 -235 37 -270 34 -8 0 -49 -4 -91 -9z" />
+                                            </g>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div style="text-align:left;" class="col-sm-6">
+                                    <h5 class="dash-contact-error" style="color:#dc554f;">{{ errorMessage }}</h5>
+                                </div>
+                            </div>
+                       
+                    </form>
+                </div>
+            </div>
+            <div ng-show="sendEmailSuccessful">
+                <h3>Thanks, we'll get back to you as soon as we can!</h3>
+            </div>
+        </div>
+    </div>
+    <footer class="dashboard-footer">
+        © 2016
+        <a href="http://www.pedal.com">
+            <strong>Pedal Holdings Inc.</strong>
+        </a>
+        San Francisco, CA
+    </footer>
+</div>

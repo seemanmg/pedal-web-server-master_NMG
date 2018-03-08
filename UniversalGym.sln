@@ -1,0 +1,85 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalGym.API", "UniversalGym.WebService\UniversalGym.API.csproj", "{0A25B2C3-B370-4BF9-8E9F-D9AB35110210}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frontend", "UserWeb\Frontend.csproj", "{B1B0786A-1F83-487F-AC58-BD9473DF713C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalGym.Data", "UniversalGym.Data\UniversalGym.Data.csproj", "{11D83DB7-DD7B-42CB-9B6D-9098DC9F6762}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pedal.Tests", "Stacktive.Tests\Pedal.Tests.csproj", "{D06A318A-8FD9-4EEF-A2DE-B29A1C43BB83}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://10.0.0.3:8080/tfs/nmg_dotnet
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Stacktive.Tests\\Pedal.Tests.csproj
+		SccProjectName1 = Stacktive.Tests
+		SccLocalPath1 = Stacktive.Tests
+		SccProjectUniqueName2 = UniversalGym.Data\\UniversalGym.Data.csproj
+		SccProjectName2 = UniversalGym.Data
+		SccLocalPath2 = UniversalGym.Data
+		SccProjectUniqueName3 = UniversalGym.WebService\\UniversalGym.API.csproj
+		SccProjectName3 = UniversalGym.WebService
+		SccLocalPath3 = UniversalGym.WebService
+		SccProjectUniqueName4 = UserWeb\\Frontend.csproj
+		SccProjectName4 = UserWeb
+		SccLocalPath4 = UserWeb
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		CD_ROM|Any CPU = CD_ROM|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		DVD-5|Any CPU = DVD-5|Any CPU
+		Release|Any CPU = Release|Any CPU
+		SingleImage|Any CPU = SingleImage|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0A25B2C3-B370-4BF9-8E9F-D9AB35110210}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{0A25B2C3-B370-4BF9-8E9F-D9AB35110210}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{0A25B2C3-B370-4BF9-8E9F-D9AB35110210}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A25B2C3-B370-4BF9-8E9F-D9AB35110210}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A25B2C3-B370-4BF9-8E9F-D9AB35110210}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A25B2C3-B370-4BF9-8E9F-D9AB35110210}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{0A25B2C3-B370-4BF9-8E9F-D9AB35110210}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A25B2C3-B370-4BF9-8E9F-D9AB35110210}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A25B2C3-B370-4BF9-8E9F-D9AB35110210}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{0A25B2C3-B370-4BF9-8E9F-D9AB35110210}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{B1B0786A-1F83-487F-AC58-BD9473DF713C}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{B1B0786A-1F83-487F-AC58-BD9473DF713C}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{B1B0786A-1F83-487F-AC58-BD9473DF713C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1B0786A-1F83-487F-AC58-BD9473DF713C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1B0786A-1F83-487F-AC58-BD9473DF713C}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1B0786A-1F83-487F-AC58-BD9473DF713C}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{B1B0786A-1F83-487F-AC58-BD9473DF713C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1B0786A-1F83-487F-AC58-BD9473DF713C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1B0786A-1F83-487F-AC58-BD9473DF713C}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{B1B0786A-1F83-487F-AC58-BD9473DF713C}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{11D83DB7-DD7B-42CB-9B6D-9098DC9F6762}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{11D83DB7-DD7B-42CB-9B6D-9098DC9F6762}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{11D83DB7-DD7B-42CB-9B6D-9098DC9F6762}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11D83DB7-DD7B-42CB-9B6D-9098DC9F6762}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11D83DB7-DD7B-42CB-9B6D-9098DC9F6762}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{11D83DB7-DD7B-42CB-9B6D-9098DC9F6762}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{11D83DB7-DD7B-42CB-9B6D-9098DC9F6762}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11D83DB7-DD7B-42CB-9B6D-9098DC9F6762}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11D83DB7-DD7B-42CB-9B6D-9098DC9F6762}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{11D83DB7-DD7B-42CB-9B6D-9098DC9F6762}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{D06A318A-8FD9-4EEF-A2DE-B29A1C43BB83}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{D06A318A-8FD9-4EEF-A2DE-B29A1C43BB83}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{D06A318A-8FD9-4EEF-A2DE-B29A1C43BB83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D06A318A-8FD9-4EEF-A2DE-B29A1C43BB83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D06A318A-8FD9-4EEF-A2DE-B29A1C43BB83}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{D06A318A-8FD9-4EEF-A2DE-B29A1C43BB83}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{D06A318A-8FD9-4EEF-A2DE-B29A1C43BB83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D06A318A-8FD9-4EEF-A2DE-B29A1C43BB83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D06A318A-8FD9-4EEF-A2DE-B29A1C43BB83}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{D06A318A-8FD9-4EEF-A2DE-B29A1C43BB83}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

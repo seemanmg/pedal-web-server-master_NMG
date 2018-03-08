@@ -1,0 +1,70 @@
+﻿.orange-text {
+    color: #37CFDF !important;
+}
+
+.orange-background {
+    color: #37CFDF !important;
+}
+
+.white-text {
+    color: #FFFFFF !important;
+}
+
+.tag {
+    border: 2px solid #ff9800;
+    border-radius: 10px;
+    color: gray;
+    float: left;
+    margin: 0.5em;
+    padding: 0.5em;
+    text-transform: uppercase;
+}
+
+.hover-color:hover, .a-icon:hover {
+    color: #ff9800 !important;
+}
+
+{
+    color: #ff9800 !important;
+}
+
+.picture-display, .no-picture {
+    height: 175px;
+    width: 100%;
+}
+
+.no-picture {
+    background-color: lightgray;
+}
+
+.no-picture-message {
+    width: 100%;
+    text-align: center;
+}
+
+.cover-container {
+    padding-left: 2.5em;
+    padding-top: 1em;
+    text-align: left;
+}
+
+.hand-over {
+    cursor: pointer;
+}
+
+.mind-body-logo {
+    width: 100%;
+    text-align: right;
+}
+
+.card-title {
+    font-size: 2em;
+}
+
+.header-text {
+    color: hsl(15, 87%, 47%) !important;
+    font-size: 24px !important;
+    font-weight: 500 !important;
+    margin: 20px 0 30px !important;
+    text-transform: uppercase !important;
+}

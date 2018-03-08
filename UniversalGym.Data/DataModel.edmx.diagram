@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6d5581ce0b1340078f77cdbce4797ea7" Name="Diagram1">
+        <EntityTypeShape EntityType="UniversalGymModel.Address" Width="1.5" PointX="9" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversalGymModel.aspnet_Applications" Width="1.5" PointX="0.75" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversalGymModel.aspnet_Membership" Width="1.5" PointX="6" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversalGymModel.aspnet_Paths" Width="1.5" PointX="3" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversalGymModel.aspnet_PersonalizationAllUsers" Width="1.5" PointX="5.25" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversalGymModel.aspnet_PersonalizationPerUser" Width="1.5" PointX="5.25" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversalGymModel.aspnet_Profile" Width="1.5" PointX="10.5" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversalGymModel.aspnet_Roles" Width="1.5" PointX="3" PointY="24.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversalGymModel.aspnet_SchemaVersions" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversalGymModel.aspnet_Users" Width="1.5" PointX="8.25" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversalGymModel.aspnet_WebEvent_Events" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversalGymModel.ContactInfo" Width="1.5" PointX="11.25" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversalGymModel.FriendInvite" Width="1.5" PointX="12.75" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversalGymModel.GiveCredit" Width="1.5" PointX="12.75" PointY="21.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversalGymModel.GymInvoice" Width="1.5" PointX="15.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversalGymModel.GymPass" Width="1.5" PointX="15.75" PointY="21.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversalGymModel.GymPhotoGallery" Width="1.5" PointX="15.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversalGymModel.Gym" Width="1.5" PointX="13.5" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversalGymModel.GymSchedule" Width="1.5" PointX="18.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversalGymModel.Log" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversalGymModel.PromoCode" Width="1.5" PointX="10.5" PointY="26.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversalGymModel.PromoCodesUsed" Width="1.5" PointX="12.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversalGymModel.SearchRequest" Width="1.5" PointX="12.75" PointY="31.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversalGymModel.TypeState" Width="1.5" PointX="6.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversalGymModel.TypeWeekDay" Width="1.5" PointX="16.5" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversalGymModel.User" Width="1.5" PointX="10.5" PointY="20.5" IsExpanded="true" />
+        <AssociationConnector Association="UniversalGymModel.FK_Addresses_TypeState" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversalGymModel.FK_ContactInfo_Addresses" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversalGymModel.FK__aspnet_Me__Appli__72C60C4A" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversalGymModel.FK__aspnet_Pa__Appli__6A30C649" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversalGymModel.FK__aspnet_Ro__Appli__778AC167" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversalGymModel.FK__aspnet_Us__Appli__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversalGymModel.FK__aspnet_Me__UserI__73BA3083" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversalGymModel.FK__aspnet_Pe__PathI__1332DBDC" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversalGymModel.FK__aspnet_Pe__PathI__6E01572D" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversalGymModel.FK__aspnet_Pe__UserI__6EF57B66" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversalGymModel.FK__aspnet_Pr__UserI__66603565" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversalGymModel.FK_Users_aspnet_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversalGymModel.FK_Gyms_OwnerContactInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversalGymModel.FK_Gyms_PublicContactInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversalGymModel.FK_FriendInvites_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversalGymModel.FK_GiveCredits_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversalGymModel.FK_GiveCredits_Users1" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversalGymModel.FK_GymInvoices_Gyms" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversalGymModel.FK_GymPasses_Gyms" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversalGymModel.FK_GymPasses_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversalGymModel.FK_GymPhotoGallery_Gyms" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversalGymModel.FK_GymSchedule_Gyms" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversalGymModel.FK_GymSchedule_TypeWeekDay" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversalGymModel.FK_PromoCodesUsed_PromoCodes" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversalGymModel.FK_PromoCodesUsed_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversalGymModel.FK_User_SearchRequest" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversalGymModel.aspnet_UsersInRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

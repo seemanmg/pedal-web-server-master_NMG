@@ -1,0 +1,387 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0A25B2C3-B370-4BF9-8E9F-D9AB35110210}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UniversalGym.API</RootNamespace>
+    <AssemblyName>UniversalGym.WebService</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <IISExpressSSLPort>44300</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+    <UseGlobalApplicationHostFile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Geocoding">
+      <HintPath>..\packages\Geocoding.net.3.4.0\lib\net40\Geocoding.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.KeyVault.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.KeyVault.Core.1.0.0\lib\net40\Microsoft.Azure.KeyVault.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Edm, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Edm.5.7.0\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.OData.5.7.0\lib\net40\Microsoft.Data.OData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services.Client, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Services.Client.5.7.0\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Configuration, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.WindowsAzure.ConfigurationManager.3.2.1\lib\net40\Microsoft.WindowsAzure.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAzure.Storage.7.0.0\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ModernHttpClient">
+      <HintPath>..\packages\modernhttpclient.2.4.2\lib\Portable-Net45+WinRT45+WP8+WPA81\ModernHttpClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ServiceStack.Client, Version=4.0.56.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Client.4.0.56\lib\net40\ServiceStack.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ServiceStack.Interfaces, Version=4.0.0.0, Culture=neutral, PublicKeyToken=e06fbc6124f57c43, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Interfaces.4.0.56\lib\portable-wp80+sl5+net40+win8+wpa81+monotouch+monoandroid+xamarin.ios10\ServiceStack.Interfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ServiceStack.Text, Version=4.0.56.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Text.4.0.56\lib\net40\ServiceStack.Text.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Stripe, Version=4.0.56.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Stripe.4.0.56\lib\net40\Stripe.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Stripe.net, Version=6.3.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Stripe.net.6.3.2\lib\net45\Stripe.net.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Data.Services.Client" />
+    <Reference Include="System.Device" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.ServiceModel.Activation" />
+    <Reference Include="System.Spatial, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Spatial.5.7.0\lib\net40\System.Spatial.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.3\lib\net45\System.Web.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Providers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.2.0.0\lib\net40\System.Web.Providers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Telerik.Web.UI, Version=2014.3.1024.45, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Telerik.Web.UI.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\emailTemplates\gym_part_of_the_network.html" />
+    <Content Include="assets\emailTemplates\contact_form.html" />
+    <Content Include="assets\emailTemplates\reset_password.html" />
+    <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="GymService.svc" />
+    <Content Include="assets\emailTemplates\gym_signup.html" />
+    <Content Include="assets\emailTemplates\user_signup.html" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="StripeHandler.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="api\admin\deleteGym\requests\deleteGymRequest.cs" />
+    <Compile Include="api\admin\getAllGymInvoices\implementation\getAllGymInvoices.cs" />
+    <Compile Include="api\admin\getAllGymInvoices\responses\getAllGymInvoicesResponse.cs" />
+    <Compile Include="api\admin\deleteGym\implementation\deleteGym.cs" />
+    <Compile Include="api\admin\getAllLogs\implementation\getAllLogs.cs" />
+    <Compile Include="api\admin\getAllLogs\requests\getAllLogsRequest.cs" />
+    <Compile Include="api\admin\getAllLogs\responses\getAllLogsResponse.cs" />
+    <Compile Include="api\admin\getAllSearchRequests\implementation\getAllSearchRequests.cs" />
+    <Compile Include="api\admin\getAllSearchRequests\responses\getAllSearchRequestsResponse.cs" />
+    <Compile Include="api\admin\getAllGymPasses\implementation\getAllGymPasses.cs" />
+    <Compile Include="api\admin\getAllGymPasses\responses\getAllGymPassesResponse.cs" />
+    <Compile Include="api\admin\getAllGiveCredits\implementation\getAllGiveCredits.cs" />
+    <Compile Include="api\admin\getAllGiveCredits\responses\getAllGiveCreditsResponse.cs" />
+    <Compile Include="api\admin\getAllUsers\implementation\getAllUsers.cs" />
+    <Compile Include="api\admin\getAllUsers\responses\getAllUsersResponse.cs" />
+    <Compile Include="api\admin\getAllGyms\implementation\getAllGyms.cs" />
+    <Compile Include="api\admin\getAllGyms\responses\getAllGymsResponse.cs" />
+    <Compile Include="api\gym\addGymHours\requests\addGymHoursRequest.cs" />
+    <Compile Include="api\gym\addGymHours\responses\addGymHoursResponse.cs" />
+    <Compile Include="api\gym\removeGymHours\implementation\removeGymHours.cs" />
+    <Compile Include="api\gym\addGymHours\implementation\addGymHours.cs" />
+    <Compile Include="api\gym\removeGymHours\requests\removeGymHoursRequest.cs" />
+    <Compile Include="api\gym\resetGymPasswordEmail\implementation\resetGymPasswordEmail.cs" />
+    <Compile Include="api\gym\updateGymPassword\implementation\updateGymPassword.cs" />
+    <Compile Include="api\gym\uploadPhoto\implementation\uploadPhoto.cs" />
+    <Compile Include="api\gym\getContract\implementation\contractFromGymId.cs" />
+    <Compile Include="api\gym\getContract\requests\contractFromPriceTierRequest.cs" />
+    <Compile Include="api\gym\getGymCheckIns\implementation\getGymCheckIns.cs" />
+    <Compile Include="api\gym\getContract\implementation\contractFromPriceTier.cs" />
+    <Compile Include="api\gym\updateBankInfo\implementation\updateBankInfo.cs" />
+    <Compile Include="api\gym\updateSelectedCoverPhoto\implementation\updateSelectedCoverPhoto.cs" />
+    <Compile Include="api\gym\deletePhoto\implementation\deletePhoto.cs" />
+    <Compile Include="api\gym\updateGymInfo\implementation\updateGymInfo.cs" />
+    <Compile Include="api\gym\getGymInfo\implementation\getGymInfo.cs" />
+    <Compile Include="api\gym\gymRegister\implementation\gymRegister.cs" />
+    <Compile Include="api\gym\gymLogin\implementation\gymLogin.cs" />
+    <Compile Include="api\gym\uploadPhoto\requests\updatePictureResponse.cs" />
+    <Compile Include="api\gym\uploadPhoto\responses\UploadPictureResponse.cs" />
+    <Compile Include="api\shared\credit\creditAdd.cs" />
+    <Compile Include="api\shared\contactForm\implementation\contactForm.cs" />
+    <Compile Include="api\shared\contactForm\requests\contactFormRequest.cs" />
+    <Compile Include="api\shared\responses\gymData\createGymDataResponse.cs" />
+    <Compile Include="api\users\airbnbRegister\requests\airbnbRegisterRequest.cs" />
+    <Compile Include="api\users\resetUserPasswordEmail\implementation\resetUserPasswordEmail.cs" />
+    <Compile Include="api\shared\requests\resetPasswordEmailRequest.cs" />
+    <Compile Include="api\gym\getContract\responses\contractResponse.cs" />
+    <Compile Include="api\shared\responses\gymSearchList\gymSearchListResponse.cs" />
+    <Compile Include="api\shared\slack\slackHelper.cs" />
+    <Compile Include="api\shared\sendEmail\sendEmailWithoutTemplate.cs" />
+    <Compile Include="api\shared\stripe\stripeAch.cs" />
+    <Compile Include="api\shared\stripe\stripeCustomer.cs" />
+    <Compile Include="api\shared\stripe\stripeSubscription.cs" />
+    <Compile Include="api\users\getUser\implementation\getUser.cs" />
+    <Compile Include="api\users\purchaseGym\responses\googleTimeZoneResponse.cs" />
+    <Compile Include="api\users\searchGymsByCity\implementation\searchGymsByCity.cs" />
+    <Compile Include="api\shared\responses\gymResponse.cs" />
+    <Compile Include="api\users\updateCard\responses\updateCardResponse.cs" />
+    <Compile Include="api\users\airbnbRegister\implementation\airbnbRegister.cs" />
+    <Compile Include="api\users\updateUserPassword\implementation\updateUserPassword.cs" />
+    <Compile Include="api\shared\requests\updatePasswordRequest.cs" />
+    <Compile Include="api\users\searchByLocation\implementation\searchByLocation.cs" />
+    <Compile Include="api\users\purchaseGym\implementation\purchaseGym.cs" />
+    <Compile Include="api\users\suspendSubscription\implementation\suspendSubscription.cs" />
+    <Compile Include="api\users\updateCard\implementation\updateCard.cs" />
+    <Compile Include="api\users\updateProfile\implementation\updateProfile.cs" />
+    <Compile Include="api\users\login\implementation\userLogin.cs" />
+    <Compile Include="api\users\appRegister\implementation\appRegister.cs" />
+    <Compile Include="assets\libs\multipartParser.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="GymService.svc.cs">
+      <DependentUpon>GymService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="api\shared\constants.cs" />
+    <Compile Include="api\shared\credit\creditUse.cs" />
+    <Compile Include="api\shared\geocoder\geocoder.cs" />
+    <Compile Include="api\shared\userCode\userCode.cs" />
+    <Compile Include="api\shared\sendEmail\sendEmailWithTemplate.cs" />
+    <Compile Include="api\shared\stripe\stripeCharge.cs" />
+    <Compile Include="api\shared\aspnetUsers\MembershipHelper.cs" />
+    <Compile Include="api\shared\responses\allData\createAllDataResponse.cs" />
+    <Compile Include="IGymService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="api\gym\gymRegister\requests\registerGymRequest.cs" />
+    <Compile Include="api\gym\updateBankInfo\requests\bankAccountInfoRequest.cs" />
+    <Compile Include="api\shared\requests\BaseRequest.cs" />
+    <Compile Include="api\users\updateCard\requests\CreditCardDataRequest.cs" />
+    <Compile Include="api\gym\getGymCheckIns\requests\getGymCheckInsRequest.cs" />
+    <Compile Include="api\users\purchaseGym\requests\purchaseDayPassRequest.cs" />
+    <Compile Include="api\users\searchByLocation\requests\searchGymRequest.cs" />
+    <Compile Include="api\users\appRegister\requests\appSignUpRequest.cs" />
+    <Compile Include="api\gym\updateGymInfo\requests\updateGymInfoRequest.cs" />
+    <Compile Include="api\users\updateProfile\requests\updateProfileRequest.cs" />
+    <Compile Include="api\shared\requests\userDataRequest.cs" />
+    <Compile Include="api\shared\responses\allData\allDataResponse.cs" />
+    <Compile Include="api\shared\responses\basicResponse.cs" />
+    <Compile Include="api\gym\getGymCheckIns\responses\gymCheckinsResponse.cs" />
+    <Compile Include="api\shared\responses\gymData\gymDataResponse.cs" />
+    <Compile Include="api\shared\responses\gymSearchList\createGymSearchListResponse.cs" />
+    <Compile Include="api\users\purchaseGym\responses\purchaseGymResponse.cs" />
+    <Compile Include="api\gym\updateSelectedCoverPhoto\requests\updateCoverPhotoRequest.cs" />
+    <Compile Include="SlackHandler.ashx.cs">
+      <DependentUpon>SlackHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="StripeHandler.ashx.cs">
+      <DependentUpon>StripeHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="api\shared\tools\logs.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="api\admin\deleteGym\responses\" />
+    <Folder Include="api\admin\getAllGiveCredits\requests\" />
+    <Folder Include="api\admin\getAllGymInvoices\requests\" />
+    <Folder Include="api\admin\getAllGymPasses\requests\" />
+    <Folder Include="api\admin\getAllGyms\requests\" />
+    <Folder Include="api\admin\getAllSearchRequests\requests\" />
+    <Folder Include="api\admin\getAllUsers\requests\" />
+    <Folder Include="api\gym\deletePhoto\requests\" />
+    <Folder Include="api\gym\deletePhoto\responses\" />
+    <Folder Include="api\gym\getGymInfo\requests\" />
+    <Folder Include="api\gym\getGymInfo\responses\" />
+    <Folder Include="api\gym\gymLogin\requests\" />
+    <Folder Include="api\gym\gymLogin\responses\" />
+    <Folder Include="api\gym\gymRegister\responses\" />
+    <Folder Include="api\gym\removeGymHours\responses\" />
+    <Folder Include="api\gym\resetGymPasswordEmail\requests\" />
+    <Folder Include="api\gym\resetGymPasswordEmail\responses\" />
+    <Folder Include="api\gym\updateBankInfo\responses\" />
+    <Folder Include="api\gym\updateGymInfo\responses\" />
+    <Folder Include="api\gym\updateGymPassword\requests\" />
+    <Folder Include="api\gym\updateGymPassword\responses\" />
+    <Folder Include="api\gym\updateSelectedCoverPhoto\responses\" />
+    <Folder Include="api\shared\contactForm\responses\" />
+    <Folder Include="api\users\airbnbRegister\responses\" />
+    <Folder Include="api\users\appRegister\responses\" />
+    <Folder Include="api\users\getUser\requests\" />
+    <Folder Include="api\users\getUser\responses\" />
+    <Folder Include="api\users\login\requests\" />
+    <Folder Include="api\users\login\responses\" />
+    <Folder Include="api\users\resetUserPasswordEmail\requests\" />
+    <Folder Include="api\users\resetUserPasswordEmail\responses\" />
+    <Folder Include="api\users\searchByLocation\responses\" />
+    <Folder Include="api\users\searchGymsByCity\requests\" />
+    <Folder Include="api\users\searchGymsByCity\responses\" />
+    <Folder Include="api\users\suspendSubscription\requests\" />
+    <Folder Include="api\users\suspendSubscription\responses\" />
+    <Folder Include="api\users\updateProfile\responses\" />
+    <Folder Include="api\users\updateUserPassword\requests\" />
+    <Folder Include="api\users\updateUserPassword\responses\" />
+    <Folder Include="Properties\PublishProfiles\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UniversalGym.Data\UniversalGym.Data.csproj">
+      <Project>{11d83db7-dd7b-42cb-9b6d-9098dc9f6762}</Project>
+      <Name>UniversalGym.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SlackHandler.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>3843</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:8012</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

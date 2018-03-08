@@ -1,0 +1,18 @@
+﻿<div>
+    <form name="form">
+        <div class="cropped-photo-menu">
+            <div id="{{picture.id}}" ng-show="picture.id" ng-class="{'isCoverPhoto': picture.isCover == true}">
+                <img src="{{picture.url}}" class="picture-display uploaded-cropped-photo" />
+            </div>
+            <div class="cropped-image-options">
+                <div class="make-cover-picture div-button" ng-model="picture.isCover" ng-click="updateCoverPhoto(picture.id)" id="isCover{{picture.id}}" data-toggle="tooltip" tooltip data-placement="top" title="" data-original-title="Set Cover">
+                    <i class="entypo-popup"></i>
+                </div> 
+                <div class="delete-cropped-picture div-button" ng-show="picture.id" ng-click="deletePicture(picture.id,$index)" ng-disabled="picture.isLoading" data-toggle="tooltip" tooltip data-placement="top" title="" data-original-title="Delete">
+                    <i class="entypo-cancel"></i>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</div>

@@ -1,0 +1,85 @@
+﻿<div class="login-container">
+    <div class="login-logo-container">
+        <div style="padding:0;" class="row login-logo">
+            
+            <div class="login-logo-top">
+                <!--img class="img-logo" src="http://pictures.pedal.com/frontend/login-logo.png" alt="" -->
+                <img class="img-logo" src="https://gympictures.blob.core.windows.net/frontend/home-page-logo.png" style="max-width:120px;" alt="">
+                
+            </div>
+        </div>
+        <div class="row sub-title-login">
+            <h5 style="font-weight:400; margin:0; font-size:16px; color:#949494;">Partner gym admin area login.</h5>
+        </div>
+    </div>
+    <div class="login-form-container">
+        <div class="login-form">
+            <form id="entry-form" ng-submit="LogIn()" autocomplete="off" role="form">
+                    <div class="form-group">
+                        <div class="input-group login-input-group">
+                            <div class="input-group-addon">
+                                <i class="entypo-user"></i>
+                            </div>
+                            <input class="form-control login-form-control" id="email" type="email" ng-model="username" required placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group login-input-group">
+                            <div class="input-group-addon">
+                                <i class="entypo-key"></i>
+                            </div>
+                            <input class="form-control login-form-control" id="password" type="password" ng-model="password" required placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button ng-disabled="signingIn" class="btn btn-primary btn-block btn-login" type="submit">
+                            <i class="entypo-login"></i>
+                            {{buttonText}}
+                        </button>
+                    </div>
+
+                    <div class="login-errors">
+                        <ul class="unstyled list-unstyled">
+                            <li>{{ErrorMessage}}</li>
+                        </ul>
+                    </div>
+
+            </form>
+            <div class="login-links">
+                <p>
+                    <a class="login-links-link" href="/gym.html#/forgotPassword">
+                        Forgot your password?
+                    </a>
+                </p>
+            </div>
+            <div class="login-reg-links">
+                <p>
+                    <a class="login-reg-links-link" href="/gym.html#/register#section-4">
+                        Not a member? Register your facility.
+                    </a>
+                </p>
+            </div>
+            <div class="login-message">
+                <p>{{message}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .dashboardContent {
+        padding: 0 !important;
+    }
+</style>
+
+<script type="text/javascript">
+
+    $('input').focus(
+        function () {
+            $(this).parent('div').css('border-color', 'rgba(98, 111, 133, 0.5)');
+        }).blur(
+        function () {
+            $(this).parent('div').css('border-color', '#373e4a');
+        });
+
+</script>

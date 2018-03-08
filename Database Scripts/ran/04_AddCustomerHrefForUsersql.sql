@@ -1,0 +1,1 @@
+ALTER TABLE PaymentInfo ADD CustomerHref VARCHAR(250) NULL;

@@ -1,0 +1,32 @@
+/* Reuben Styles */
+
+@import url(https://fonts.googleapis.com/css?family=Oswald:400,700,300);
+
+body{
+	background: #eee !important;
+}
+
+.container{
+	max-width: 960px;
+}
+
+#map {
+  height: 420px;
+  width: 600px;
+}
+
+div.scrollable {
+    width: 100px;
+    height: 50px;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+}
+
+table.fixed {
+  table-layout: fixed;
+  width: 5300px; /* Important */
+}
+td.fixed {
+  width: 100px;
+}

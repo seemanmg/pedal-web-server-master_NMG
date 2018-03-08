@@ -1,0 +1,2007 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="UniversalGymModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Addresses">
+          <Key>
+            <PropertyRef Name="AddressId" />
+          </Key>
+          <Property Name="AddressId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StreetLine1" Type="nvarchar" MaxLength="350" Nullable="false" />
+          <Property Name="StreetLine2" Type="nvarchar" MaxLength="350" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TypeStateId" Type="int" Nullable="false" />
+          <Property Name="Zip" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="badData" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_Applications">
+          <Key>
+            <PropertyRef Name="ApplicationId" />
+          </Key>
+          <Property Name="ApplicationName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="LoweredApplicationName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="aspnet_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="PasswordFormat" Type="int" Nullable="false" />
+          <Property Name="PasswordSalt" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="MobilePIN" Type="nvarchar" MaxLength="16" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="LoweredEmail" Type="nvarchar" MaxLength="256" />
+          <Property Name="PasswordQuestion" Type="nvarchar" MaxLength="256" />
+          <Property Name="PasswordAnswer" Type="nvarchar" MaxLength="128" />
+          <Property Name="IsApproved" Type="bit" Nullable="false" />
+          <Property Name="IsLockedOut" Type="bit" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="LastLoginDate" Type="datetime" Nullable="false" />
+          <Property Name="LastPasswordChangedDate" Type="datetime" Nullable="false" />
+          <Property Name="LastLockoutDate" Type="datetime" Nullable="false" />
+          <Property Name="FailedPasswordAttemptCount" Type="int" Nullable="false" />
+          <Property Name="FailedPasswordAttemptWindowStart" Type="datetime" Nullable="false" />
+          <Property Name="FailedPasswordAnswerAttemptCount" Type="int" Nullable="false" />
+          <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="datetime" Nullable="false" />
+          <Property Name="Comment" Type="ntext" />
+        </EntityType>
+        <EntityType Name="aspnet_Paths">
+          <Key>
+            <PropertyRef Name="PathId" />
+          </Key>
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PathId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Path" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="LoweredPath" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_PersonalizationAllUsers">
+          <Key>
+            <PropertyRef Name="PathId" />
+          </Key>
+          <Property Name="PathId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PageSettings" Type="image" Nullable="false" />
+          <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_PersonalizationPerUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PathId" Type="uniqueidentifier" />
+          <Property Name="UserId" Type="uniqueidentifier" />
+          <Property Name="PageSettings" Type="image" Nullable="false" />
+          <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_Profile">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PropertyNames" Type="ntext" Nullable="false" />
+          <Property Name="PropertyValuesString" Type="ntext" Nullable="false" />
+          <Property Name="PropertyValuesBinary" Type="image" Nullable="false" />
+          <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="LoweredRoleName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="aspnet_SchemaVersions">
+          <Key>
+            <PropertyRef Name="Feature" />
+            <PropertyRef Name="CompatibleSchemaVersion" />
+          </Key>
+          <Property Name="Feature" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="CompatibleSchemaVersion" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="IsCurrentVersion" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="LoweredUserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="MobileAlias" Type="nvarchar" MaxLength="16" />
+          <Property Name="IsAnonymous" Type="bit" Nullable="false" />
+          <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_UsersInRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_WebEvent_Events">
+          <Key>
+            <PropertyRef Name="EventId" />
+          </Key>
+          <Property Name="EventId" Type="char" MaxLength="32" Nullable="false" />
+          <Property Name="EventTimeUtc" Type="datetime" Nullable="false" />
+          <Property Name="EventTime" Type="datetime" Nullable="false" />
+          <Property Name="EventType" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="EventSequence" Type="decimal" Precision="19" Scale="0" Nullable="false" />
+          <Property Name="EventOccurrence" Type="decimal" Precision="19" Scale="0" Nullable="false" />
+          <Property Name="EventCode" Type="int" Nullable="false" />
+          <Property Name="EventDetailCode" Type="int" Nullable="false" />
+          <Property Name="Message" Type="nvarchar" MaxLength="1024" />
+          <Property Name="ApplicationPath" Type="nvarchar" MaxLength="256" />
+          <Property Name="ApplicationVirtualPath" Type="nvarchar" MaxLength="256" />
+          <Property Name="MachineName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="RequestUrl" Type="nvarchar" MaxLength="1024" />
+          <Property Name="ExceptionType" Type="nvarchar" MaxLength="256" />
+          <Property Name="Details" Type="ntext" />
+        </EntityType>
+        <EntityType Name="ContactInfo">
+          <Key>
+            <PropertyRef Name="ContactInfoId" />
+          </Key>
+          <Property Name="ContactInfoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="250" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="25" />
+          <Property Name="AddressId" Type="int" />
+          <Property Name="badData" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FriendInvites">
+          <Key>
+            <PropertyRef Name="FriendInviteId" />
+          </Key>
+          <Property Name="FriendInviteId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="FriendEmail" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="InviteDate" Type="datetime" Nullable="false" />
+          <Property Name="CreditsReward" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GiveCredits">
+          <Key>
+            <PropertyRef Name="GiveCreditsId" />
+          </Key>
+          <Property Name="GiveCreditsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AmountToGiveNewUser" Type="int" Nullable="false" />
+          <Property Name="UserIdToGiveCredits" Type="int" Nullable="false" />
+          <Property Name="DateTime" Type="datetime" Nullable="false" />
+          <Property Name="UserIdWhoGiveCredits" Type="int" />
+          <Property Name="AmountToGiveReferer" Type="int" />
+          <Property Name="AmountCharged" Type="int" />
+        </EntityType>
+        <EntityType Name="GymInvoices">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StartPeriodDate" Type="datetime" Nullable="false" />
+          <Property Name="EndPeriodDate" Type="datetime" Nullable="false" />
+          <Property Name="AmountPaid" Type="int" Nullable="false" />
+          <Property Name="IsCollected" Type="bit" Nullable="false" />
+          <Property Name="GymId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GymPasses">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="GymId" Type="int" Nullable="false" />
+          <Property Name="LocalDateBought" Type="datetime" Nullable="false" />
+          <Property Name="LocalDateExpired" Type="datetime" Nullable="false" />
+          <Property Name="CreditsUsed" Type="int" Nullable="false" />
+          <Property Name="AmountCharged" Type="int" Nullable="false" />
+          <Property Name="ServerTimeDateBought" Type="datetime" Nullable="false" />
+          <Property Name="GymPassCost" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GymPhotoGallery">
+          <Key>
+            <PropertyRef Name="GymPhotoGalleryId" />
+          </Key>
+          <Property Name="GymPhotoGalleryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GymId" Type="int" Nullable="false" />
+          <Property Name="Photo" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="IsCoverPhoto" Type="bit" Nullable="false" />
+          <Property Name="badData" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Gyms">
+          <Key>
+            <PropertyRef Name="GymId" />
+          </Key>
+          <Property Name="GymId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GymName" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="GymInfo" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ApplicationDate" Type="datetime" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreditDollarValue" Type="int" Nullable="false" />
+          <Property Name="GymGuid" Type="uniqueidentifier" />
+          <Property Name="IsApproved" Type="bit" Nullable="false" />
+          <Property Name="Position" Type="geography" />
+          <Property Name="Url" Type="varchar" MaxLength="250" />
+          <Property Name="OwnerName" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="PriceToCharge" Type="int" Nullable="false" />
+          <Property Name="CurrentToken" Type="varchar" MaxLength="250" />
+          <Property Name="ScheduleUrl" Type="varchar" MaxLength="250" />
+          <Property Name="StripeUrl" Type="nvarchar" MaxLength="100" />
+          <Property Name="PublicContactInfoId" Type="int" />
+          <Property Name="OwnerContactInfoId" Type="int" />
+          <Property Name="ActiveDate" Type="datetime" />
+          <Property Name="badData" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GymSchedule">
+          <Key>
+            <PropertyRef Name="GymScheduleId" />
+          </Key>
+          <Property Name="GymScheduleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GymId" Type="int" Nullable="false" />
+          <Property Name="TypeWeekDayId" Type="int" Nullable="false" />
+          <Property Name="StartTime" Type="datetime" Nullable="false" />
+          <Property Name="EndTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Logs">
+          <Key>
+            <PropertyRef Name="LogId" />
+          </Key>
+          <Property Name="LogId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LogMessage" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="InsertDate" Type="datetime" Nullable="false" />
+          <Property Name="IsError" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PromoCodes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PromoDescription" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreditValue" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PromoCodesUsed">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="PromoCodeId" Type="int" />
+          <Property Name="DateUsed" Type="datetime" />
+        </EntityType>
+        <EntityType Name="SearchRequest">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="SearchDate" Type="datetime" Nullable="false" />
+          <Property Name="Request" Type="varchar" MaxLength="250" />
+          <Property Name="Position" Type="geography" />
+          <Property Name="UniqueDeviceIdentifier" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="TypeState">
+          <Key>
+            <PropertyRef Name="TypeStateId" />
+          </Key>
+          <Property Name="TypeStateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StateName" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="StateAbbreviation" Type="nvarchar" MaxLength="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TypeWeekDay">
+          <Key>
+            <PropertyRef Name="TypeWeekDayId" />
+          </Key>
+          <Property Name="TypeWeekDayId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeDescription" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Order" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserGuid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="hasCreditCard" Type="bit" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="hasActiveSubscription" Type="bit" Nullable="false" />
+          <Property Name="StripeUrl" Type="varchar" MaxLength="250" />
+          <Property Name="CurrentToken" Type="varchar" MaxLength="250" />
+          <Property Name="Credits" Type="int" Nullable="false" />
+          <Property Name="joinDate" Type="datetime" Nullable="false" />
+          <Property Name="ReferalUrl" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__aspnet_Me__Appli__72C60C4A">
+          <End Role="aspnet_Applications" Type="Self.aspnet_Applications" Multiplicity="1" />
+          <End Role="aspnet_Membership" Type="Self.aspnet_Membership" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Applications">
+              <PropertyRef Name="ApplicationId" />
+            </Principal>
+            <Dependent Role="aspnet_Membership">
+              <PropertyRef Name="ApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Me__UserI__73BA3083">
+          <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="1" />
+          <End Role="aspnet_Membership" Type="Self.aspnet_Membership" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="aspnet_Membership">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Pa__Appli__6A30C649">
+          <End Role="aspnet_Applications" Type="Self.aspnet_Applications" Multiplicity="1" />
+          <End Role="aspnet_Paths" Type="Self.aspnet_Paths" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Applications">
+              <PropertyRef Name="ApplicationId" />
+            </Principal>
+            <Dependent Role="aspnet_Paths">
+              <PropertyRef Name="ApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Pe__PathI__1332DBDC">
+          <End Role="aspnet_Paths" Type="Self.aspnet_Paths" Multiplicity="1" />
+          <End Role="aspnet_PersonalizationAllUsers" Type="Self.aspnet_PersonalizationAllUsers" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Paths">
+              <PropertyRef Name="PathId" />
+            </Principal>
+            <Dependent Role="aspnet_PersonalizationAllUsers">
+              <PropertyRef Name="PathId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Pe__PathI__6E01572D">
+          <End Role="aspnet_Paths" Type="Self.aspnet_Paths" Multiplicity="0..1" />
+          <End Role="aspnet_PersonalizationPerUser" Type="Self.aspnet_PersonalizationPerUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Paths">
+              <PropertyRef Name="PathId" />
+            </Principal>
+            <Dependent Role="aspnet_PersonalizationPerUser">
+              <PropertyRef Name="PathId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Pe__UserI__6EF57B66">
+          <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="0..1" />
+          <End Role="aspnet_PersonalizationPerUser" Type="Self.aspnet_PersonalizationPerUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="aspnet_PersonalizationPerUser">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Pr__UserI__66603565">
+          <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="1" />
+          <End Role="aspnet_Profile" Type="Self.aspnet_Profile" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="aspnet_Profile">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Ro__Appli__778AC167">
+          <End Role="aspnet_Applications" Type="Self.aspnet_Applications" Multiplicity="1" />
+          <End Role="aspnet_Roles" Type="Self.aspnet_Roles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Applications">
+              <PropertyRef Name="ApplicationId" />
+            </Principal>
+            <Dependent Role="aspnet_Roles">
+              <PropertyRef Name="ApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Us__Appli__5441852A">
+          <End Role="aspnet_Applications" Type="Self.aspnet_Applications" Multiplicity="1" />
+          <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Applications">
+              <PropertyRef Name="ApplicationId" />
+            </Principal>
+            <Dependent Role="aspnet_Users">
+              <PropertyRef Name="ApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Us__RoleI__2180FB33">
+          <End Role="aspnet_Roles" Type="Self.aspnet_Roles" Multiplicity="1" />
+          <End Role="aspnet_UsersInRoles" Type="Self.aspnet_UsersInRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Roles">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="aspnet_UsersInRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Us__UserI__22751F6C">
+          <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="1" />
+          <End Role="aspnet_UsersInRoles" Type="Self.aspnet_UsersInRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="aspnet_UsersInRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Addresses_TypeState">
+          <End Role="TypeState" Type="Self.TypeState" Multiplicity="1" />
+          <End Role="Addresses" Type="Self.Addresses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeState">
+              <PropertyRef Name="TypeStateId" />
+            </Principal>
+            <Dependent Role="Addresses">
+              <PropertyRef Name="TypeStateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContactInfo_Addresses">
+          <End Role="Addresses" Type="Self.Addresses" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ContactInfo" Type="Self.ContactInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Addresses">
+              <PropertyRef Name="AddressId" />
+            </Principal>
+            <Dependent Role="ContactInfo">
+              <PropertyRef Name="AddressId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FriendInvites_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="FriendInvites" Type="Self.FriendInvites" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="FriendInvites">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GiveCredits_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="GiveCredits" Type="Self.GiveCredits" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="GiveCredits">
+              <PropertyRef Name="UserIdToGiveCredits" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GiveCredits_Users1">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="GiveCredits" Type="Self.GiveCredits" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="GiveCredits">
+              <PropertyRef Name="UserIdWhoGiveCredits" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GymInvoices_Gyms">
+          <End Role="Gyms" Type="Self.Gyms" Multiplicity="1" />
+          <End Role="GymInvoices" Type="Self.GymInvoices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gyms">
+              <PropertyRef Name="GymId" />
+            </Principal>
+            <Dependent Role="GymInvoices">
+              <PropertyRef Name="GymId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GymPasses_Gyms">
+          <End Role="Gyms" Type="Self.Gyms" Multiplicity="1" />
+          <End Role="GymPasses" Type="Self.GymPasses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gyms">
+              <PropertyRef Name="GymId" />
+            </Principal>
+            <Dependent Role="GymPasses">
+              <PropertyRef Name="GymId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GymPasses_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="GymPasses" Type="Self.GymPasses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="GymPasses">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GymPhotoGallery_Gyms">
+          <End Role="Gyms" Type="Self.Gyms" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="GymPhotoGallery" Type="Self.GymPhotoGallery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gyms">
+              <PropertyRef Name="GymId" />
+            </Principal>
+            <Dependent Role="GymPhotoGallery">
+              <PropertyRef Name="GymId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Gyms_OwnerContactInfo">
+          <End Role="ContactInfo" Type="Self.ContactInfo" Multiplicity="0..1" />
+          <End Role="Gyms" Type="Self.Gyms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContactInfo">
+              <PropertyRef Name="ContactInfoId" />
+            </Principal>
+            <Dependent Role="Gyms">
+              <PropertyRef Name="OwnerContactInfoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Gyms_PublicContactInfo">
+          <End Role="ContactInfo" Type="Self.ContactInfo" Multiplicity="0..1" />
+          <End Role="Gyms" Type="Self.Gyms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContactInfo">
+              <PropertyRef Name="ContactInfoId" />
+            </Principal>
+            <Dependent Role="Gyms">
+              <PropertyRef Name="PublicContactInfoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GymSchedule_Gyms">
+          <End Role="Gyms" Type="Self.Gyms" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="GymSchedule" Type="Self.GymSchedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gyms">
+              <PropertyRef Name="GymId" />
+            </Principal>
+            <Dependent Role="GymSchedule">
+              <PropertyRef Name="GymId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GymSchedule_TypeWeekDay">
+          <End Role="TypeWeekDay" Type="Self.TypeWeekDay" Multiplicity="1" />
+          <End Role="GymSchedule" Type="Self.GymSchedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeWeekDay">
+              <PropertyRef Name="TypeWeekDayId" />
+            </Principal>
+            <Dependent Role="GymSchedule">
+              <PropertyRef Name="TypeWeekDayId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PromoCodesUsed_PromoCodes">
+          <End Role="PromoCodes" Type="Self.PromoCodes" Multiplicity="0..1" />
+          <End Role="PromoCodesUsed" Type="Self.PromoCodesUsed" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PromoCodes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PromoCodesUsed">
+              <PropertyRef Name="PromoCodeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PromoCodesUsed_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="PromoCodesUsed" Type="Self.PromoCodesUsed" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="PromoCodesUsed">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_SearchRequest">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="SearchRequest" Type="Self.SearchRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="SearchRequest">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_aspnet_Users">
+          <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="UserGuid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="UniversalGymModelStoreContainer">
+          <EntitySet Name="Addresses" EntityType="Self.Addresses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="aspnet_Applications" EntityType="Self.aspnet_Applications" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="aspnet_Membership" EntityType="Self.aspnet_Membership" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="aspnet_Paths" EntityType="Self.aspnet_Paths" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="aspnet_PersonalizationAllUsers" EntityType="Self.aspnet_PersonalizationAllUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="aspnet_PersonalizationPerUser" EntityType="Self.aspnet_PersonalizationPerUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="aspnet_Profile" EntityType="Self.aspnet_Profile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="aspnet_Roles" EntityType="Self.aspnet_Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="aspnet_SchemaVersions" EntityType="Self.aspnet_SchemaVersions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="aspnet_Users" EntityType="Self.aspnet_Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="aspnet_UsersInRoles" EntityType="Self.aspnet_UsersInRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="aspnet_WebEvent_Events" EntityType="Self.aspnet_WebEvent_Events" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContactInfo" EntityType="Self.ContactInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FriendInvites" EntityType="Self.FriendInvites" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GiveCredits" EntityType="Self.GiveCredits" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GymInvoices" EntityType="Self.GymInvoices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GymPasses" EntityType="Self.GymPasses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GymPhotoGallery" EntityType="Self.GymPhotoGallery" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gyms" EntityType="Self.Gyms" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GymSchedule" EntityType="Self.GymSchedule" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Logs" EntityType="Self.Logs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PromoCodes" EntityType="Self.PromoCodes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PromoCodesUsed" EntityType="Self.PromoCodesUsed" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SearchRequest" EntityType="Self.SearchRequest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeState" EntityType="Self.TypeState" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeWeekDay" EntityType="Self.TypeWeekDay" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__aspnet_Me__Appli__72C60C4A" Association="Self.FK__aspnet_Me__Appli__72C60C4A">
+            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Me__UserI__73BA3083" Association="Self.FK__aspnet_Me__UserI__73BA3083">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Pa__Appli__6A30C649" Association="Self.FK__aspnet_Pa__Appli__6A30C649">
+            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+            <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Pe__PathI__1332DBDC" Association="Self.FK__aspnet_Pe__PathI__1332DBDC">
+            <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+            <End Role="aspnet_PersonalizationAllUsers" EntitySet="aspnet_PersonalizationAllUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Pe__PathI__6E01572D" Association="Self.FK__aspnet_Pe__PathI__6E01572D">
+            <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+            <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Pe__UserI__6EF57B66" Association="Self.FK__aspnet_Pe__UserI__6EF57B66">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Pr__UserI__66603565" Association="Self.FK__aspnet_Pr__UserI__66603565">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="aspnet_Profile" EntitySet="aspnet_Profile" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Ro__Appli__778AC167" Association="Self.FK__aspnet_Ro__Appli__778AC167">
+            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+            <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Us__Appli__5441852A" Association="Self.FK__aspnet_Us__Appli__5441852A">
+            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Us__RoleI__2180FB33" Association="Self.FK__aspnet_Us__RoleI__2180FB33">
+            <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+            <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Us__UserI__22751F6C" Association="Self.FK__aspnet_Us__UserI__22751F6C">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Addresses_TypeState" Association="Self.FK_Addresses_TypeState">
+            <End Role="TypeState" EntitySet="TypeState" />
+            <End Role="Addresses" EntitySet="Addresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContactInfo_Addresses" Association="Self.FK_ContactInfo_Addresses">
+            <End Role="Addresses" EntitySet="Addresses" />
+            <End Role="ContactInfo" EntitySet="ContactInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FriendInvites_Users" Association="Self.FK_FriendInvites_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="FriendInvites" EntitySet="FriendInvites" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GiveCredits_Users" Association="Self.FK_GiveCredits_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="GiveCredits" EntitySet="GiveCredits" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GiveCredits_Users1" Association="Self.FK_GiveCredits_Users1">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="GiveCredits" EntitySet="GiveCredits" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GymInvoices_Gyms" Association="Self.FK_GymInvoices_Gyms">
+            <End Role="Gyms" EntitySet="Gyms" />
+            <End Role="GymInvoices" EntitySet="GymInvoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GymPasses_Gyms" Association="Self.FK_GymPasses_Gyms">
+            <End Role="Gyms" EntitySet="Gyms" />
+            <End Role="GymPasses" EntitySet="GymPasses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GymPasses_Users" Association="Self.FK_GymPasses_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="GymPasses" EntitySet="GymPasses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GymPhotoGallery_Gyms" Association="Self.FK_GymPhotoGallery_Gyms">
+            <End Role="Gyms" EntitySet="Gyms" />
+            <End Role="GymPhotoGallery" EntitySet="GymPhotoGallery" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Gyms_OwnerContactInfo" Association="Self.FK_Gyms_OwnerContactInfo">
+            <End Role="ContactInfo" EntitySet="ContactInfo" />
+            <End Role="Gyms" EntitySet="Gyms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Gyms_PublicContactInfo" Association="Self.FK_Gyms_PublicContactInfo">
+            <End Role="ContactInfo" EntitySet="ContactInfo" />
+            <End Role="Gyms" EntitySet="Gyms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GymSchedule_Gyms" Association="Self.FK_GymSchedule_Gyms">
+            <End Role="Gyms" EntitySet="Gyms" />
+            <End Role="GymSchedule" EntitySet="GymSchedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GymSchedule_TypeWeekDay" Association="Self.FK_GymSchedule_TypeWeekDay">
+            <End Role="TypeWeekDay" EntitySet="TypeWeekDay" />
+            <End Role="GymSchedule" EntitySet="GymSchedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PromoCodesUsed_PromoCodes" Association="Self.FK_PromoCodesUsed_PromoCodes">
+            <End Role="PromoCodes" EntitySet="PromoCodes" />
+            <End Role="PromoCodesUsed" EntitySet="PromoCodesUsed" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PromoCodesUsed_Users" Association="Self.FK_PromoCodesUsed_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="PromoCodesUsed" EntitySet="PromoCodesUsed" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_SearchRequest" Association="Self.FK_User_SearchRequest">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="SearchRequest" EntitySet="SearchRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_aspnet_Users" Association="Self.FK_Users_aspnet_Users">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="UniversalGymModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="AddressId" />
+          </Key>
+          <Property Name="AddressId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StreetLine1" Type="String" MaxLength="350" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StreetLine2" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TypeStateId" Type="Int32" Nullable="false" />
+          <Property Name="Zip" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="badData" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TypeState" Relationship="Self.FK_Addresses_TypeState" FromRole="Addresses" ToRole="TypeState" />
+          <NavigationProperty Name="ContactInfoes" Relationship="Self.FK_ContactInfo_Addresses" FromRole="Addresses" ToRole="ContactInfo" />
+        </EntityType>
+        <EntityType Name="aspnet_Applications">
+          <Key>
+            <PropertyRef Name="ApplicationId" />
+          </Key>
+          <Property Name="ApplicationName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LoweredApplicationName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="aspnet_Membership" Relationship="Self.FK__aspnet_Me__Appli__72C60C4A" FromRole="aspnet_Applications" ToRole="aspnet_Membership" />
+          <NavigationProperty Name="aspnet_Paths" Relationship="Self.FK__aspnet_Pa__Appli__6A30C649" FromRole="aspnet_Applications" ToRole="aspnet_Paths" />
+          <NavigationProperty Name="aspnet_Roles" Relationship="Self.FK__aspnet_Ro__Appli__778AC167" FromRole="aspnet_Applications" ToRole="aspnet_Roles" />
+          <NavigationProperty Name="aspnet_Users" Relationship="Self.FK__aspnet_Us__Appli__5441852A" FromRole="aspnet_Applications" ToRole="aspnet_Users" />
+        </EntityType>
+        <EntityType Name="aspnet_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PasswordFormat" Type="Int32" Nullable="false" />
+          <Property Name="PasswordSalt" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MobilePIN" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="LoweredEmail" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordQuestion" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordAnswer" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="IsApproved" Type="Boolean" Nullable="false" />
+          <Property Name="IsLockedOut" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastLoginDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastPasswordChangedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastLockoutDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FailedPasswordAttemptCount" Type="Int32" Nullable="false" />
+          <Property Name="FailedPasswordAttemptWindowStart" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FailedPasswordAnswerAttemptCount" Type="Int32" Nullable="false" />
+          <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="aspnet_Applications" Relationship="Self.FK__aspnet_Me__Appli__72C60C4A" FromRole="aspnet_Membership" ToRole="aspnet_Applications" />
+          <NavigationProperty Name="aspnet_Users" Relationship="Self.FK__aspnet_Me__UserI__73BA3083" FromRole="aspnet_Membership" ToRole="aspnet_Users" />
+        </EntityType>
+        <EntityType Name="aspnet_Paths">
+          <Key>
+            <PropertyRef Name="PathId" />
+          </Key>
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="PathId" Type="Guid" Nullable="false" />
+          <Property Name="Path" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LoweredPath" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="aspnet_Applications" Relationship="Self.FK__aspnet_Pa__Appli__6A30C649" FromRole="aspnet_Paths" ToRole="aspnet_Applications" />
+          <NavigationProperty Name="aspnet_PersonalizationAllUsers" Relationship="Self.FK__aspnet_Pe__PathI__1332DBDC" FromRole="aspnet_Paths" ToRole="aspnet_PersonalizationAllUsers" />
+          <NavigationProperty Name="aspnet_PersonalizationPerUser" Relationship="Self.FK__aspnet_Pe__PathI__6E01572D" FromRole="aspnet_Paths" ToRole="aspnet_PersonalizationPerUser" />
+        </EntityType>
+        <EntityType Name="aspnet_PersonalizationAllUsers">
+          <Key>
+            <PropertyRef Name="PathId" />
+          </Key>
+          <Property Name="PathId" Type="Guid" Nullable="false" />
+          <Property Name="PageSettings" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="aspnet_Paths" Relationship="Self.FK__aspnet_Pe__PathI__1332DBDC" FromRole="aspnet_PersonalizationAllUsers" ToRole="aspnet_Paths" />
+        </EntityType>
+        <EntityType Name="aspnet_PersonalizationPerUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="PathId" Type="Guid" />
+          <Property Name="UserId" Type="Guid" />
+          <Property Name="PageSettings" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="aspnet_Paths" Relationship="Self.FK__aspnet_Pe__PathI__6E01572D" FromRole="aspnet_PersonalizationPerUser" ToRole="aspnet_Paths" />
+          <NavigationProperty Name="aspnet_Users" Relationship="Self.FK__aspnet_Pe__UserI__6EF57B66" FromRole="aspnet_PersonalizationPerUser" ToRole="aspnet_Users" />
+        </EntityType>
+        <EntityType Name="aspnet_Profile">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="PropertyNames" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PropertyValuesString" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PropertyValuesBinary" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="aspnet_Users" Relationship="Self.FK__aspnet_Pr__UserI__66603565" FromRole="aspnet_Profile" ToRole="aspnet_Users" />
+        </EntityType>
+        <EntityType Name="aspnet_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="RoleId" Type="Guid" Nullable="false" />
+          <Property Name="RoleName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LoweredRoleName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="aspnet_Applications" Relationship="Self.FK__aspnet_Ro__Appli__778AC167" FromRole="aspnet_Roles" ToRole="aspnet_Applications" />
+          <NavigationProperty Name="aspnet_Users" Relationship="Self.aspnet_UsersInRoles" FromRole="aspnet_Roles" ToRole="aspnet_Users" />
+        </EntityType>
+        <EntityType Name="aspnet_SchemaVersions">
+          <Key>
+            <PropertyRef Name="Feature" />
+            <PropertyRef Name="CompatibleSchemaVersion" />
+          </Key>
+          <Property Name="Feature" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CompatibleSchemaVersion" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsCurrentVersion" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LoweredUserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MobileAlias" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="IsAnonymous" Type="Boolean" Nullable="false" />
+          <Property Name="LastActivityDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="aspnet_Applications" Relationship="Self.FK__aspnet_Us__Appli__5441852A" FromRole="aspnet_Users" ToRole="aspnet_Applications" />
+          <NavigationProperty Name="aspnet_Membership" Relationship="Self.FK__aspnet_Me__UserI__73BA3083" FromRole="aspnet_Users" ToRole="aspnet_Membership" />
+          <NavigationProperty Name="aspnet_PersonalizationPerUser" Relationship="Self.FK__aspnet_Pe__UserI__6EF57B66" FromRole="aspnet_Users" ToRole="aspnet_PersonalizationPerUser" />
+          <NavigationProperty Name="aspnet_Profile" Relationship="Self.FK__aspnet_Pr__UserI__66603565" FromRole="aspnet_Users" ToRole="aspnet_Profile" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Users_aspnet_Users" FromRole="aspnet_Users" ToRole="Users" />
+          <NavigationProperty Name="aspnet_Roles" Relationship="Self.aspnet_UsersInRoles" FromRole="aspnet_Users" ToRole="aspnet_Roles" />
+        </EntityType>
+        <EntityType Name="aspnet_WebEvent_Events">
+          <Key>
+            <PropertyRef Name="EventId" />
+          </Key>
+          <Property Name="EventId" Type="String" MaxLength="32" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="EventTimeUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EventTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EventType" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EventSequence" Type="Decimal" Precision="19" Scale="0" Nullable="false" />
+          <Property Name="EventOccurrence" Type="Decimal" Precision="19" Scale="0" Nullable="false" />
+          <Property Name="EventCode" Type="Int32" Nullable="false" />
+          <Property Name="EventDetailCode" Type="Int32" Nullable="false" />
+          <Property Name="Message" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="ApplicationPath" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="ApplicationVirtualPath" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="MachineName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RequestUrl" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="ExceptionType" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ContactInfo">
+          <Key>
+            <PropertyRef Name="ContactInfoId" />
+          </Key>
+          <Property Name="ContactInfoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="AddressId" Type="Int32" />
+          <Property Name="badData" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Address" Relationship="Self.FK_ContactInfo_Addresses" FromRole="ContactInfo" ToRole="Addresses" />
+          <NavigationProperty Name="Gyms" Relationship="Self.FK_Gyms_OwnerContactInfo" FromRole="ContactInfo" ToRole="Gyms" />
+          <NavigationProperty Name="Gyms1" Relationship="Self.FK_Gyms_PublicContactInfo" FromRole="ContactInfo" ToRole="Gyms" />
+        </EntityType>
+        <EntityType Name="FriendInvite">
+          <Key>
+            <PropertyRef Name="FriendInviteId" />
+          </Key>
+          <Property Name="FriendInviteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="FriendEmail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="InviteDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreditsReward" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK_FriendInvites_Users" FromRole="FriendInvites" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="GiveCredit">
+          <Key>
+            <PropertyRef Name="GiveCreditsId" />
+          </Key>
+          <Property Name="GiveCreditsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AmountToGiveNewUser" Type="Int32" Nullable="false" />
+          <Property Name="UserIdToGiveCredits" Type="Int32" Nullable="false" />
+          <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UserIdWhoGiveCredits" Type="Int32" />
+          <Property Name="AmountToGiveReferer" Type="Int32" />
+          <Property Name="AmountCharged" Type="Int32" />
+          <NavigationProperty Name="User" Relationship="Self.FK_GiveCredits_Users" FromRole="GiveCredits" ToRole="Users" />
+          <NavigationProperty Name="User1" Relationship="Self.FK_GiveCredits_Users1" FromRole="GiveCredits" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="GymInvoice">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StartPeriodDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndPeriodDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AmountPaid" Type="Int32" Nullable="false" />
+          <Property Name="IsCollected" Type="Boolean" Nullable="false" />
+          <Property Name="GymId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Gym" Relationship="Self.FK_GymInvoices_Gyms" FromRole="GymInvoices" ToRole="Gyms" />
+        </EntityType>
+        <EntityType Name="GymPass">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="GymId" Type="Int32" Nullable="false" />
+          <Property Name="LocalDateBought" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LocalDateExpired" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreditsUsed" Type="Int32" Nullable="false" />
+          <Property Name="AmountCharged" Type="Int32" Nullable="false" />
+          <Property Name="ServerTimeDateBought" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="GymPassCost" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Gym" Relationship="Self.FK_GymPasses_Gyms" FromRole="GymPasses" ToRole="Gyms" />
+          <NavigationProperty Name="User" Relationship="Self.FK_GymPasses_Users" FromRole="GymPasses" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="GymPhotoGallery">
+          <Key>
+            <PropertyRef Name="GymPhotoGalleryId" />
+          </Key>
+          <Property Name="GymPhotoGalleryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GymId" Type="Int32" Nullable="false" />
+          <Property Name="Photo" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsCoverPhoto" Type="Boolean" Nullable="false" />
+          <Property Name="badData" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Gym" Relationship="Self.FK_GymPhotoGallery_Gyms" FromRole="GymPhotoGallery" ToRole="Gyms" />
+        </EntityType>
+        <EntityType Name="Gym">
+          <Key>
+            <PropertyRef Name="GymId" />
+          </Key>
+          <Property Name="GymId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GymName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GymInfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ApplicationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreditDollarValue" Type="Int32" Nullable="false" />
+          <Property Name="GymGuid" Type="Guid" />
+          <Property Name="IsApproved" Type="Boolean" Nullable="false" />
+          <Property Name="Position" Type="Geography" />
+          <Property Name="Url" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="OwnerName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PriceToCharge" Type="Int32" Nullable="false" />
+          <Property Name="CurrentToken" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ScheduleUrl" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="StripeUrl" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PublicContactInfoId" Type="Int32" />
+          <Property Name="OwnerContactInfoId" Type="Int32" />
+          <Property Name="ActiveDate" Type="DateTime" Precision="3" />
+          <Property Name="badData" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ContactInfo" Relationship="Self.FK_Gyms_OwnerContactInfo" FromRole="Gyms" ToRole="ContactInfo" />
+          <NavigationProperty Name="ContactInfo1" Relationship="Self.FK_Gyms_PublicContactInfo" FromRole="Gyms" ToRole="ContactInfo" />
+          <NavigationProperty Name="GymInvoices" Relationship="Self.FK_GymInvoices_Gyms" FromRole="Gyms" ToRole="GymInvoices" />
+          <NavigationProperty Name="GymPasses" Relationship="Self.FK_GymPasses_Gyms" FromRole="Gyms" ToRole="GymPasses" />
+          <NavigationProperty Name="GymPhotoGalleries" Relationship="Self.FK_GymPhotoGallery_Gyms" FromRole="Gyms" ToRole="GymPhotoGallery" />
+          <NavigationProperty Name="GymSchedules" Relationship="Self.FK_GymSchedule_Gyms" FromRole="Gyms" ToRole="GymSchedule" />
+        </EntityType>
+        <EntityType Name="GymSchedule">
+          <Key>
+            <PropertyRef Name="GymScheduleId" />
+          </Key>
+          <Property Name="GymScheduleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GymId" Type="Int32" Nullable="false" />
+          <Property Name="TypeWeekDayId" Type="Int32" Nullable="false" />
+          <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Gym" Relationship="Self.FK_GymSchedule_Gyms" FromRole="GymSchedule" ToRole="Gyms" />
+          <NavigationProperty Name="TypeWeekDay" Relationship="Self.FK_GymSchedule_TypeWeekDay" FromRole="GymSchedule" ToRole="TypeWeekDay" />
+        </EntityType>
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="LogId" />
+          </Key>
+          <Property Name="LogId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LogMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsError" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PromoCode">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PromoDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreditValue" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PromoCodesUseds" Relationship="Self.FK_PromoCodesUsed_PromoCodes" FromRole="PromoCodes" ToRole="PromoCodesUsed" />
+        </EntityType>
+        <EntityType Name="PromoCodesUsed">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="PromoCodeId" Type="Int32" />
+          <Property Name="DateUsed" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="PromoCode" Relationship="Self.FK_PromoCodesUsed_PromoCodes" FromRole="PromoCodesUsed" ToRole="PromoCodes" />
+          <NavigationProperty Name="User" Relationship="Self.FK_PromoCodesUsed_Users" FromRole="PromoCodesUsed" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="SearchRequest">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="SearchDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Request" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Position" Type="Geography" />
+          <Property Name="UniqueDeviceIdentifier" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK_User_SearchRequest" FromRole="SearchRequest" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="TypeState">
+          <Key>
+            <PropertyRef Name="TypeStateId" />
+          </Key>
+          <Property Name="TypeStateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StateName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StateAbbreviation" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Addresses" Relationship="Self.FK_Addresses_TypeState" FromRole="TypeState" ToRole="Addresses" />
+        </EntityType>
+        <EntityType Name="TypeWeekDay">
+          <Key>
+            <PropertyRef Name="TypeWeekDayId" />
+          </Key>
+          <Property Name="TypeWeekDayId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeDescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Order" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="GymSchedules" Relationship="Self.FK_GymSchedule_TypeWeekDay" FromRole="TypeWeekDay" ToRole="GymSchedule" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserGuid" Type="Guid" Nullable="false" />
+          <Property Name="hasCreditCard" Type="Boolean" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="hasActiveSubscription" Type="Boolean" Nullable="false" />
+          <Property Name="StripeUrl" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="CurrentToken" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Credits" Type="Int32" Nullable="false" />
+          <Property Name="joinDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ReferalUrl" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="aspnet_Users" Relationship="Self.FK_Users_aspnet_Users" FromRole="Users" ToRole="aspnet_Users" />
+          <NavigationProperty Name="FriendInvites" Relationship="Self.FK_FriendInvites_Users" FromRole="Users" ToRole="FriendInvites" />
+          <NavigationProperty Name="GiveCredits" Relationship="Self.FK_GiveCredits_Users" FromRole="Users" ToRole="GiveCredits" />
+          <NavigationProperty Name="GiveCredits1" Relationship="Self.FK_GiveCredits_Users1" FromRole="Users" ToRole="GiveCredits" />
+          <NavigationProperty Name="GymPasses" Relationship="Self.FK_GymPasses_Users" FromRole="Users" ToRole="GymPasses" />
+          <NavigationProperty Name="PromoCodesUseds" Relationship="Self.FK_PromoCodesUsed_Users" FromRole="Users" ToRole="PromoCodesUsed" />
+          <NavigationProperty Name="SearchRequests" Relationship="Self.FK_User_SearchRequest" FromRole="Users" ToRole="SearchRequest" />
+        </EntityType>
+        <Association Name="FK_Addresses_TypeState">
+          <End Role="TypeState" Type="Self.TypeState" Multiplicity="1" />
+          <End Role="Addresses" Type="Self.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeState">
+              <PropertyRef Name="TypeStateId" />
+            </Principal>
+            <Dependent Role="Addresses">
+              <PropertyRef Name="TypeStateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContactInfo_Addresses">
+          <End Role="Addresses" Type="Self.Address" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ContactInfo" Type="Self.ContactInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Addresses">
+              <PropertyRef Name="AddressId" />
+            </Principal>
+            <Dependent Role="ContactInfo">
+              <PropertyRef Name="AddressId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Me__Appli__72C60C4A">
+          <End Role="aspnet_Applications" Type="Self.aspnet_Applications" Multiplicity="1" />
+          <End Role="aspnet_Membership" Type="Self.aspnet_Membership" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Applications">
+              <PropertyRef Name="ApplicationId" />
+            </Principal>
+            <Dependent Role="aspnet_Membership">
+              <PropertyRef Name="ApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Pa__Appli__6A30C649">
+          <End Role="aspnet_Applications" Type="Self.aspnet_Applications" Multiplicity="1" />
+          <End Role="aspnet_Paths" Type="Self.aspnet_Paths" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Applications">
+              <PropertyRef Name="ApplicationId" />
+            </Principal>
+            <Dependent Role="aspnet_Paths">
+              <PropertyRef Name="ApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Ro__Appli__778AC167">
+          <End Role="aspnet_Applications" Type="Self.aspnet_Applications" Multiplicity="1" />
+          <End Role="aspnet_Roles" Type="Self.aspnet_Roles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Applications">
+              <PropertyRef Name="ApplicationId" />
+            </Principal>
+            <Dependent Role="aspnet_Roles">
+              <PropertyRef Name="ApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Us__Appli__5441852A">
+          <End Role="aspnet_Applications" Type="Self.aspnet_Applications" Multiplicity="1" />
+          <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Applications">
+              <PropertyRef Name="ApplicationId" />
+            </Principal>
+            <Dependent Role="aspnet_Users">
+              <PropertyRef Name="ApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Me__UserI__73BA3083">
+          <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="1" />
+          <End Role="aspnet_Membership" Type="Self.aspnet_Membership" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="aspnet_Membership">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Pe__PathI__1332DBDC">
+          <End Role="aspnet_Paths" Type="Self.aspnet_Paths" Multiplicity="1" />
+          <End Role="aspnet_PersonalizationAllUsers" Type="Self.aspnet_PersonalizationAllUsers" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Paths">
+              <PropertyRef Name="PathId" />
+            </Principal>
+            <Dependent Role="aspnet_PersonalizationAllUsers">
+              <PropertyRef Name="PathId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Pe__PathI__6E01572D">
+          <End Role="aspnet_Paths" Type="Self.aspnet_Paths" Multiplicity="0..1" />
+          <End Role="aspnet_PersonalizationPerUser" Type="Self.aspnet_PersonalizationPerUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Paths">
+              <PropertyRef Name="PathId" />
+            </Principal>
+            <Dependent Role="aspnet_PersonalizationPerUser">
+              <PropertyRef Name="PathId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Pe__UserI__6EF57B66">
+          <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="0..1" />
+          <End Role="aspnet_PersonalizationPerUser" Type="Self.aspnet_PersonalizationPerUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="aspnet_PersonalizationPerUser">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Pr__UserI__66603565">
+          <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="1" />
+          <End Role="aspnet_Profile" Type="Self.aspnet_Profile" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="aspnet_Profile">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_aspnet_Users">
+          <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="1" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="UserGuid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Gyms_OwnerContactInfo">
+          <End Role="ContactInfo" Type="Self.ContactInfo" Multiplicity="0..1" />
+          <End Role="Gyms" Type="Self.Gym" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContactInfo">
+              <PropertyRef Name="ContactInfoId" />
+            </Principal>
+            <Dependent Role="Gyms">
+              <PropertyRef Name="OwnerContactInfoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Gyms_PublicContactInfo">
+          <End Role="ContactInfo" Type="Self.ContactInfo" Multiplicity="0..1" />
+          <End Role="Gyms" Type="Self.Gym" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContactInfo">
+              <PropertyRef Name="ContactInfoId" />
+            </Principal>
+            <Dependent Role="Gyms">
+              <PropertyRef Name="PublicContactInfoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FriendInvites_Users">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="FriendInvites" Type="Self.FriendInvite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="FriendInvites">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GiveCredits_Users">
+          <End Role="Users" Type="Self.User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="GiveCredits" Type="Self.GiveCredit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="GiveCredits">
+              <PropertyRef Name="UserIdToGiveCredits" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GiveCredits_Users1">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="GiveCredits" Type="Self.GiveCredit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="GiveCredits">
+              <PropertyRef Name="UserIdWhoGiveCredits" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GymInvoices_Gyms">
+          <End Role="Gyms" Type="Self.Gym" Multiplicity="1" />
+          <End Role="GymInvoices" Type="Self.GymInvoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gyms">
+              <PropertyRef Name="GymId" />
+            </Principal>
+            <Dependent Role="GymInvoices">
+              <PropertyRef Name="GymId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GymPasses_Gyms">
+          <End Role="Gyms" Type="Self.Gym" Multiplicity="1" />
+          <End Role="GymPasses" Type="Self.GymPass" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gyms">
+              <PropertyRef Name="GymId" />
+            </Principal>
+            <Dependent Role="GymPasses">
+              <PropertyRef Name="GymId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GymPasses_Users">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="GymPasses" Type="Self.GymPass" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="GymPasses">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GymPhotoGallery_Gyms">
+          <End Role="Gyms" Type="Self.Gym" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="GymPhotoGallery" Type="Self.GymPhotoGallery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gyms">
+              <PropertyRef Name="GymId" />
+            </Principal>
+            <Dependent Role="GymPhotoGallery">
+              <PropertyRef Name="GymId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GymSchedule_Gyms">
+          <End Role="Gyms" Type="Self.Gym" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="GymSchedule" Type="Self.GymSchedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gyms">
+              <PropertyRef Name="GymId" />
+            </Principal>
+            <Dependent Role="GymSchedule">
+              <PropertyRef Name="GymId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GymSchedule_TypeWeekDay">
+          <End Role="TypeWeekDay" Type="Self.TypeWeekDay" Multiplicity="1" />
+          <End Role="GymSchedule" Type="Self.GymSchedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeWeekDay">
+              <PropertyRef Name="TypeWeekDayId" />
+            </Principal>
+            <Dependent Role="GymSchedule">
+              <PropertyRef Name="TypeWeekDayId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PromoCodesUsed_PromoCodes">
+          <End Role="PromoCodes" Type="Self.PromoCode" Multiplicity="0..1" />
+          <End Role="PromoCodesUsed" Type="Self.PromoCodesUsed" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PromoCodes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PromoCodesUsed">
+              <PropertyRef Name="PromoCodeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PromoCodesUsed_Users">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="PromoCodesUsed" Type="Self.PromoCodesUsed" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="PromoCodesUsed">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_SearchRequest">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="SearchRequest" Type="Self.SearchRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="SearchRequest">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="aspnet_UsersInRoles">
+          <End Role="aspnet_Roles" Type="Self.aspnet_Roles" Multiplicity="*" />
+          <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="UniversalGymEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Addresses" EntityType="Self.Address" />
+          <EntitySet Name="aspnet_Applications" EntityType="Self.aspnet_Applications" />
+          <EntitySet Name="aspnet_Membership" EntityType="Self.aspnet_Membership" />
+          <EntitySet Name="aspnet_Paths" EntityType="Self.aspnet_Paths" />
+          <EntitySet Name="aspnet_PersonalizationAllUsers" EntityType="Self.aspnet_PersonalizationAllUsers" />
+          <EntitySet Name="aspnet_PersonalizationPerUser" EntityType="Self.aspnet_PersonalizationPerUser" />
+          <EntitySet Name="aspnet_Profile" EntityType="Self.aspnet_Profile" />
+          <EntitySet Name="aspnet_Roles" EntityType="Self.aspnet_Roles" />
+          <EntitySet Name="aspnet_SchemaVersions" EntityType="Self.aspnet_SchemaVersions" />
+          <EntitySet Name="aspnet_Users" EntityType="Self.aspnet_Users" />
+          <EntitySet Name="aspnet_WebEvent_Events" EntityType="Self.aspnet_WebEvent_Events" />
+          <EntitySet Name="ContactInfoes" EntityType="Self.ContactInfo" />
+          <EntitySet Name="FriendInvites" EntityType="Self.FriendInvite" />
+          <EntitySet Name="GiveCredits" EntityType="Self.GiveCredit" />
+          <EntitySet Name="GymInvoices" EntityType="Self.GymInvoice" />
+          <EntitySet Name="GymPasses" EntityType="Self.GymPass" />
+          <EntitySet Name="GymPhotoGalleries" EntityType="Self.GymPhotoGallery" />
+          <EntitySet Name="Gyms" EntityType="Self.Gym" />
+          <EntitySet Name="GymSchedules" EntityType="Self.GymSchedule" />
+          <EntitySet Name="Logs" EntityType="Self.Log" />
+          <EntitySet Name="PromoCodes" EntityType="Self.PromoCode" />
+          <EntitySet Name="PromoCodesUseds" EntityType="Self.PromoCodesUsed" />
+          <EntitySet Name="SearchRequests" EntityType="Self.SearchRequest" />
+          <EntitySet Name="TypeStates" EntityType="Self.TypeState" />
+          <EntitySet Name="TypeWeekDays" EntityType="Self.TypeWeekDay" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK_Addresses_TypeState" Association="Self.FK_Addresses_TypeState">
+            <End Role="TypeState" EntitySet="TypeStates" />
+            <End Role="Addresses" EntitySet="Addresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContactInfo_Addresses" Association="Self.FK_ContactInfo_Addresses">
+            <End Role="Addresses" EntitySet="Addresses" />
+            <End Role="ContactInfo" EntitySet="ContactInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Me__Appli__72C60C4A" Association="Self.FK__aspnet_Me__Appli__72C60C4A">
+            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Pa__Appli__6A30C649" Association="Self.FK__aspnet_Pa__Appli__6A30C649">
+            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+            <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Ro__Appli__778AC167" Association="Self.FK__aspnet_Ro__Appli__778AC167">
+            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+            <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Us__Appli__5441852A" Association="Self.FK__aspnet_Us__Appli__5441852A">
+            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Me__UserI__73BA3083" Association="Self.FK__aspnet_Me__UserI__73BA3083">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Pe__PathI__1332DBDC" Association="Self.FK__aspnet_Pe__PathI__1332DBDC">
+            <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+            <End Role="aspnet_PersonalizationAllUsers" EntitySet="aspnet_PersonalizationAllUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Pe__PathI__6E01572D" Association="Self.FK__aspnet_Pe__PathI__6E01572D">
+            <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+            <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Pe__UserI__6EF57B66" Association="Self.FK__aspnet_Pe__UserI__6EF57B66">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Pr__UserI__66603565" Association="Self.FK__aspnet_Pr__UserI__66603565">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="aspnet_Profile" EntitySet="aspnet_Profile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_aspnet_Users" Association="Self.FK_Users_aspnet_Users">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Gyms_OwnerContactInfo" Association="Self.FK_Gyms_OwnerContactInfo">
+            <End Role="ContactInfo" EntitySet="ContactInfoes" />
+            <End Role="Gyms" EntitySet="Gyms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Gyms_PublicContactInfo" Association="Self.FK_Gyms_PublicContactInfo">
+            <End Role="ContactInfo" EntitySet="ContactInfoes" />
+            <End Role="Gyms" EntitySet="Gyms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FriendInvites_Users" Association="Self.FK_FriendInvites_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="FriendInvites" EntitySet="FriendInvites" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GiveCredits_Users" Association="Self.FK_GiveCredits_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="GiveCredits" EntitySet="GiveCredits" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GiveCredits_Users1" Association="Self.FK_GiveCredits_Users1">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="GiveCredits" EntitySet="GiveCredits" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GymInvoices_Gyms" Association="Self.FK_GymInvoices_Gyms">
+            <End Role="Gyms" EntitySet="Gyms" />
+            <End Role="GymInvoices" EntitySet="GymInvoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GymPasses_Gyms" Association="Self.FK_GymPasses_Gyms">
+            <End Role="Gyms" EntitySet="Gyms" />
+            <End Role="GymPasses" EntitySet="GymPasses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GymPasses_Users" Association="Self.FK_GymPasses_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="GymPasses" EntitySet="GymPasses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GymPhotoGallery_Gyms" Association="Self.FK_GymPhotoGallery_Gyms">
+            <End Role="Gyms" EntitySet="Gyms" />
+            <End Role="GymPhotoGallery" EntitySet="GymPhotoGalleries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GymSchedule_Gyms" Association="Self.FK_GymSchedule_Gyms">
+            <End Role="Gyms" EntitySet="Gyms" />
+            <End Role="GymSchedule" EntitySet="GymSchedules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GymSchedule_TypeWeekDay" Association="Self.FK_GymSchedule_TypeWeekDay">
+            <End Role="TypeWeekDay" EntitySet="TypeWeekDays" />
+            <End Role="GymSchedule" EntitySet="GymSchedules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PromoCodesUsed_PromoCodes" Association="Self.FK_PromoCodesUsed_PromoCodes">
+            <End Role="PromoCodes" EntitySet="PromoCodes" />
+            <End Role="PromoCodesUsed" EntitySet="PromoCodesUseds" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PromoCodesUsed_Users" Association="Self.FK_PromoCodesUsed_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="PromoCodesUsed" EntitySet="PromoCodesUseds" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_SearchRequest" Association="Self.FK_User_SearchRequest">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="SearchRequest" EntitySet="SearchRequests" />
+          </AssociationSet>
+          <AssociationSet Name="aspnet_UsersInRoles" Association="Self.aspnet_UsersInRoles">
+            <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="UniversalGymModelStoreContainer" CdmEntityContainer="UniversalGymEntities">
+          <EntitySetMapping Name="Addresses">
+            <EntityTypeMapping TypeName="UniversalGymModel.Address">
+              <MappingFragment StoreEntitySet="Addresses">
+                <ScalarProperty Name="AddressId" ColumnName="AddressId" />
+                <ScalarProperty Name="StreetLine1" ColumnName="StreetLine1" />
+                <ScalarProperty Name="StreetLine2" ColumnName="StreetLine2" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="TypeStateId" ColumnName="TypeStateId" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="badData" ColumnName="badData" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Applications">
+            <EntityTypeMapping TypeName="UniversalGymModel.aspnet_Applications">
+              <MappingFragment StoreEntitySet="aspnet_Applications">
+                <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" />
+                <ScalarProperty Name="LoweredApplicationName" ColumnName="LoweredApplicationName" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Membership">
+            <EntityTypeMapping TypeName="UniversalGymModel.aspnet_Membership">
+              <MappingFragment StoreEntitySet="aspnet_Membership">
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="PasswordFormat" ColumnName="PasswordFormat" />
+                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+                <ScalarProperty Name="MobilePIN" ColumnName="MobilePIN" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="LoweredEmail" ColumnName="LoweredEmail" />
+                <ScalarProperty Name="PasswordQuestion" ColumnName="PasswordQuestion" />
+                <ScalarProperty Name="PasswordAnswer" ColumnName="PasswordAnswer" />
+                <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+                <ScalarProperty Name="IsLockedOut" ColumnName="IsLockedOut" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+                <ScalarProperty Name="LastPasswordChangedDate" ColumnName="LastPasswordChangedDate" />
+                <ScalarProperty Name="LastLockoutDate" ColumnName="LastLockoutDate" />
+                <ScalarProperty Name="FailedPasswordAttemptCount" ColumnName="FailedPasswordAttemptCount" />
+                <ScalarProperty Name="FailedPasswordAttemptWindowStart" ColumnName="FailedPasswordAttemptWindowStart" />
+                <ScalarProperty Name="FailedPasswordAnswerAttemptCount" ColumnName="FailedPasswordAnswerAttemptCount" />
+                <ScalarProperty Name="FailedPasswordAnswerAttemptWindowStart" ColumnName="FailedPasswordAnswerAttemptWindowStart" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Paths">
+            <EntityTypeMapping TypeName="UniversalGymModel.aspnet_Paths">
+              <MappingFragment StoreEntitySet="aspnet_Paths">
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+                <ScalarProperty Name="PathId" ColumnName="PathId" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="LoweredPath" ColumnName="LoweredPath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_PersonalizationAllUsers">
+            <EntityTypeMapping TypeName="UniversalGymModel.aspnet_PersonalizationAllUsers">
+              <MappingFragment StoreEntitySet="aspnet_PersonalizationAllUsers">
+                <ScalarProperty Name="PathId" ColumnName="PathId" />
+                <ScalarProperty Name="PageSettings" ColumnName="PageSettings" />
+                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_PersonalizationPerUser">
+            <EntityTypeMapping TypeName="UniversalGymModel.aspnet_PersonalizationPerUser">
+              <MappingFragment StoreEntitySet="aspnet_PersonalizationPerUser">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PathId" ColumnName="PathId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="PageSettings" ColumnName="PageSettings" />
+                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Profile">
+            <EntityTypeMapping TypeName="UniversalGymModel.aspnet_Profile">
+              <MappingFragment StoreEntitySet="aspnet_Profile">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="PropertyNames" ColumnName="PropertyNames" />
+                <ScalarProperty Name="PropertyValuesString" ColumnName="PropertyValuesString" />
+                <ScalarProperty Name="PropertyValuesBinary" ColumnName="PropertyValuesBinary" />
+                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Roles">
+            <EntityTypeMapping TypeName="UniversalGymModel.aspnet_Roles">
+              <MappingFragment StoreEntitySet="aspnet_Roles">
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="LoweredRoleName" ColumnName="LoweredRoleName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_SchemaVersions">
+            <EntityTypeMapping TypeName="UniversalGymModel.aspnet_SchemaVersions">
+              <MappingFragment StoreEntitySet="aspnet_SchemaVersions">
+                <ScalarProperty Name="Feature" ColumnName="Feature" />
+                <ScalarProperty Name="CompatibleSchemaVersion" ColumnName="CompatibleSchemaVersion" />
+                <ScalarProperty Name="IsCurrentVersion" ColumnName="IsCurrentVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Users">
+            <EntityTypeMapping TypeName="UniversalGymModel.aspnet_Users">
+              <MappingFragment StoreEntitySet="aspnet_Users">
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="LoweredUserName" ColumnName="LoweredUserName" />
+                <ScalarProperty Name="MobileAlias" ColumnName="MobileAlias" />
+                <ScalarProperty Name="IsAnonymous" ColumnName="IsAnonymous" />
+                <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_WebEvent_Events">
+            <EntityTypeMapping TypeName="UniversalGymModel.aspnet_WebEvent_Events">
+              <MappingFragment StoreEntitySet="aspnet_WebEvent_Events">
+                <ScalarProperty Name="EventId" ColumnName="EventId" />
+                <ScalarProperty Name="EventTimeUtc" ColumnName="EventTimeUtc" />
+                <ScalarProperty Name="EventTime" ColumnName="EventTime" />
+                <ScalarProperty Name="EventType" ColumnName="EventType" />
+                <ScalarProperty Name="EventSequence" ColumnName="EventSequence" />
+                <ScalarProperty Name="EventOccurrence" ColumnName="EventOccurrence" />
+                <ScalarProperty Name="EventCode" ColumnName="EventCode" />
+                <ScalarProperty Name="EventDetailCode" ColumnName="EventDetailCode" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="ApplicationPath" ColumnName="ApplicationPath" />
+                <ScalarProperty Name="ApplicationVirtualPath" ColumnName="ApplicationVirtualPath" />
+                <ScalarProperty Name="MachineName" ColumnName="MachineName" />
+                <ScalarProperty Name="RequestUrl" ColumnName="RequestUrl" />
+                <ScalarProperty Name="ExceptionType" ColumnName="ExceptionType" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContactInfoes">
+            <EntityTypeMapping TypeName="UniversalGymModel.ContactInfo">
+              <MappingFragment StoreEntitySet="ContactInfo">
+                <ScalarProperty Name="ContactInfoId" ColumnName="ContactInfoId" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="AddressId" ColumnName="AddressId" />
+                <ScalarProperty Name="badData" ColumnName="badData" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FriendInvites">
+            <EntityTypeMapping TypeName="UniversalGymModel.FriendInvite">
+              <MappingFragment StoreEntitySet="FriendInvites">
+                <ScalarProperty Name="FriendInviteId" ColumnName="FriendInviteId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="FriendEmail" ColumnName="FriendEmail" />
+                <ScalarProperty Name="InviteDate" ColumnName="InviteDate" />
+                <ScalarProperty Name="CreditsReward" ColumnName="CreditsReward" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GiveCredits">
+            <EntityTypeMapping TypeName="UniversalGymModel.GiveCredit">
+              <MappingFragment StoreEntitySet="GiveCredits">
+                <ScalarProperty Name="GiveCreditsId" ColumnName="GiveCreditsId" />
+                <ScalarProperty Name="AmountToGiveNewUser" ColumnName="AmountToGiveNewUser" />
+                <ScalarProperty Name="UserIdToGiveCredits" ColumnName="UserIdToGiveCredits" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="UserIdWhoGiveCredits" ColumnName="UserIdWhoGiveCredits" />
+                <ScalarProperty Name="AmountToGiveReferer" ColumnName="AmountToGiveReferer" />
+                <ScalarProperty Name="AmountCharged" ColumnName="AmountCharged" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GymInvoices">
+            <EntityTypeMapping TypeName="UniversalGymModel.GymInvoice">
+              <MappingFragment StoreEntitySet="GymInvoices">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="StartPeriodDate" ColumnName="StartPeriodDate" />
+                <ScalarProperty Name="EndPeriodDate" ColumnName="EndPeriodDate" />
+                <ScalarProperty Name="AmountPaid" ColumnName="AmountPaid" />
+                <ScalarProperty Name="IsCollected" ColumnName="IsCollected" />
+                <ScalarProperty Name="GymId" ColumnName="GymId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GymPasses">
+            <EntityTypeMapping TypeName="UniversalGymModel.GymPass">
+              <MappingFragment StoreEntitySet="GymPasses">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="GymId" ColumnName="GymId" />
+                <ScalarProperty Name="LocalDateBought" ColumnName="LocalDateBought" />
+                <ScalarProperty Name="LocalDateExpired" ColumnName="LocalDateExpired" />
+                <ScalarProperty Name="CreditsUsed" ColumnName="CreditsUsed" />
+                <ScalarProperty Name="AmountCharged" ColumnName="AmountCharged" />
+                <ScalarProperty Name="ServerTimeDateBought" ColumnName="ServerTimeDateBought" />
+                <ScalarProperty Name="GymPassCost" ColumnName="GymPassCost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GymPhotoGalleries">
+            <EntityTypeMapping TypeName="UniversalGymModel.GymPhotoGallery">
+              <MappingFragment StoreEntitySet="GymPhotoGallery">
+                <ScalarProperty Name="GymPhotoGalleryId" ColumnName="GymPhotoGalleryId" />
+                <ScalarProperty Name="GymId" ColumnName="GymId" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="IsCoverPhoto" ColumnName="IsCoverPhoto" />
+                <ScalarProperty Name="badData" ColumnName="badData" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gyms">
+            <EntityTypeMapping TypeName="UniversalGymModel.Gym">
+              <MappingFragment StoreEntitySet="Gyms">
+                <ScalarProperty Name="GymId" ColumnName="GymId" />
+                <ScalarProperty Name="GymName" ColumnName="GymName" />
+                <ScalarProperty Name="GymInfo" ColumnName="GymInfo" />
+                <ScalarProperty Name="ApplicationDate" ColumnName="ApplicationDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreditDollarValue" ColumnName="CreditDollarValue" />
+                <ScalarProperty Name="GymGuid" ColumnName="GymGuid" />
+                <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="OwnerName" ColumnName="OwnerName" />
+                <ScalarProperty Name="PriceToCharge" ColumnName="PriceToCharge" />
+                <ScalarProperty Name="CurrentToken" ColumnName="CurrentToken" />
+                <ScalarProperty Name="ScheduleUrl" ColumnName="ScheduleUrl" />
+                <ScalarProperty Name="StripeUrl" ColumnName="StripeUrl" />
+                <ScalarProperty Name="PublicContactInfoId" ColumnName="PublicContactInfoId" />
+                <ScalarProperty Name="OwnerContactInfoId" ColumnName="OwnerContactInfoId" />
+                <ScalarProperty Name="ActiveDate" ColumnName="ActiveDate" />
+                <ScalarProperty Name="badData" ColumnName="badData" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GymSchedules">
+            <EntityTypeMapping TypeName="UniversalGymModel.GymSchedule">
+              <MappingFragment StoreEntitySet="GymSchedule">
+                <ScalarProperty Name="GymScheduleId" ColumnName="GymScheduleId" />
+                <ScalarProperty Name="GymId" ColumnName="GymId" />
+                <ScalarProperty Name="TypeWeekDayId" ColumnName="TypeWeekDayId" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logs">
+            <EntityTypeMapping TypeName="UniversalGymModel.Log">
+              <MappingFragment StoreEntitySet="Logs">
+                <ScalarProperty Name="LogId" ColumnName="LogId" />
+                <ScalarProperty Name="LogMessage" ColumnName="LogMessage" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="IsError" ColumnName="IsError" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PromoCodes">
+            <EntityTypeMapping TypeName="UniversalGymModel.PromoCode">
+              <MappingFragment StoreEntitySet="PromoCodes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="PromoDescription" ColumnName="PromoDescription" />
+                <ScalarProperty Name="CreditValue" ColumnName="CreditValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PromoCodesUseds">
+            <EntityTypeMapping TypeName="UniversalGymModel.PromoCodesUsed">
+              <MappingFragment StoreEntitySet="PromoCodesUsed">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="PromoCodeId" ColumnName="PromoCodeId" />
+                <ScalarProperty Name="DateUsed" ColumnName="DateUsed" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SearchRequests">
+            <EntityTypeMapping TypeName="UniversalGymModel.SearchRequest">
+              <MappingFragment StoreEntitySet="SearchRequest">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="SearchDate" ColumnName="SearchDate" />
+                <ScalarProperty Name="Request" ColumnName="Request" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="UniqueDeviceIdentifier" ColumnName="UniqueDeviceIdentifier" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeStates">
+            <EntityTypeMapping TypeName="UniversalGymModel.TypeState">
+              <MappingFragment StoreEntitySet="TypeState">
+                <ScalarProperty Name="TypeStateId" ColumnName="TypeStateId" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+                <ScalarProperty Name="StateAbbreviation" ColumnName="StateAbbreviation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeWeekDays">
+            <EntityTypeMapping TypeName="UniversalGymModel.TypeWeekDay">
+              <MappingFragment StoreEntitySet="TypeWeekDay">
+                <ScalarProperty Name="TypeWeekDayId" ColumnName="TypeWeekDayId" />
+                <ScalarProperty Name="TypeDescription" ColumnName="TypeDescription" />
+                <ScalarProperty Name="Order" ColumnName="Order" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="UniversalGymModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserGuid" ColumnName="UserGuid" />
+                <ScalarProperty Name="hasCreditCard" ColumnName="hasCreditCard" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="hasActiveSubscription" ColumnName="hasActiveSubscription" />
+                <ScalarProperty Name="StripeUrl" ColumnName="StripeUrl" />
+                <ScalarProperty Name="CurrentToken" ColumnName="CurrentToken" />
+                <ScalarProperty Name="Credits" ColumnName="Credits" />
+                <ScalarProperty Name="joinDate" ColumnName="joinDate" />
+                <ScalarProperty Name="ReferalUrl" ColumnName="ReferalUrl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="aspnet_UsersInRoles" TypeName="UniversalGymModel.aspnet_UsersInRoles" StoreEntitySet="aspnet_UsersInRoles">
+            <EndProperty Name="aspnet_Roles">
+              <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="aspnet_Users">
+              <ScalarProperty Name="UserId" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

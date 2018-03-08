@@ -1,0 +1,101 @@
+﻿
+    <div ng-show="showNavBar()" class="side-menu">
+        <div class="side-menu-logo">
+            <div class="side-menu-logo-inner">
+                <h3>Pedal</h3>
+                <div class="side-menu-logo-icon">
+                    <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="32.000000pt" height="32.000000pt" viewBox="0 0 300.000000 300.000000" preserveAspectRatio="xMidYMid meet">
+                        <g transform="translate(0.000000,300.000000) scale(0.100000,-0.100000)" stroke-width="1px">
+                            <path fill="#ffffff" stroke="#ffffff" d="M1245 2754 c-326 -46 -516 -233 -517 -509 0 -166 68 -289 292 -530
+                                199 -213 267 -307 307 -425 12 -36 28 -66 35 -68 7 -1 69 6 138 16 l125 19 -3
+                                33 c-5 48 -48 165 -88 236 -47 86 -152 218 -289 364 -193 206 -241 285 -232
+                                379 17 162 170 221 541 208 226 -8 332 -40 384 -117 21 -30 23 -44 19 -97 l-5
+                                -61 85 -52 c46 -28 99 -64 117 -81 19 -16 36 -29 39 -29 3 0 15 37 27 82 18
+                                66 21 102 18 183 -3 90 -7 109 -36 167 -60 123 -184 213 -357 259 -70 19 -110
+                                22 -325 25 -135 1 -258 0 -275 -2z" />
+                            <path fill="#ffffff" stroke="#ffffff" d="M1379 2239 c-123 -13 -279 -59 -279 -82 0 -14 41 -67 117 -153 l63
+                                -71 62 13 c255 54 528 -42 704 -248 60 -71 128 -209 149 -304 24 -104 16 -281
+                                -15 -374 -85 -250 -277 -428 -530 -491 -77 -19 -259 -17 -340 4 -201 53 -385
+                                204 -474 390 -115 239 -88 536 69 741 l36 48 -48 56 c-26 30 -65 78 -86 106
+                                -21 28 -43 51 -50 51 -20 0 -125 -147 -171 -240 -70 -141 -114 -336 -108 -475
+                                30 -660 651 -1119 1277 -944 184 51 335 143 468 284 291 310 356 752 167 1135
+                                -128 260 -374 460 -650 529 -60 14 -235 37 -270 34 -8 0 -49 -4 -91 -9z" />
+                        </g>
+                    </svg>
+                </div>
+            </div>
+            <div class="side-menu-mobile-button">
+                <a id="mobile-menu-button-a" class="animated-menu-button" href="#">
+                    <i style="vertical-align: top;" class="entypo-menu entypo-center-fix with-animation"></i>
+                </a>
+            </div>
+        </div>
+        <ul id="side-bar-menu-ul" class="side-bar-menu">
+            <li ng-class="{activeItem: activetabWholeUrl == '/dashboard'}" class="side-bar-menu-li">
+                <a ng-click="goToMain()">
+                    <i class="entypo-clock"></i>
+                    <span class="side-bar-titles">
+                        Gym History
+                    </span>
+                </a>
+            </li>
+            <li ng-class="{activeItem: activetabWholeUrl == '/dashboard/account'}" class="side-bar-menu-li">
+                <a ng-click="goToAccount()">
+                    <i class="entypo-user"></i>
+                    <span class="side-bar-titles">   
+                        Account
+                    </span>
+                    <span ng-show="!gym.hasRightGymPhotos || !gym.hasRightHours"class="badge badge-square">Attention Needed</span>
+                </a>
+            </li>
+            <li ng-class="{activeItem: activetabWholeUrl == '/dashboard/contract'}" class="side-bar-menu-li">
+                <a ng-click="goToContract()">
+                    <i class="entypo-doc-text"></i>
+                    <span class="side-bar-titles">
+                        View Contract
+                    </span>
+                </a>
+            </li>
+            <li ng-class="{activeItem: activetabWholeUrl == '/dashboard/contact'}" class="side-bar-menu-li">
+                <a ng-click="goToContact()">
+                    <i class="entypo-mail"></i>
+                    <span class="side-bar-titles">
+                        Contact
+                    </span>
+                </a>
+            </li>
+            <li class="side-bar-menu-li">
+                <a ng-click="logOut()">
+                    <i class="entypo-logout"></i>
+                    <span class="side-bar-titles">
+                        Logout
+                    </span>
+                </a>
+            </li>
+        </ul>
+
+        <div id="app-download-side-menu">
+            Be sure to download our app:
+            <!--<a href="" target="_blank">Android</a>-->
+            <a href="https://itunes.apple.com/us/app/pedal-fitness/id953367967?mt=8" target="_blank">iOS</a>
+        </div>
+    </div>
+
+<script>
+    $(document).ready(function () {
+
+        $("#mobile-menu-button-a").click(function (e) {
+            e.preventDefault();
+
+            $("#side-bar-menu-ul").slideToggle('normal', function () {
+                if ($("#side-bar-menu-ul").css('display') == 'none') {
+                    $("#side-bar-menu-ul").attr('style', '');
+                }
+            });
+
+            return false;
+        });
+
+    });
+
+</script>
