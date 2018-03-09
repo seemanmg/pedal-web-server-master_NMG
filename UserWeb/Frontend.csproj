@@ -262,6 +262,22 @@
     <Content Include="assets\css\override.css" />
     <Content Include="assets\css\style.css" />
     <Content Include="admin.html" />
+    <Content Include="fonts\helvetica.svg" />
+    <Content Include="fonts\helveticabold.svg" />
+    <Content Include="fonts\helvetica_light_0-webfont.svg" />
+    <Content Include="Gym.aspx" />
+    <Content Include="images\application.css" />
+    <Content Include="images\application.js" />
+    <Content Include="images\basket.png" />
+    <Content Include="images\bootstrap.css" />
+    <Content Include="images\bootstrap.min.js" />
+    <Content Include="images\home-mobile-screen.png" />
+    <Content Include="images\home-page-logo.png" />
+    <Content Include="images\iPhone.png" />
+    <Content Include="images\jquery-2.1.0.min.js" />
+    <Content Include="images\search.png" />
+    <Content Include="images\user.png" />
+    <Content Include="Index.aspx" />
     <Content Include="user.html" />
     <Content Include="index.html" />
     <Content Include="gym.html" />
@@ -420,6 +436,19 @@
     <Content Include="assets\fonts\helveticabold.eot" />
     <Content Include="assets\fonts\helveticabold.ttf" />
     <Content Include="assets\fonts\helveticabold.woff" />
+    <Content Include="fonts\comfortaa-bold.ttf" />
+    <Content Include="fonts\comfortaa-bold.woff" />
+    <Content Include="fonts\comfortaa-bold.woff2" />
+    <Content Include="fonts\helvetica.eot" />
+    <Content Include="fonts\helvetica.ttf" />
+    <Content Include="fonts\helvetica.woff" />
+    <Content Include="fonts\helvetica.woff2" />
+    <Content Include="fonts\helveticabold.eot" />
+    <Content Include="fonts\helveticabold.ttf" />
+    <Content Include="fonts\helveticabold.woff" />
+    <Content Include="fonts\helvetica_light_0-webfont.eot" />
+    <Content Include="fonts\helvetica_light_0-webfont.ttf" />
+    <Content Include="fonts\helvetica_light_0-webfont.woff" />
     <None Include="Properties\PublishProfiles\go-stacktive-pedal - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\go-stacktive-pedal.pubxml">
       <SubType>Designer</SubType>
@@ -442,6 +471,20 @@
     </Compile>
     <Compile Include="assets\aspnet\api.url.aspx.designer.cs">
       <DependentUpon>api.url.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Gym.aspx.cs">
+      <DependentUpon>Gym.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Gym.aspx.designer.cs">
+      <DependentUpon>Gym.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

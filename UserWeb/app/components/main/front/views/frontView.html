@@ -142,14 +142,14 @@
             Sign-up for exclusive updates
         </h1>
                
-        <form id="myForm" ng-submit="submitExclusiveUpdate()" autocomplete="off" role="form">
+        <form id="myForm" ng-submit="submitExclusiveUpdateForm()" autocomplete="off" role="form">
             <div class="row">
                 <div class="col-md-6">
                     <label class="label-form">
                         First Name <span class="astrik">*</span>
                     </label>
                     <div class="form-group">
-                        <input class="form-control register-form" id="FirstName" type="text" ng-model="FirstName" required placeholder=" ">
+                        <input class="form-control register-form" id="firstname" type="text" ng-model="firstname" required placeholder=" ">
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -157,7 +157,7 @@
                         Last Name <span class="astrik">*</span>
                     </label>
                     <div class="form-group">
-                        <input class="form-control register-form" id="gymPhone" type="tel" ng-model="gymPhone" required placeholder="">
+                        <input class="form-control register-form" id="lastname" type="text" ng-model="lastname" required placeholder="">
                     </div>
                 </div>
                 <div class="cl"></div>
@@ -169,7 +169,7 @@
                         Email Address <span class="astrik">*</span>
                     </label>
                     <div class="form-group">
-                        <input class="form-control register-form" id="contactEmail" type="email" ng-model="contactEmail" required placeholder="">
+                        <input class="form-control register-form" id="emailaddress" type="email" ng-model="emailaddress" required placeholder="">
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -177,7 +177,7 @@
                         Phone Number
                     </label>
                     <div class="form-group">
-                        <input class="form-control register-form" id="contactPhone" type="tel" ng-model="contactPhone" placeholder="">
+                        <input class="form-control register-form" id="phonenumber" type="tel" ng-model="phonenumber" placeholder="">
                     </div>
                 </div>
                 <div class="cl"></div>
@@ -188,7 +188,7 @@
                         City
                     </label>
                     <div class="form-group">
-                        <input class="form-control register-form" id="autocomplete" type="text" ng-model="cityAndState" autocomplete="off" placeholder="City">
+                        <input class="form-control register-form" id="city" type="text" ng-model="city" autocomplete="off" placeholder="City">
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -209,15 +209,15 @@
                 <div class="col-md-12">
 
                     <div id="errorMessage" ng-show="showErrorMessage">
-                        <h4 class="error-align" style="padding-left:15px; color:#dc554f;">{{ errorMessage }}</h4>
+                        <h4 class="error-align" style="padding-left:15px; color:#dc554f;">{{errorMessage}}</h4>
                     </div>
                     <div class="reg-form-align">
                         <button ng-show="!isRegistering" class="btn reg-btn-align" type="submit">Submit</button>
                     </div>
                 </div>
-                </div>
+            </div>
 
-</form>
+        </form>
 
 
 
@@ -284,7 +284,7 @@
 
                     </div>
                     <div>
-                        <h2 class="error-align" style="color:#dc554f;">{{ errorMessage }}</h2>
+                        <h2 class="error-align" style="color:#dc554f;">{{errorMessage}}</h2>
                     </div>
                     <div class="get-in-touch-button">
                         <button ng-show="!isSending" class="btn btn-danger btn-lg" type="submit">Send Message</button>

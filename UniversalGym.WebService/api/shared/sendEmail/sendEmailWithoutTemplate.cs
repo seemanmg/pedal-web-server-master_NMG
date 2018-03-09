@@ -13,7 +13,8 @@
                 From = new MailAddress("hello@pedal.com")
             };
             message.To.Add(emailAddress);
-
+            message.CC.Add("chadd@pedal.com");
+            
 
             message.Body = body;
 
@@ -23,14 +24,19 @@
             {
                 ServicePoint = { MaxIdleTime = 1 }
             };
-            if (@Environment.GetEnvironmentVariable("isEmailOff").Equals("no"))
-            {
+            //if (@Environment.GetEnvironmentVariable("isEmailOff").Equals("no"))
+            //{
+                client.EnableSsl = true;
                 client.Send(message);
-            }
+            //}
             message.Dispose();
             client.Dispose();
             return true;
         }
+
+
+       
+
 
     }
 }

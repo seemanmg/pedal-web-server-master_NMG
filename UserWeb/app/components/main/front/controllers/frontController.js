@@ -1,6 +1,5 @@
 ﻿angular.module('mainApp').controller("frontController", ['$scope', 'frontService', function ($scope, frontService) {
-
-
+   
     $scope.sendEmailSuccessful = false;
     $scope.isSending = false;
 
@@ -26,6 +25,44 @@
         });
 
     }
+
+
+    var getExclusiveData = function () {
+        return {
+            firstname: $scope.firstname,
+            lastname: $scope.lastname,
+            emailaddress: $scope.emailaddress,
+            phonenumber: $scope.phonenumber,
+            state: $scope.state.shortName,
+            city: $scope.city,
+
+        }
+    };
+
+   // $scope.isRegistering = false;
+
+    $scope.submitExclusiveUpdateForm() = function () {
+        
+       // $scope.isRegistering = true;
+
+        var fullData = getExclusiveData();
+
+        frontService.exclusiveUpdatesForm(fullData).then(function (resp) {
+            if (resp.data.success) {
+               // $scope.isRegistering = false;
+                
+
+            }
+            else {
+              //  $scope.isRegistering = false;
+                $scope.errorMessage = resp.data.message;
+                $scope.showErrorMessage = true;
+            }
+
+        });
+
+    }
+    
 
 
     $scope.states = [
@@ -96,46 +133,7 @@
     ];
 
 
-    //$scope.submitExclusiveUpdate() = function () {
-    //    $scope.isRegistering = true;
-    //    var fullData = getExclusiveData();
-
-    //    frontService.register(fullData).then(function (resp) {
-    //        if (resp.data.success) {
-    //            $scope.isRegistering = false;
-    //            $cookies.authToken = resp.data.token;
-    //            $cookies.id = resp.data.gymId;
-    //            navBarService.gym = resp.data;
-    //            var url = '/gym.html#/dashboard/account';
-    //            window.location.href = url;
-
-    //        }
-    //        else {
-    //            $scope.isRegistering = false;
-    //            $scope.errorMessage = resp.data.message;
-    //            $scope.showErrorMessage = true;
-    //        }
-
-    //    });
-    //}
-
-    //var getExclusiveData = function () {
-    //    return {
-    //        gymName: $scope,
-    //        gymPhone: $scope.gymPhone,
-    //        contactName: $scope.contactName,
-    //        contactEmail: $scope.contactEmail,
-    //        password: $scope.password,
-    //        contactPhone: $scope.contactPhone,
-    //        website: $scope.website,
-    //        address: $scope.address,
-    //        state: state.shortName || $scope.state.shortName,
-    //        city: city,
-    //        zip: $scope.postal_code,
-    //        country: country,
-    //        priceTier: $scope.priceTier,
-    //    }
-    //};
+    
 
 
 }]);

@@ -217,6 +217,8 @@
     <Compile Include="api\shared\credit\creditAdd.cs" />
     <Compile Include="api\shared\contactForm\implementation\contactForm.cs" />
     <Compile Include="api\shared\contactForm\requests\contactFormRequest.cs" />
+    <Compile Include="api\shared\exclusiveUpdatesForm\implementation\exclusiveUpdatesForm.cs" />
+    <Compile Include="api\shared\exclusiveUpdatesForm\requests\exclusiveUpdatesFormRequest.cs" />
     <Compile Include="api\shared\responses\gymData\createGymDataResponse.cs" />
     <Compile Include="api\users\airbnbRegister\requests\airbnbRegisterRequest.cs" />
     <Compile Include="api\users\resetUserPasswordEmail\implementation\resetUserPasswordEmail.cs" />

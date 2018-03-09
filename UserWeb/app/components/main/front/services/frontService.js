@@ -8,4 +8,14 @@
             data: data
         });
     };
+
+
+    this.exclusiveUpdatesForm = function (data) {
+        return $http({
+            method: 'POST',
+            url: baseUrl + 'exclusiveUpdatesForm',
+            data: data
+        });
+    };
+
 });
